@@ -1,0 +1,307 @@
+/* Aura Farm in 3D (29 Oct, Chris: "you can remove preview and put it into the main localhost btw, i like the idea and
+   the whole 3d aspect is nice"): the game's own interface laid around the 3D world (js/island.js) on a desktop. The
+   rules here touch only body.w3d, which ui.js sets on a wide screen with a mouse while Settings has the 3D world on,
+   and the 3D world's own w3- elements; phones and the switch keep the flat layout, game.css alone. Panels sit where the hub mockup had them for 1920x1080;
+   --uiz scales the whole interface to the window (ui.js). */
+#world { display: none; }
+.w3d { overflow: hidden; }
+.w3d #world { position: fixed; inset: 0; z-index: 0; display: block; width: 100%; height: 100%; }
+.w3d #app { position: fixed; inset: 0; z-index: 2; max-width: none; margin: 0; padding: 0 32px; pointer-events: none; zoom: var(--uiz, 1); }
+body.w3d > .dock { zoom: var(--uiz, 1); }
+/* the header and tabs, over a band that fades into the world */
+.w3d #app::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 150px; pointer-events: none;
+  background: linear-gradient(180deg, rgba(8,9,10,.94), rgba(8,9,10,.7) 62%, rgba(8,9,10,0)); }
+.w3d .top, .w3d .tabs { pointer-events: auto; }
+.w3d .tabs { margin-bottom: 0; }
+.w3d #main { position: absolute; inset: 0; }
+/* a page fills the screen (so moving it in never changes what its panels are placed against) and lets the world
+   through; only its panels take the pointer */
+.w3d .page { position: absolute; inset: 0; pointer-events: none; }
+.w3d .w3-panel { position: absolute; pointer-events: auto; }
+.w3d .w3-scroll { overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--fill3) transparent; }
+.w3d .w3-box { border-radius: 18px; padding: 18px; background: linear-gradient(180deg, var(--fill), var(--bg2)); box-shadow: inset 0 0 0 1px var(--line); }
+.w3d .w3-glass { border-radius: 18px; background: rgba(12,13,16,.82); box-shadow: inset 0 0 0 1px var(--line); }
+/* a panel that scrolls keeps its top row as a header; the top row of cards glows up over it and a card in motion sits
+   above it (a scrolling box cuts off everything past its edges, so the room has to be inside it) */
+.w3d .w3-head { position: sticky; top: -17px; z-index: 2; margin: -17px -17px 0; padding: 17px 17px 4px; border-radius: 17px 17px 0 0; background: var(--fill); }
+.w3d .w3-scroll .ucard[style*="transform"] { z-index: 3; }
+
+/* ---- Area: no panel, a heads-up block straight over the world on a soft shade from the corner; the plots are in the world ---- */
+.w3-ahud { left: -32px; top: 140px; padding: 26px 60px 40px 68px; display: flex; flex-direction: column; gap: 10px; pointer-events: none !important;
+  background: radial-gradient(120% 100% at 0% 30%, rgba(8,9,10,.78), rgba(8,9,10,.45) 45%, rgba(8,9,10,0) 72%); }
+.w3-ahud .btn, .w3-ahud .switch { pointer-events: auto; }
+.w3-ahud .td-kicker { font-size: 12px; }
+.ah-inc { display: flex; align-items: center; gap: 12px; margin-top: -2px; }
+.ah-inc .coin { width: 40px; height: 40px; font-size: 22px; }
+.ah-inc b { font: 900 italic 52px/1 var(--display); color: #ffe27a; text-shadow: 0 3px 0 rgba(0,0,0,.45), 0 0 30px rgba(255,200,60,.35); font-variant-numeric: tabular-nums; }
+.ah-inc span:last-child { align-self: flex-end; margin-bottom: 6px; font: 800 13px var(--display); color: var(--text2); }
+.ah-sub { display: flex; align-items: center; gap: 12px; font: 700 13px var(--body); color: var(--text2); text-shadow: 0 1px 3px #000; }
+.ah-sub b { color: #fff; font-family: var(--display); }
+.ah-sub i { width: 4px; height: 4px; border-radius: 50%; background: var(--muted); }
+.ah-acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.ah-autos { display: flex; flex-wrap: wrap; gap: 8px 18px; max-width: 420px; font-size: 13px; text-shadow: 0 1px 3px #000; }
+.ah-autos:empty { display: none; }
+/* +income rising off a plot every second, as over the flat Area's slots */
+.w3-tick { position: fixed; z-index: 3; translate: -50% 0; pointer-events: none; font: 900 italic 16px/1 var(--display); color: #ffe27a; text-shadow: 0 2px 0 rgba(0,0,0,.55), 0 0 12px rgba(255,200,60,.4); white-space: nowrap; }
+
+/* ---- Summon: gates on the left, odds on the right, the buttons under the gate; the gate itself is in the world ---- */
+.w3d .summon { display: contents; }
+.w3d #portal { display: none; }
+.w3d #gates { position: absolute; left: 32px; top: 160px; width: 280px; pointer-events: auto; }
+.w3d #sumOdds { position: absolute; right: 32px; top: 160px; width: 330px; max-height: calc(100% - 190px); pointer-events: auto; overflow-y: auto; scrollbar-width: thin; }
+.w3d .portal-wrap { position: absolute; left: 50%; bottom: 34px; translate: -50% 0; display: flex; flex-direction: column; align-items: center; gap: 14px; pointer-events: auto; }
+.w3d .portal-name { margin: 0; text-shadow: 0 2px 12px rgba(0,0,0,.8); }
+.w3d .sum-opts { padding: 8px 16px; border-radius: 14px; background: rgba(12,13,16,.82); box-shadow: inset 0 0 0 1px var(--line); }
+
+/* ---- Units: the collection in a panel on the right; the picked unit stands in the hall ---- */
+.w3d #p-units { inset: 160px 32px 30px auto; width: 1040px; pointer-events: auto; }
+.w3d #p-units .toolbar { margin-bottom: 0; }
+.w3d #uGrid { padding: 18px 12px 10px; }
+.w3d #uPager { margin: 8px 0 4px; }
+
+/* ---- Trait Lab: its card on the left, odds on the right, buttons below; the plate is on the 3D screen ---- */
+.w3d .lab, .w3d .lab-main { display: contents; }
+.w3d .lab-unit { position: absolute; left: 40px; top: 170px; width: 300px; pointer-events: auto; }
+.w3d .lab.dual .lab-unit { width: 360px; }
+.w3d #trOdds { position: absolute; right: 32px; top: 160px; width: 380px; max-height: calc(100% - 190px); pointer-events: auto; overflow-y: auto; scrollbar-width: thin; }
+.w3d .lab-act { position: absolute; left: 50%; bottom: 34px; translate: -50% 0; padding: 16px 22px; border-radius: 18px; pointer-events: auto;
+  background: rgba(12,13,16,.82); box-shadow: inset 0 0 0 1px var(--line); }
+.w3-screen { position: fixed; left: 0; top: 0; z-index: 1; width: 978px; height: 560px; transform-origin: 0 0; visibility: hidden; overflow: hidden; pointer-events: none;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px;
+  background: radial-gradient(circle at 50% 42%, #1a2446, #0b0f1e 75%); }
+.w3-screen::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(rgba(120,160,255,.06) 1px, transparent 1px) 0 0 / 100% 32px, linear-gradient(90deg, rgba(120,160,255,.06) 1px, transparent 1px) 0 0 / 32px 100%; }
+.w3-screen::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(rgba(0,0,0,.14) 0 2px, transparent 2px 4px); }
+.w3-screen .scr-top { position: absolute; top: 18px; left: 26px; right: 26px; display: flex; justify-content: space-between; font: 800 15px var(--body); letter-spacing: .16em; color: #7f8ab8; }
+/* (29 Oct, "the rolling box should fit height of the sign, and the recent rolls go on the side"): the plate, the game's
+   own at 380px, zoomed to the screen's height (its text and icons grow with it), the latest rolls in a column beside it,
+   newest at the top */
+/* (30 Oct, "one column only, far right ... not 2 columns"): the plate(s) centred between equal margins, the latest rolls
+   one column down the right edge (newest at the top, the oldest drop off the bottom) */
+.w3-screen { flex-direction: row; gap: 30px; padding: 54px 86px 38px; }
+.w3-screen .plates { width: auto; gap: 22px; align-items: center; }
+.w3-screen .plate { flex: none; }
+.w3-screen .sigil { width: 380px; zoom: 1.53; flex: none; }
+.w3-screen .plates.dual .sigil { zoom: 1.02; }
+.w3-screen .plate-h { font-size: 17px; }
+.w3-screen .hist { position: absolute; right: 22px; top: 54px; bottom: 30px; flex-direction: column-reverse; justify-content: flex-end; align-items: center;
+  flex-wrap: nowrap; overflow: hidden; max-width: none; min-height: 0; gap: 8px; padding: 6px 6px 0; }
+.w3-screen .hist.dual { right: auto; left: 22px; }
+.w3-screen .hist2[hidden] { display: none; }
+.w3-screen .hchip { min-width: 40px; height: 34px; border-radius: 10px; font-size: 14px; }
+body:not(.w3d) .w3-screen { display: none; }
+
+/* ---- Ascend and Journal: the game's pages in a tall panel on the right ---- */
+.w3d #p-ascend { inset: 160px 32px 30px auto; width: 1080px; padding-right: 8px; pointer-events: auto; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--fill3) transparent; }
+.w3d #p-ascend .asc-hero { background-color: rgba(12,13,16,.94); }
+.w3d #p-ascend .apath { padding: 18px 20px; border-radius: 20px; background: linear-gradient(180deg, var(--fill), var(--bg2)); box-shadow: inset 0 0 0 1px var(--line); }
+.w3d #p-ascend .shop-head { margin-top: 6px; padding: 0 6px; }
+.w3d #p-journal { inset: 160px 32px 30px auto; width: 860px; pointer-events: auto; }
+/* (30 Oct) the Merchant: the Relics panel right of the stall */
+/* (31 Oct) the market frame fills the panel; its own body scrolls */
+.w3d #p-relics { inset: 176px 32px 30px auto; width: 720px; pointer-events: auto; overflow: visible; }
+.w3d #p-relics .relics { margin: 0; }
+.w3d .rl-out { left: auto; right: 40px; top: 150px; bottom: auto; translate: none; align-items: stretch; zoom: var(--uiz, 1); }
+.w3d .rl-out-row, .w3d .rl-out.one .rl-out-row { grid-template-columns: 300px; gap: 8px; }
+/* (30 Oct) the dive to and from the Underworld: the interface fades out for the trip, a black veil hides the swap */
+#uwVeil { position: fixed; inset: 0; z-index: 90; background: #050102; opacity: 0; pointer-events: none; }
+body.uw-dive #app, body.uw-dive > .dock, body.uw-dive > .w3-ypsl, body.uw-dive > .w3-screen, body.uw-dive > .w3-tip { opacity: 0 !important; transition: opacity .3s; pointer-events: none; }
+/* (30 Oct) the Underworld: the panel on the left, the Keeper's words across the bottom, the shrine on the right */
+.w3d #p-evolve .uw-panel { position: absolute; left: 36px; top: 140px; width: 540px; max-height: calc(100% - 310px); overflow-x: hidden; overflow-y: auto; scrollbar-width: thin; pointer-events: auto; }
+.w3d #p-evolve .uw-grid { grid-template-columns: repeat(4, 106px); justify-content: center; gap: 8px 14px; }
+.w3d #p-evolve .uw-panel { padding-bottom: 14px; }
+.w3d #p-evolve .uw-panel h1 { margin-bottom: 4px; }
+.w3d #p-evolve .uw-talk { position: absolute; left: 50%; bottom: 30px; translate: -50% 0; width: min(980px, calc(100% - 80px)); margin: 0; pointer-events: auto; }
+.w3d #p-journal .journal-top { margin-bottom: 0; }
+.w3d #p-journal .journal-top h1 { font-size: 30px; }
+.w3d #jBody { padding: 16px 12px 10px; }
+
+/* ---- Defense: the world card on the left, the team on the six platforms, Best team and Clear under them ---- */
+.w3d .td-lobby, .w3d .td-grid { display: contents; }
+.w3d .td-top, .w3d .td-team-h h3, .w3d .td-slots { display: none; }
+/* (29 Oct, "this whole box should spread the height of this and spread the info out a little"): the world card runs the
+   panel's full height, its picture taller, its type larger and its parts further apart, Start at the bottom */
+.w3d .td-map { position: absolute; left: 32px; top: 160px; bottom: 30px; width: 400px; display: flex; flex-direction: column; overflow-y: auto; scrollbar-width: thin; pointer-events: auto; }
+/* (29 Oct, "theres now a scroll bar here"): the picture gives way (280px when there's room, down to 140px) so a world
+   with more to say still fits without scrolling; the details take any height left over */
+.w3d .td-map .td-artbtn { flex: 0 1 280px; min-height: 140px; }
+.w3d .td-map .td-art { height: 100%; }
+/* (29 Oct, "it should be grouped together top and bottom"): the world's details at the top, what a first clear opens
+   and Start together at the bottom, the spare height between the two (a world not open yet: its lock note at the bottom) */
+.w3d .td-map-b .td-opens, .w3d .td-map-b .td-lockmsg, .w3d .td-map-b #twGo { margin-top: auto; }
+.w3d .td-map-b { flex: 1 0 auto; gap: 16px; padding: 24px 24px 24px; }
+.w3d .td-map-b h2 { font-size: 34px; }
+.w3d .td-map-b > p { font-size: 15px; line-height: 1.5; }
+.w3d .td-map-b .td-kicker { font-size: 12px; }
+.w3d .td-facts { gap: 8px 18px; font-size: 14px; }
+.w3d .td-diff button { padding: 10px 12px; font-size: 13px; }
+.w3d .td-endless { padding: 10px 14px; font-size: 13px; }
+.w3d .td-rew { font-size: 14px; }
+.w3d .td-opens { gap: 8px; padding: 14px 16px; }
+.w3d .td-opens ul { gap: 6px; font-size: 14px; }
+.w3d .td-map-b .btn.big { min-height: 64px; }
+.w3d .td-team { position: absolute; left: 60%; bottom: 30px; translate: -50% 0; display: flex; padding: 10px 12px; border-radius: 16px; pointer-events: auto;
+  background: rgba(12,13,16,.86); box-shadow: inset 0 0 0 1px var(--line); }
+.w3d .td-team-h { margin: 0; }
+
+/* ---- hovering a unit or a plot in the world: small, its three Defense stats on icons ---- */
+.w3-tip { position: fixed; z-index: 30; min-width: 168px; padding: 10px 12px 11px; border-radius: 14px; display: flex; flex-direction: column; gap: 6px; pointer-events: none;
+  background: linear-gradient(180deg, rgba(22,23,28,.96), rgba(12,13,16,.96)); box-shadow: inset 0 0 0 1px var(--line2), inset 0 2px 0 -1px var(--rc, #fff), 0 16px 40px -16px #000; }
+.w3-tip[hidden] { display: none; }
+.ht-h { display: flex; flex-direction: column; gap: 2px; margin-bottom: 2px; }
+.ht-h b { font: italic 16px/1.05 var(--display); color: #fff; white-space: nowrap; }
+.ht-h small { font: 700 11px/1.2 var(--body); color: var(--muted); white-space: nowrap; }
+.ht-inc { display: flex; align-items: center; gap: 8px; padding: 2px 0 4px; border-bottom: 1px solid var(--line); margin-bottom: 2px; }
+.ht-inc .coin { width: 24px; height: 24px; font-size: 13px; }
+.ht-inc b { font: 900 italic 20px/1 var(--display); color: #ffe27a; font-variant-numeric: tabular-nums; }
+.ht-inc small { font: 800 12px var(--display); color: #fff; }
+.ht-lock { font: 700 12.5px/1.35 var(--body); color: var(--text2); }
+/* (30 Oct) the rest of a unit's card: trait and shiny, its attack, what it does, damage a second, conditions, signature */
+.w3-tip { max-width: 300px; }
+.ht-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
+.ht-tr { display: inline-flex; align-items: center; gap: 4px; padding: 2px 7px 2px 4px; border-radius: 99px; background: rgba(255,255,255,.07); font: 800 11px/1.3 var(--display); color: var(--tc, #fff); }
+.ht-tr i { display: grid; place-items: center; width: 14px; height: 14px; }
+.ht-tr i svg { width: 14px; height: 14px; }
+.ht-sh { padding: 2px 7px; border-radius: 99px; font: 800 11px/1.3 var(--display); color: #10131a; background: linear-gradient(90deg, var(--rainbow)); }
+.ht-atk { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 4px; padding-top: 7px; border-top: 1px solid var(--line); }
+.ht-atk b { font: italic 14px/1.1 var(--display); color: #fff; }
+.ht-atk span { display: flex; gap: 4px; flex: none; }
+.ht-info { margin: 0; font-size: 11.5px; line-height: 1.35; color: var(--text2); }
+.ht-dps { font-size: 12px; color: var(--text2); }
+.ht-dps b { font-family: var(--display); color: #fff; }
+.ht-c { margin: 0; padding-left: 16px; display: flex; flex-direction: column; gap: 2px; font-size: 11.5px; color: var(--text2); }
+.w3-tip .td-hc-sig span { white-space: normal; }
+.ht-cost b { color: #7dffa8; }
+.ht-cost b small { color: #7dffa8; opacity: .75; }
+.ht-lock b { color: #ffe27a; font-family: var(--display); }
+
+/* ---- the wheel over the world: the page picker, a red pill under the tab bar (ui.js navStep places it, rolls the
+   pages sideways, and fills it from the left for the second before it goes) ---- */
+.w3-nav { position: fixed; left: 50%; top: 130px; z-index: 25; width: 300px; height: 40px; translate: -50% 0; transform-origin: 50% 0; border-radius: 999px; overflow: hidden; pointer-events: none; opacity: 0;
+  background: linear-gradient(180deg, var(--red2), var(--red)); box-shadow: 0 8px 22px -8px rgba(244,49,32,.75), inset 0 1px 0 rgba(255,255,255,.35); will-change: opacity, scale; }
+.w3-nav-fill { position: absolute; left: 0; top: 0; bottom: 0; width: calc(var(--c, 0) * 100%); background: linear-gradient(90deg, rgba(255,255,255,.12), rgba(255,236,170,.38)); }
+.w3-nav-list { position: absolute; inset: 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 26%, #000 74%, transparent); mask-image: linear-gradient(90deg, transparent, #000 26%, #000 74%, transparent); }
+.w3-nav-it { position: absolute; left: 50%; top: 0; bottom: 0; width: 128px; margin-left: -64px; display: flex; align-items: center; justify-content: center; gap: 7px;
+  color: rgba(22,3,0,.5); will-change: transform, opacity; }
+.w3-nav-it i { display: grid; place-items: center; width: 16px; height: 16px; }
+.w3-nav-it i svg { width: 16px; height: 16px; }
+.w3-nav-it b { font: 800 14px/1 var(--display); white-space: nowrap; }
+.w3-nav-it.on { color: #160300; }
+/* while picking, the dark label (made for sitting on the red highlight) goes with the highlight */
+.w3d .tabs.picking .tab.on:not(.peek) { color: var(--text2); }
+.w3d .tabs.picking .tab.peek { color: #160300; }
+/* a number on the hover card that just changed while you looked (a roll, a level, a surge): it pops, green when it got
+   better, red when it got worse */
+.w3-tip .ht-row b, .w3-tip .ht-inc b { display: inline-block; transform-origin: left center; }
+.w3-tip .up b, .w3-tip .down b { animation: htchg .9s cubic-bezier(.2,.9,.3,1); }
+.w3-tip .up { --chg: #7dffa8; } .w3-tip .down { --chg: #ff8a8a; }
+@keyframes htchg { 0% { color: var(--chg); transform: scale(1.3); text-shadow: 0 0 14px var(--chg); } 55% { color: var(--chg); transform: scale(1); } 100% { transform: none; } }
+
+/* ---- 29 Oct: each Area unit's yen/s over its head (ui.js yps3D), in its card's income colours (game.css .ucard-inc) ---- */
+.w3-ypsl { display: none; }
+.w3d .w3-ypsl { display: block; position: fixed; inset: 0; z-index: 1; pointer-events: none; opacity: 0; transition: opacity .25s; }
+.w3d .w3-ypsl.on { opacity: 1; }
+.w3-yps { position: absolute; left: 0; top: 0; display: flex; flex-direction: column; align-items: center; transform-origin: 50% 100%; white-space: nowrap; will-change: transform; }
+/* the unit's full name over its yen/s */
+.w3-yps i { display: block; margin-bottom: 1px; font: 800 12px/1.1 var(--display); font-style: normal; color: #fff; letter-spacing: .01em;
+  text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 0 2px 2px rgba(0,0,0,.5); }
+.w3-yps b { --ol: #111; display: block; padding: 2px 4px; font: 900 italic 17px/1 var(--display); color: #fff; font-variant-numeric: tabular-nums; letter-spacing: .01em;
+  filter: drop-shadow(1.5px 0 0 var(--ol)) drop-shadow(-1.5px 0 0 var(--ol)) drop-shadow(0 1.5px 0 var(--ol)) drop-shadow(0 -1.5px 0 var(--ol)) drop-shadow(0 2px 0 var(--ol)); }
+.w3-yps small { font-size: 11px; margin-left: 1px; }
+/* (30 Oct) the level over the name, a step smaller */
+.w3-yps .w3-lv { display: flex; justify-content: center; align-items: center; gap: 6px; margin-bottom: 1px; font: 800 11px/1.1 var(--display); font-style: normal; color: #ffe9a8; letter-spacing: .02em;
+  text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 0 2px 2px rgba(0,0,0,.5); }
+.yr-legendary b { color: #ffe27a; --ol: #2a1500; }
+.yr-mythic b, .yr-divine b, .yr-eternal b { --ol: #0b0010; color: transparent; background: linear-gradient(90deg, var(--rainbow)) 0 0 / 200% 100%;
+  -webkit-background-clip: text; background-clip: text; animation: ypsflow 3s linear infinite; }
+.yr-eternal b { --ol: #000; }
+.yr-absolute b { --ol: #fff; color: #000; filter: drop-shadow(-1.5px 0 0 rgba(255,59,78,.9)) drop-shadow(1.5px 0 0 rgba(46,230,255,.9))
+  drop-shadow(1.3px 0 0 #fff) drop-shadow(-1.3px 0 0 #fff) drop-shadow(0 1.3px 0 #fff) drop-shadow(0 -1.3px 0 #fff); }
+@keyframes ypsflow { to { background-position: -200% 0; } }
+/* (31 Oct) simple nameplates: the yen/s alone, in its rarity's colours */
+.w3-ypsl.min .w3-lv { display: none; }
+.yr-secret b { color: #fff; filter: drop-shadow(-1.5px 0 0 rgba(255,40,80,.9)) drop-shadow(1.5px 0 0 rgba(40,240,255,.9))
+  drop-shadow(1.3px 0 0 #000) drop-shadow(-1.3px 0 0 #000) drop-shadow(0 1.3px 0 #000) drop-shadow(0 -1.3px 0 #000);
+  animation: ypsglitch 2.6s steps(1) infinite; }
+/* (30 Oct, "the secret yen/s text should glitch slightly"): still most of the time, then a few short jolts */
+.yr-secret:nth-child(3n+1) b { animation-delay: -.9s; }
+.yr-secret:nth-child(3n+2) b { animation-delay: -1.7s; }
+@keyframes ypsglitch {
+  0%, 100% { transform: none; filter: drop-shadow(-1.5px 0 0 rgba(255,40,80,.9)) drop-shadow(1.5px 0 0 rgba(40,240,255,.9)) drop-shadow(1.3px 0 0 #000) drop-shadow(-1.3px 0 0 #000) drop-shadow(0 1.3px 0 #000) drop-shadow(0 -1.3px 0 #000); }
+  81% { transform: translateX(2px) skewX(-8deg);
+    filter: drop-shadow(-3px 0 0 rgba(255,40,80,.95)) drop-shadow(3px 0 0 rgba(40,240,255,.95)) drop-shadow(1.3px 0 0 #000) drop-shadow(-1.3px 0 0 #000) drop-shadow(0 1.3px 0 #000) drop-shadow(0 -1.3px 0 #000); }
+  83% { transform: translateX(-2px); }
+  85% { transform: translate(1px, -1px) skewX(6deg);
+    filter: drop-shadow(2.5px 0 0 rgba(255,40,80,.95)) drop-shadow(-2.5px 0 0 rgba(40,240,255,.95)) drop-shadow(1.3px 0 0 #000) drop-shadow(-1.3px 0 0 #000) drop-shadow(0 1.3px 0 #000) drop-shadow(0 -1.3px 0 #000); }
+  87% { transform: none; filter: drop-shadow(-1.5px 0 0 rgba(255,40,80,.9)) drop-shadow(1.5px 0 0 rgba(40,240,255,.9)) drop-shadow(1.3px 0 0 #000) drop-shadow(-1.3px 0 0 #000) drop-shadow(0 1.3px 0 #000) drop-shadow(0 -1.3px 0 #000); }
+  94% { transform: translateX(-1px); }
+  95% { transform: none; }
+}
+.yr-transcendent b { color: #c9fff0; --ol: #00222a; }
+.yr-primordial b { color: #ffb070; --ol: #1a0400; }
+@media (prefers-reduced-motion: reduce) { .w3-yps b { animation: none; } }
+/* (30 Oct) the Defense team's labels (ui.js tdl3D): name, then the three stats with their icons; never during a match */
+.w3m .w3-ypsl { display: none; }
+.w3-tds { display: flex; gap: 8px; margin-top: 2px; }
+/* (30 Oct, Chris: "why does the text have SO much shadow and backdrop"): the numbers had picked up the Area yen/s label's
+   thick rarity-coloured outline (.w3-yps b) on top of their own; now just the name's thin black edge */
+.w3-tds em { display: inline-flex; align-items: center; gap: 3px; font: 800 italic 14px/1 var(--display); color: #fff; font-variant-numeric: tabular-nums;
+  text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 0 2px 2px rgba(0,0,0,.5); }
+.w3-tds em svg { width: 15px; height: 15px; color: var(--sc); stroke-width: 2.6; filter: drop-shadow(0 1px 0 rgba(0,0,0,.8)); }
+.w3-tds em b { display: inline; padding: 0; font: inherit; color: #fff; background: none; -webkit-background-clip: border-box; background-clip: border-box; filter: none; animation: none; }
+
+/* ---- Defense match in 3D (29 Oct, "the same 3d view like every other tab"): the board fills the screen in its own layer
+   (.td-gl3, outside #app), the island is hidden and not drawn, and the match HUD floats over it, bigger ---- */
+.w3m #world { display: none; }
+.td-gl3 { position: fixed; inset: 0; z-index: 1; user-select: none; }
+body:not(.w3m) .td-gl3 { display: none; }
+.td-gl3::after { content: ""; position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 260px 40px rgba(6,8,10,.42); }
+.w3m .td-match { position: absolute; inset: 0; }
+.w3m .td-stage { position: absolute; inset: 0; height: auto; min-height: 0; border-radius: 0; overflow: visible; background: none !important; box-shadow: none; pointer-events: none; }
+.w3m .td-stage::after { display: none; }
+.w3m .td-hud { left: 32px; right: 32px; top: 132px; gap: 14px; }
+.w3m .td-hud-l, .w3m .td-hud-r { gap: 10px; }
+.w3m .td-chip { height: 50px; padding: 0 18px; border-radius: 14px; gap: 9px; }
+.w3m .td-chip span { font-size: 12px; }
+.w3m .td-chip b { font-size: 23px; }
+.w3m .td-chip.lives svg { width: 22px; height: 22px; }
+.w3m .td-chip.cash span { font-size: 20px; }
+.w3m .td-mapname { font: 800 15px/1.2 var(--display); color: #fff; text-shadow: 0 1px 4px #000; margin-left: 6px; }
+.w3m .td-hud-r .switch { height: 50px; padding: 0 16px; border-radius: 14px; font-size: 14px; }
+.w3m .td-hud-r .btn.sm { min-height: 50px; padding: 0 20px; border-radius: 14px; font-size: 15px; }
+.w3m .td-bar { bottom: 26px; gap: 10px; padding: 10px; border-radius: 22px; pointer-events: auto; }
+.w3m .td-slot { width: 104px; height: 122px; border-radius: 16px; }
+.w3m .td-slot .td-port { width: 92px; height: 104px; margin-top: -8px; }
+.w3m .td-slot .td-cost { bottom: 8px; font-size: 16px; }
+.w3m .td-slot .td-n { top: 8px; right: 9px; font-size: 12px; }
+.w3m .td-key { top: 7px; left: 8px; width: 21px; height: 21px; font-size: 12px; border-radius: 6px; }
+.w3m .td-call { bottom: 176px; padding: 10px 18px; font-size: 14px; }
+.w3m .td-sel { right: 32px; top: 206px; width: 330px; padding: 18px; gap: 14px; border-radius: 20px; pointer-events: auto; }
+.w3m .td-flash { top: 24%; }
+
+/* the cloud crossing into and out of a match (clouds.js): over everything, and it takes the pointer while it runs */
+.cloudx { position: fixed; inset: 0; z-index: 9000; width: 100%; height: 100%; pointer-events: auto; }
+
+/* (30 Oct) a unit's trait over its name (ui.js traitTag): icon and name in the trait tier's colour */
+.w3-trt { display: inline-flex; align-items: center; gap: 3px; color: var(--tc, #fff); }
+.w3-trt i { display: grid; place-items: center; width: 12px; height: 12px; }
+.w3-trt i svg { width: 12px; height: 12px; filter: drop-shadow(1px 0 0 #000) drop-shadow(-1px 0 0 #000) drop-shadow(0 1px 0 #000) drop-shadow(0 -1px 0 #000); }
+.w3-trt.tt6 { color: #fff; text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000, 0 0 6px #ff6ad5, 0 0 10px #6ad5ff; }
+/* (30 Oct, "the pill with the gradient"): the cards' trait chip in the labels and the hover card, at label size; the
+   label's name (i) and yen/s (b) styles kept off it */
+.w3-yps .chip, .ht-tags .chip { position: static; font-size: 11px; padding: 3px 8px; gap: 4px; max-width: none; --cu: 3px; text-shadow: none; filter: none; }
+.w3-yps .chip i { display: inline-grid; margin: 0 .1em 0 0; font: inherit; color: inherit; text-shadow: none; letter-spacing: 0; }
+.w3-yps .chip b, .w3-yps .chip span { display: inline; padding: 0; font: inherit; font-weight: 900; color: inherit; background: none; -webkit-background-clip: border-box; background-clip: border-box;
+  filter: none; animation: none; text-shadow: none; }
+.w3-yps .chip span { font-weight: 800; }
+/* (30 Oct, "the text here next to golden is white not black"): the hover card's name style (.ht-h b, white italic) was
+   catching the chip's multiplier; the chip keeps its own */
+.ht-tags .chip b { font: inherit; font-weight: 900; color: inherit; white-space: nowrap; }
+/* (30 Oct) the Area's compact nameplate: stars, level and trait on one line over the yen/s */
+.w3-np .w3-lv { gap: 5px; margin-bottom: 2px; }
+.w3-np .w3-stars { color: #ffd23a; font-size: 11px; letter-spacing: -.5px; }
+.w3-np .w3-stars:empty { display: none; }
+/* (30 Oct, "the level text should be more noticeable"): bigger and white */
+.w3-np .w3-lvn { font-size: 14px; color: #fff; letter-spacing: .01em; }
+.w3-np .w3-stars { font-size: 13px; }

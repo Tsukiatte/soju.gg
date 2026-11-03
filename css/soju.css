@@ -1,0 +1,75 @@
+/* Soju style on top of the base look: warm night colours, chunky sticker buttons, Fredoka and Nunito.
+   The rules below that hide things remove interface for systems that no longer exist (income, levels, stars, shards). */
+:root {
+  --bg: #1f1a33; --bg2: #252040; --fill: #2c2549; --fill2: #352d57; --fill3: #403667;
+  --line: rgba(255,244,220,.1); --line2: rgba(255,244,220,.2);
+  --text: #fff4dc; --text2: #f0e4cc; --muted: #b5a9b8; --dim: #8b8096;
+  --red: #d9534f; --red2: #ff7a70; --orange: #f4943c; --gold: #f4b740; --good: #70d47e; --bad: #ff7a70;
+  --display: "Fredoka", "Nunito", system-ui, sans-serif;
+  --body: "Nunito", "Segoe UI", system-ui, sans-serif;
+}
+body {
+  background:
+    radial-gradient(900px 480px at 10% -10%, rgba(255,79,139,.16), transparent 60%),
+    radial-gradient(800px 520px at 100% 0%, rgba(63,224,208,.09), transparent 60%),
+    var(--bg);
+  font-weight: 600;
+}
+h1, h2, h3 { font-weight: 600; }
+.btn { border-radius: 15px; font-family: var(--display); font-weight: 600; }
+.btn.gold, .btn.big.gold { background: var(--gold); color: #3a2a2a; box-shadow: 0 4px 0 #c28a1e, 0 7px 14px rgba(20,10,30,.3); }
+.btn.gold:active { transform: translateY(3px); box-shadow: 0 1px 0 #c28a1e; }
+.tabs, .top .wallet .bal { border-radius: 17px; }
+.tab.on, .tab-ind { color: #3a2a2a; }
+.tab-ind { background: var(--gold); }
+.ucard { border-radius: 16px; }
+
+/* systems removed in soju_rules.js */
+.dock, .wallet .rate, #shardChip, #stlChip, #surgeChip, .surge, .surgechip, .tab-mr,
+.ah-inc, .area-stats, #aNext, #bPlot, #autos, .autos, .ucard-lv, .ucard-stars, .w3-yps,
+.um-inc, #umStats, .um-lv, .um-up, .um-star, .ht-inc[data-k="inc"] { display: none !important; }
+.crew-note { margin: 4px 0 8px; color: var(--text2); line-height: 1.35; }
+.ucard-inc span { font-size: 11px; font-family: var(--body); font-weight: 800; }
+
+/* a storm is 100 rolls now, so its board gets bigger squares */
+.storm .st-board { grid-template-columns: repeat(20, 1fr); gap: 2px; }
+.storm .st-board i { border-radius: 3px; }
+.storm-wait { text-align: center; font-size: 17px; font-variant-numeric: tabular-nums; }
+
+.st-choice { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+.st-choice .btn { flex: 1 1 140px; min-height: 44px; }
+
+.sp-tag { display: inline-block; margin-left: 5px; padding: 3px 8px; border-radius: 99px; font: 600 11px/1.1 var(--display); color: var(--text); background: var(--fill3); border: 1px solid var(--line2); }
+
+/* The details header: one row of equal pills, flush with the name below it. */
+.um-head { flex-direction: row; flex-wrap: wrap; align-items: center; gap: 6px; }
+.um-head h2 { flex: 0 0 100%; margin-top: 4px; line-height: 1.1; }
+.um-head .rtag, .um-head .sp-tag, .um-head .um-ctx {
+  display: inline-flex; align-items: center; gap: 5px; height: 24px; margin: 0; padding: 0 10px; border: 0; box-sizing: border-box;
+  font: 600 11px/1 var(--display); letter-spacing: .08em; text-transform: uppercase; vertical-align: middle; white-space: nowrap;
+}
+.um-head .sp-tag { background: var(--fill3); color: var(--text); }
+
+/* the turning bottle, top left (js/soju_logo.js) */
+.brand .soju-logo { height: 54px; width: auto; margin: -10px 0; flex: none; filter: drop-shadow(0 2px 7px rgba(58,178,108,.45)); }
+
+/* The unit details, in the hover card's look: dark panels, big italic numbers beside coloured tiles. */
+.um-right { gap: 12px; }
+.um-trait, .um-def { background: linear-gradient(180deg, rgba(22,23,28,.96), rgba(12,13,16,.96)); box-shadow: inset 0 0 0 1px var(--line2); }
+.um-def, .um-def.big { margin-top: 0; padding: 14px 16px 16px; gap: 10px; box-shadow: inset 0 0 0 1px var(--line2), inset 0 2px 0 -1px var(--umc, #fff); }
+.um-def .td-hc-atk b, .um-def.big .td-hc-atk b { font: italic 20px/1.1 var(--display); color: #fff; }
+.um-def .td-hc-info { font-size: 13px; }
+.um-bigst { gap: 12px 14px; padding: 4px 0; }
+.um-bigst .ht-row { min-width: 0; }
+.um-bigst .ht-row b { font-size: 25px; font-weight: 600; }
+.um-bigst .ht-row b small { font: 700 10.5px/1 var(--body); }
+.um-bigst .ht-cost b { color: #7dffa8; }
+.um-bigst .ht-cost b small { color: #7dffa8; opacity: .8; }
+.um-dps { align-items: center; padding: 10px 12px; background: rgba(255,255,255,.04); box-shadow: inset 0 0 0 1px var(--line); }
+.um-dps span { font: 600 11px/1 var(--display); color: var(--text2); }
+.um-dps b { font: italic 600 22px/1 var(--display); color: #fff; }
+.um-act.main { margin-top: 4px; }
+@media (max-width: 640px) {
+  .um-act:not(.main) { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .um-act .btn { min-width: 0; padding-left: 8px; padding-right: 8px; white-space: normal; line-height: 1.15; }
+}
