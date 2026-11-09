@@ -1,0 +1,604 @@
+/* The picnic scrapbook look (owner, 4 Nov, picked of five drawn looks: https://claude.ai/artifact/KsmLkTFekUsG1GD1vJkkXM).
+   Gingham, notebook paper, tape, stitches, handwriting. paper_auto.css has already turned every dark panel to paper and white text to ink; this file is
+   the look itself, and it comes last. The Underworld and the summon reveal stay dark: they are places you go to, and they read as a change of scene. */
+:root {
+  --bg: #fbf6ea; --bg2: #fffdf5; --fill: #fffdf5; --fill2: #f8f0dd; --fill3: #efe3c8;
+  --line: rgba(58,42,30,.16); --line2: rgba(58,42,30,.3);
+  --text: #3a2a1e; --text2: #54402f; --muted: #6f5a46; --dim: #7d6853;
+  --red: #d6403c; --red2: #e6504a; --orange: #e8842a; --gold: #f2bc35; --good: #4aa65a; --bad: #d6403c;
+  --red-ink: #a82a26; --gold-ink: #8a6000; --good-ink: #2a7a3a; --bad-ink: #b02c28; --orange-ink: #a8560f;
+  --grain: url(../art/paper.webp);
+  --tape: rgba(255,226,120,.85); --tape-b: rgba(120,205,215,.82); --tape-p: rgba(255,160,185,.85);
+  --display: "Gochi Hand", "Patrick Hand", "Comic Sans MS", cursive;
+  --body: "Patrick Hand", "Gochi Hand", "Comic Sans MS", cursive;
+  --stick: 0 2px 3px rgba(60,30,10,.24), 0 8px 16px rgba(60,30,10,.2);
+  color-scheme: light;
+}
+/* handwriting has one weight and no slant; these keep the sizes the rest of the game was laid out for */
+*, *::before, *::after { font-synthesis: none !important; font-size-adjust: .5 !important; font-style: normal !important; }
+html { background: #fbf6ea; }
+body {
+  background-color: #fbf6ea;
+  background-image: linear-gradient(90deg, rgba(214,52,52,.5) 50%, transparent 50%), linear-gradient(rgba(214,52,52,.5) 50%, transparent 50%);
+  background-size: 56px 56px; font-weight: 400;
+}
+h3 { letter-spacing: .05em; }
+:focus-visible { outline-color: var(--red-ink); }
+::-webkit-scrollbar-thumb { background: #d9c9a6; border-radius: 6px; }
+.w3d .page, .w3d #p-units, .w3d #p-ascend, .w3d #p-journal { scrollbar-color: #d9c9a6 transparent; }
+
+/* ---- the two dark places: everything inside gets the old night colours back ---- */
+#p-evolve, .reveal, .uw-panel, .uw-talk {
+  --bg: #1f1a33; --bg2: #252040; --fill: #2c2549; --fill2: #352d57; --fill3: #403667;
+  --line: rgba(255,244,220,.1); --line2: rgba(255,244,220,.2);
+  --text: #fff4dc; --text2: #f0e4cc; --muted: #cfc4d2; --dim: #a79cb0;
+  --gold-ink: #f4b740; --good-ink: #70d47e; --bad-ink: #ff7a70; --red-ink: #ff7a70; --orange-ink: #f4943c; --grain: none;
+  color: var(--text);
+}
+
+/* ---- the top bar: kraft luggage tags and round stickers ---- */
+.wallet, .top .wallet .bal { background: none; box-shadow: none; }
+.wallet { position: relative; padding: 8px 22px 8px 34px; border-radius: 0; background: #e9cf9e; clip-path: polygon(16px 0, 100% 0, 100% 100%, 16px 100%, 0 50%); filter: none; }
+.wallet::before { content: ""; position: absolute; left: 14px; top: 50%; width: 10px; height: 10px; margin-top: -5px; border-radius: 50%; background: #fbf6ea; box-shadow: inset 0 1px 2px rgba(0,0,0,.45); }
+.bal { font-size: 28px; }
+.iconbtn { border-radius: 50%; background: #fffdf5; box-shadow: var(--stick); color: var(--text2); }
+.iconbtn:hover { color: var(--red-ink); }
+.brand b { color: #b4322e; font-size: 26px; }
+.brand { padding: 5px 16px 5px 10px; background: #fffdf5; box-shadow: var(--stick); rotate: -1.2deg; width: fit-content; }
+.brand small { color: var(--muted); }
+
+/* ---- the tabs: a notebook's index tabs ---- */
+.tabs { gap: 4px; padding: 0; border-radius: 0; background: none; box-shadow: none; align-items: flex-end; overflow: visible; }
+.tab-ind, .tabs:has(.tab-uw.on) .tab-ind { opacity: 0; }
+.tab { padding: 11px 19px 10px; border-radius: 14px 14px 4px 4px; background: #f1e3c4; color: var(--text2); font-size: 18px; box-shadow: var(--stick); transition: translate .18s cubic-bezier(.3,1.5,.5,1), background .15s; }
+.tab:nth-of-type(2) { background: #d9ead0; } .tab:nth-of-type(3) { background: #c6e8ff; } .tab:nth-of-type(4) { background: #e2d4ff; } .tab:nth-of-type(5) { background: #ffdcb8; } .tab:nth-of-type(6) { background: #ffd3dc; }
+.tab:hover { color: var(--text); translate: 0 -2px; }
+.tab.on, .w3d .tabs.picking .tab.peek { background: #fffdf5 !important; color: var(--red-ink); translate: 0 -5px; box-shadow: 0 -2px 4px rgba(60,30,10,.2), 0 9px 16px rgba(60,30,10,.25); }
+.w3d .tabs.picking .tab.on:not(.peek) { color: var(--text2); }
+.tab-uw { background: #33223f !important; color: #f6dccb !important; }
+.tab .dot { background: var(--red); box-shadow: none; }
+
+/* ---- buttons: felt patches with a stitched edge ---- */
+.btn { color: #fff; background: #d6403c; box-shadow: 0 4px 0 #8e2522, 0 8px 12px rgba(60,20,10,.26); outline: 2px dashed rgba(255,255,255,.7); outline-offset: -5px; font-size: 18px; text-shadow: none; }
+.btn:active { box-shadow: 0 1px 0 #8e2522; }
+.btn:hover { filter: brightness(1.06); }
+.btn.big { font-size: 22px; } .btn.sm { font-size: 15px; outline-offset: -4px; }
+.btn.gold, .btn.big.gold { color: #4a3000; background: #f7c63e; box-shadow: 0 4px 0 #b4840f, 0 8px 12px rgba(60,20,10,.22); outline-color: rgba(120,80,0,.6); }
+.btn.gold:active { box-shadow: 0 1px 0 #b4840f; }
+.btn.ghost { color: var(--text); background: #fffdf5; box-shadow: 0 3px 0 #d9c9a6, 0 6px 10px rgba(60,20,10,.16); outline-color: rgba(58,42,30,.3); }
+.btn.ghost:active { box-shadow: 0 1px 0 #d9c9a6; }
+.btn.ghost.on { color: var(--red-ink); background: #fff1cc; }
+.btn.danger { color: #8a1e1a; background: #ffd9d3; box-shadow: 0 3px 0 #d99a92; outline-color: rgba(138,30,26,.4); }
+.btn.off { color: #75675a; background: #e8e0cf; box-shadow: 0 3px 0 #cfc4ad; outline-color: rgba(58,42,30,.2); }
+.btn.holding::after { background: rgba(255,255,255,.35); }
+
+/* ---- panels: paper, and windows: a page of the notebook taped down ---- */
+.panel { border-radius: 6px; background: #fffdf5; box-shadow: var(--stick); }
+.modal-back { background: rgba(70,40,15,.46); backdrop-filter: blur(3px); }
+.modal { border-radius: 5px; background-color: #fffdf5; background-image: repeating-linear-gradient(180deg, transparent 0 33px, rgba(70,130,190,.17) 33px 34px), linear-gradient(90deg, transparent 0 13px, rgba(214,52,52,.3) 13px 15px, transparent 15px); box-shadow: 0 3px 0 #efe6d2, 0 6px 0 #e2d7bd, 0 24px 50px rgba(50,25,8,.45); }
+.modal::after { content: ""; position: absolute; left: 50%; top: -7px; width: 150px; height: 26px; margin-left: -75px; background: var(--tape-b); pointer-events: none; rotate: 1.2deg; clip-path: polygon(0 0, 2% 16%, 0 33%, 2% 50%, 0 66%, 2% 83%, 0 100%, 100% 100%, 98% 83%, 100% 66%, 98% 50%, 100% 33%, 98% 16%, 100% 0); }
+.modal .modal-head h2, .modal h2 { font-size: 34px; line-height: 1.05; color: var(--text); }
+
+/* ---- hero cards: die-cut stickers with a stitched edge, one paper colour for each rarity ---- */
+.ucard-frame { padding: 3cqw; border-radius: 8cqw; box-shadow: 0 0 0 2.2cqw #fff, 0 1.4cqw 2.4cqw 2.2cqw rgba(60,30,10,.3); }
+.ucard-frame::after { display: none; }
+.ucard-in { border-radius: 6cqw; background: #f6ecd6; }
+.ucard-in::after { content: ""; position: absolute; inset: 2cqw; z-index: 2; border-radius: 4.6cqw; border: .7cqw dashed rgba(58,42,30,.34); pointer-events: none; }
+.ucard-name { color: var(--text); text-shadow: 0 0 2cqw #fff, 0 0 1cqw #fff; font-size: 10cqw; }
+.ucard-name small { font-size: 6cqw; letter-spacing: .06em; color: var(--text2); }
+.ucard-inc span { color: var(--text2); }
+.toolbar input, .usearch input { background: #fffdf5; color: var(--text); }
+
+/* ---- notes: toasts, the tutorial, tooltips ---- */
+.toast { border-radius: 2px; background: #fff3a8; color: var(--text); box-shadow: 0 2px 3px rgba(60,30,10,.26), 0 12px 20px rgba(60,30,10,.24); font-size: 17px; rotate: -.8deg; }
+.toast svg { color: var(--orange-ink); }
+.coach { border-radius: 3px; background: #fff3a8; color: var(--text); box-shadow: 0 3px 4px rgba(60,30,10,.28), 0 18px 30px rgba(60,30,10,.34); rotate: -.6deg; }
+.coach h3 { color: #a82a26; font-size: 24px; text-transform: none; letter-spacing: 0; }
+.coach p { font-size: 18px; line-height: 1.25; }
+.coach-back { background: rgba(70,40,15,.38); }
+.coach-spot { box-shadow: 0 0 0 4px #d6403c, 0 0 22px 6px rgba(214,64,60,.5); }
+.sj-tip { border-radius: 3px; background: #fffdf5; color: var(--text); box-shadow: 0 2px 3px rgba(60,30,10,.3), 0 8px 18px rgba(60,30,10,.3); font-size: 16px; line-height: 1.2; }
+.sj-tip b { color: #a82a26; font-size: 19px; }
+
+/* ---- the map: tags and stickers on the world ---- */
+.em-team, .em-coins span, .em-world { background: #fffdf5; box-shadow: var(--stick); color: var(--text); border-radius: 4px; }
+.em-team { padding-left: 10px; }
+.em-coins span { background: #e9cf9e; border-radius: 0; padding-left: 22px; clip-path: polygon(12px 0, 100% 0, 100% 100%, 12px 100%, 0 50%); }
+.em-xp { background: rgba(58,42,30,.18); }
+.em-xp i { background: #4aa65a; }
+.em-team > b { color: #3a2506; text-shadow: none; }
+.em-world { rotate: -1deg; font-size: 24px; }
+.em-wb { border-radius: 3px; background: #fffdf5; color: var(--text); box-shadow: var(--stick); font-size: 19px; rotate: -1deg; }
+.em-wb.shut { opacity: .86; background: #e8e0cf; }
+.em-wb u { color: var(--gold-ink); font-size: 16px; }
+.em-dockb { border-radius: 50%; background: #fffdf5; box-shadow: var(--stick); }
+.em-goal { background: #d6403c; color: #fff; border-radius: 40px; box-shadow: 0 5px 0 #8e2522, 0 12px 18px rgba(60,20,10,.34); outline: 3px dashed rgba(255,255,255,.75); outline-offset: -7px; }
+
+/* ---- the stage board ---- */
+.ep-wave { position: relative; border-radius: 0; background: #f5e4bf; box-shadow: none; --n: radial-gradient(circle 8px at 0 50%, transparent 97%, #000) 0 0 / 51% 100% no-repeat, radial-gradient(circle 8px at 100% 50%, transparent 97%, #000) 100% 0 / 51% 100% no-repeat; -webkit-mask: var(--n); mask: var(--n); }
+.ep-wave:nth-child(even) { background: #d9ead0; }
+.ep-b-prize, .ep-loot { align-self: center; padding: 5px 30px; border-radius: 0; background: var(--tape); box-shadow: none; rotate: -.5deg; clip-path: polygon(0 0, 1.5% 16%, 0 33%, 1.5% 50%, 0 66%, 1.5% 83%, 0 100%, 100% 100%, 98.5% 83%, 100% 66%, 98.5% 50%, 100% 33%, 98.5% 16%, 100% 0); }
+.ep-slots { gap: 14px; padding: 4px 6px 6px; }
+.ep-slot { padding: 8px 8px 7px; border-radius: 0; background: #fff; box-shadow: var(--stick); transition: rotate .15s, translate .15s; }
+.ep-slot:nth-child(1) { rotate: -1.8deg; } .ep-slot:nth-child(2) { rotate: 1.2deg; } .ep-slot:nth-child(3) { rotate: -.8deg; }
+.ep-slot:hover { rotate: 0deg; translate: 0 -4px; }
+.ep-slot.empty { background: rgba(255,255,255,.55); }
+.ep-fig { display: flex; align-items: center; justify-content: center; width: 100%; height: 104px; border-radius: 0; background: #f1e3c4; }
+/* (4 Nov, owner's screenshot) the picture box is wide, the drawing stays square: stretched to the box it flattened every hero */
+.ep-fig canvas { flex: none; width: 104px; height: 104px; }
+.ep-slot.r-rogue .ep-fig { background: #e2d4ff; } .ep-slot.r-off .ep-fig { background: #ffdcb8; } .ep-slot.r-tank .ep-fig { background: #c6e8ff; } .ep-slot.r-mage .ep-fig { background: #cdeed2; } .ep-slot.r-heal .ep-fig { background: #ffd8e4; }
+.ep-rolei { background: #fff; border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,.3); }
+.ep-cls { background: none; color: var(--text); font-size: 18px; }
+.ep-cls.many:hover { background: rgba(58,42,30,.1); }
+.ep-benchb { border-radius: 0; background: #fff; box-shadow: var(--stick); color: var(--text); font: 400 22px/1 var(--body); }
+.ep-benchb:nth-child(odd) { rotate: -2.5deg; } .ep-benchb:nth-child(even) { rotate: 2deg; }
+.ep-benchb:hover { background: #fff; rotate: 0deg; }
+/* (4 Nov, owner's screenshot) room under the board for the button's lip, and for the crooked polaroids at its sides */
+.ep-board { padding: 4px 8px 20px; }
+.ep-gobtn { border-radius: 40px; min-width: 190px; height: 62px; rotate: -1deg; outline-width: 3px; outline-offset: -7px; }
+.ep-gobtn .ei { width: 42px; height: 42px; }
+.ep-skill { background: rgba(255,255,255,.72); border-radius: 3px; box-shadow: 0 1px 2px rgba(60,30,10,.2); }
+.ep-skill b { color: var(--text); font-size: 18px; }
+.ep-over { background: rgba(70,40,15,.46); }
+.ep-over-in { border-radius: 5px; background-color: #fffdf5; background-image: repeating-linear-gradient(180deg, transparent 0 33px, rgba(70,130,190,.17) 33px 34px); color: var(--text); box-shadow: 0 3px 0 #efe6d2, 0 6px 0 #e2d7bd, 0 26px 60px rgba(50,25,8,.5); }
+
+/* ---- things that sat straight on the world get a slip of paper ---- */
+.w3-ahud { left: 32px; top: 150px; width: fit-content; padding: 12px 18px 14px; border-radius: 3px; background: #fffdf5; box-shadow: var(--stick); rotate: -.7deg; }
+.w3-ahud .td-kicker { font-size: 24px; letter-spacing: 0; text-transform: none; color: #b4322e; }
+.ah-sub, .ah-autos { text-shadow: none; color: var(--text2); font-size: 16px; }
+.w3-tick { color: #fff; text-shadow: 0 2px 0 rgba(60,30,10,.8), 0 0 8px rgba(60,30,10,.6); font-size: 20px; }
+.lab-empty { background: rgba(255,253,245,.94); border-color: rgba(58,42,30,.45); color: var(--text2); font-size: 18px; }
+/* a trait's tier colour is mostly text now, so it needs to read on paper */
+.tt0 { --tc: #6b6f78; } .tt1 { --tc: #9a7000; } .tt2 { --tc: #1478b8; } .tt3 { --tc: #b06a00; } .tt4 { --tc: #c41f4a; } .tt5 { --tc: #0f8fb0; } .tt6 { --tc: #54402f; }
+.ucard-inc { background: #fffdf5; border-top: 2px dashed rgba(58,42,30,.3); }
+.ucard-inc span { color: var(--text2); font-size: 15px; }
+.w3d .portal-name, .portal-name { width: fit-content; margin: 0 auto; padding: 4px 18px; background: #fffdf5; color: var(--text); box-shadow: var(--stick); text-shadow: none; font-size: 28px; rotate: -.8deg; }
+.w3-nav { background: #fffdf5; box-shadow: var(--stick); }
+.w3-nav-fill { background: rgba(214,64,60,.2); }
+.w3-nav-it b, .w3-nav-it { color: var(--text); text-shadow: none; }
+
+@media (max-width: 760px) {
+  .tab { padding: 9px 12px 8px; font-size: 15px; }
+  .ep-slots { gap: 6px; padding: 2px; }
+  .ep-slot { padding: 5px 4px; }
+  .ep-fig { height: 84px; }
+  .ep-fig canvas { width: 84px; height: 84px; }
+  .ep-cls { padding: 2px 0; font-size: 12.5px; }
+  .ep-cls .ei { display: none; }
+  .ep-cls b { overflow: visible; text-overflow: clip; }
+  .modal { background-image: repeating-linear-gradient(180deg, transparent 0 33px, rgba(70,130,190,.17) 33px 34px); }
+  .modal h2, .modal .modal-head h2 { font-size: 28px; }
+  .w3-ahud { left: 10px; top: 200px; }
+  .em-hud { top: 232px; }
+  .em-world { top: 288px; font-size: 20px; }
+}
+
+/* handwritten 5s and 6s read as S and e, so the numbers are in the plainer hand */
+.ec, .ec b, .ep-prize, .ep-prize b, .ep-stat, .ep-stat b, .ep-y, .ep-y b, .bal, .em-coins span, .em-team > b, #epRespin, #epRespin b, .ep-loot b, .ucard-inc span { font-family: var(--body); }
+
+/* (4 Nov, owner, of the white band and then of a blanket in its place: "can u just remove that"): nothing behind the top bar but the world */
+.w3d #app::before { display: none; }
+
+/* (4 Nov, owner, of the mockup: "i like this but i dont see it anywhere"): every card a die-cut sticker on its rarity's paper */
+.ucard-glow { display: none; }
+.ucard .ucard-frame { padding: 2.6cqw; border-radius: 8cqw; background: #fff; box-shadow: var(--stick); }
+.ucard .ucard-frame::before { content: none; }
+.ucard .ucard-in::before { display: none; }
+.r-common .ucard-in { background: #ead6a9; } .r-rare .ucard-in { background: #b4dcf4; } .r-epic .ucard-in { background: #d9c6f5; }
+.r-legendary .ucard-in { background: #ffd84d radial-gradient(circle, rgba(255,255,255,.72) 1.1cqw, transparent 1.5cqw) 0 0 / 10cqw 10cqw; }
+.r-mythic .ucard-in { background: #ffc0e6 radial-gradient(circle, rgba(255,255,255,.72) 1.1cqw, transparent 1.5cqw) 0 0 / 10cqw 10cqw; }
+.r-secret .ucard-in { background: #e4e5ee; } .r-divine .ucard-in { background: #fff2b8; } .r-transcendent .ucard-in { background: #bdf4de; } .r-primordial .ucard-in { background: #ffc79a; } .r-eternal .ucard-in, .r-absolute .ucard-in { background: #f4f1e6; }
+.ucard-name { position: static; display: contents; }
+.ucard-name > span { position: absolute; left: 3cqw; right: 3cqw; bottom: 19cqw; z-index: 3; text-align: center; font: 400 12cqw/1 var(--display); color: var(--text); text-shadow: none; }
+.ucard-name small { position: absolute; left: 50%; top: 3cqw; z-index: 3; translate: -50% 0; rotate: -1.5deg; padding: .8cqw 4.4cqw; background: #fffdf5; box-shadow: 0 .5cqw 1.2cqw rgba(60,30,10,.3); color: var(--text); font: 400 6.6cqw/1.1 var(--display); letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; }
+.ucard-art { height: 78%; }
+.ucard-inc { height: 17cqw; background: none; border-top: 0; }
+.ucard-st { display: flex; align-items: center; justify-content: center; gap: 1.4cqw; font: 400 9.4cqw/1 var(--body); color: var(--text); text-shadow: none; }
+.ucard-st .ei { width: 10cqw; height: 10cqw; margin-left: 2cqw; }
+.ucard-in > .chip { z-index: 4; }
+.ucard:hover .ucard-frame { rotate: -1deg; }
+
+/* (4 Nov, owner's screenshot of a summon: "hard to read text"): a card is paper wherever it is shown, so it keeps ink colours even in the dark reveal */
+.ucard { --text: #3a2a1e; --text2: #54402f; --muted: #6f5a46; --dim: #7d6853; color: var(--text); }
+.ucard-name > span, .ucard-name small { color: #3a2a1e !important; -webkit-text-fill-color: #3a2a1e; background-image: none; animation: none; filter: none; }
+.ucard-name small { background: #fffdf5; }
+.ucard .ucard-inc span { --ol: transparent; color: #3a2a1e !important; -webkit-text-fill-color: #3a2a1e; background: none !important; filter: none !important; animation: none !important; text-shadow: none; font: 400 8.2cqw/1 var(--body); padding: 0; margin: 0; white-space: nowrap; }
+.ucard-inc { background: rgba(255,253,245,.82); border-radius: 0 0 5cqw 5cqw; }
+.ucard-art { z-index: 1; }
+
+/* (4 Nov, owner: "i dont want heroes to cover the whole screen"): the 3D hero stays in view, the list along the bottom, and details at the side when you pick one */
+.w3d #p-units { inset: 150px 32px 16px 32px; width: auto; pointer-events: none; overflow: visible; }
+.w3d #p-units .toolbar { position: absolute; left: 10px; bottom: 182px; margin: 0; padding: 0; background: none; pointer-events: auto; z-index: 2; }
+.w3d #uGrid { position: absolute; left: 0; right: 0; bottom: 0; display: flex; gap: 10px; align-items: flex-start; height: 180px; padding: 14px 14px 8px; overflow: auto hidden; pointer-events: auto; scrollbar-width: thin; border-radius: 4px; background: #e9cf9e; box-shadow: var(--stick); outline: 2px dashed rgba(90,60,20,.4); outline-offset: -6px; }
+.w3d #uGrid .tw { position: relative; flex: 0 0 112px; }
+.w3d #uGrid .tw .tw-buy { position: absolute; left: 4px; right: 4px; bottom: 4px; z-index: 5; min-height: 32px; padding: 3px 6px; flex-direction: row; gap: 4px; font-size: 14px; outline-offset: -3px; }
+.w3d #uGrid .tw .tw-buy svg { width: 12px; height: 12px; }
+.w3d #uGrid .tw.sel .ucard { translate: 0 -5px; }
+.w3d #uGrid .tw.sel .ucard-frame { box-shadow: 0 0 0 3px #d6403c, var(--stick); }
+.u-detail { position: absolute; right: 0; top: 0; bottom: 214px; width: 480px; z-index: 3; padding: 20px 20px 16px 26px; overflow: hidden auto; pointer-events: auto; scrollbar-width: thin; border-radius: 5px; background-color: #fffdf5; background-image: repeating-linear-gradient(180deg, transparent 0 33px, rgba(70,130,190,.17) 33px 34px), linear-gradient(90deg, transparent 0 13px, rgba(214,52,52,.3) 13px 15px, transparent 15px); box-shadow: 0 3px 0 #efe6d2, 0 6px 0 #e2d7bd, 0 18px 34px rgba(50,25,8,.4); }
+.u-detail[hidden] { display: none; }
+.u-detail .m-x { position: absolute; right: 12px; top: 12px; z-index: 2; }
+.u-detail .umodal { display: block; }
+.u-detail .um-left { display: none; }
+.u-detail .um-head { padding-right: 44px; }
+
+/* (4 Nov, owner's screenshot) class names fit their polaroid */
+.ep-cls { font-size: 16px; gap: 3px; padding: 2px 0; }
+.ep-cls .ei { width: 18px; height: 18px; }
+.ep-cls b { overflow: visible; text-overflow: clip; }
+/* who is in the party, on the Heroes list */
+.tw-party { position: absolute; left: -4px; top: -4px; z-index: 6; display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: #fffdf5; box-shadow: var(--stick); }
+.tw-party .ei { width: 18px; height: 18px; }
+
+/* (4 Nov, owner: "add shadow maybe"): a cut-out shape clips its own shadow, so the tag's shape is drawn behind and the shadow falls from the whole */
+.wallet, .em-coins span { clip-path: none; background: none; isolation: isolate; filter: drop-shadow(0 2px 2px rgba(60,30,10,.38)) drop-shadow(0 6px 8px rgba(60,30,10,.24)); }
+.wallet::before, .em-coins span::before { content: ""; position: absolute; inset: 0; z-index: -1; width: auto; height: auto; margin: 0; border-radius: 0; background: #e9cf9e; box-shadow: none; clip-path: polygon(16px 0, 100% 0, 100% 100%, 16px 100%, 0 50%); }
+.em-coins span { position: relative; }
+.wallet::after, .em-coins span::after { content: ""; position: absolute; left: 14px; top: 50%; width: 9px; height: 9px; margin-top: -4.5px; border-radius: 50%; background: #fbf6ea; box-shadow: inset 0 1px 2px rgba(0,0,0,.45); }
+.em-coins span::after { left: 10px; width: 7px; height: 7px; margin-top: -3.5px; }
+
+/* (4 Nov, owner: "make these like sticknotes or sum idk they look boring"): each tab a sticky note, stuck on a little crooked, the one you are on lifted and taped down */
+.tabs { gap: 8px; }
+.tab { padding: 12px 18px 13px; border-radius: 1px 1px 12px 1px; color: #3a2a1e; font-size: 19px; box-shadow: 0 1px 1px rgba(60,30,10,.28), 2px 7px 7px -3px rgba(60,30,10,.42); transition: translate .18s cubic-bezier(.3,1.5,.5,1), rotate .18s, scale .18s; }
+.tab:nth-of-type(1), .tab:nth-of-type(1).on { background: #ffe97a !important; rotate: -2.2deg; }
+.tab:nth-of-type(2), .tab:nth-of-type(2).on { background: #bdf08f !important; rotate: 1.4deg; translate: 0 2px; }
+.tab:nth-of-type(3), .tab:nth-of-type(3).on { background: #a4e4ff !important; rotate: -1deg; }
+.tab:nth-of-type(4), .tab:nth-of-type(4).on { background: #ffb9d6 !important; rotate: 1.9deg; translate: 0 1px; }
+.tab:nth-of-type(5), .tab:nth-of-type(5).on { background: #ffca8c !important; rotate: -1.5deg; translate: 0 2px; }
+.tab:nth-of-type(6), .tab:nth-of-type(6).on { background: #d8c6ff !important; rotate: 1deg; }
+/* the corner lifting off the page */
+.tab::after { content: ""; position: absolute; right: 0; bottom: 0; width: 15px; height: 15px; border-radius: 0 0 12px 0; background: linear-gradient(135deg, rgba(60,30,10,.2) 0 50%, rgba(255,255,255,.45) 50%); pointer-events: none; }
+.tab:hover { translate: 0 -3px; rotate: 0deg; color: #3a2a1e; }
+.tab.on, .w3d .tabs.picking .tab.peek { color: #3a2a1e; translate: 0 -5px; scale: 1.08; rotate: 0deg; z-index: 2; box-shadow: 0 1px 1px rgba(60,30,10,.3), 3px 12px 12px -4px rgba(60,30,10,.5); }
+.tab.on::before { content: ""; position: absolute; left: 50%; top: -9px; width: 54px; height: 19px; margin-left: -27px; background: rgba(255,255,255,.72); box-shadow: 0 1px 2px rgba(60,30,10,.25); rotate: -2deg; pointer-events: none; clip-path: polygon(0 0, 3% 25%, 0 50%, 3% 75%, 0 100%, 100% 100%, 97% 75%, 100% 50%, 97% 25%, 100% 0); }
+.tab-uw, .tab-uw.on { background: #33223f !important; color: #f6dccb !important; }
+
+/* (4 Nov, owner: "texture all the plain texture ui with like paper or somethign maybe just subtly"): a faint grain (tools/soju_paper_tex.py) over everything flat */
+.panel, .toast, .coach, .sj-tip, .brand, .w3-ahud, .ep-slot, .ep-benchb, .iconbtn, .btn, .btn.gold, .btn.ghost, .btn.danger, .btn.off, .em-team, .em-world, .em-wb, .em-dockb, .em-goal, .ep-skill, .tab, .portal-name, .lab-empty, .ucard-frame, .ucard .ucard-frame, .ucard-inc, #uGrid, .wallet::before, .em-coins span::before, .ucard-name small, .ep-wave, .ep-b-prize, .ep-loot, .ep-fig { background-image: var(--grain); }
+.r-common .ucard-in, .r-rare .ucard-in, .r-epic .ucard-in, .r-secret .ucard-in, .r-divine .ucard-in, .r-transcendent .ucard-in, .r-primordial .ucard-in, .r-eternal .ucard-in, .r-absolute .ucard-in { background-image: var(--grain); }
+.r-legendary .ucard-in, .r-mythic .ucard-in { background-image: var(--grain), radial-gradient(circle, rgba(255,255,255,.72) 1.1cqw, transparent 1.5cqw); background-size: 256px 256px, 10cqw 10cqw; }
+.modal, .u-detail { background-image: var(--grain), repeating-linear-gradient(180deg, transparent 0 33px, rgba(70,130,190,.17) 33px 34px), linear-gradient(90deg, transparent 0 13px, rgba(214,52,52,.3) 13px 15px, transparent 15px); }
+.ep-over-in { background-image: var(--grain), repeating-linear-gradient(180deg, transparent 0 33px, rgba(70,130,190,.17) 33px 34px); }
+body { background-image: var(--grain), linear-gradient(90deg, rgba(214,52,52,.5) 50%, transparent 50%), linear-gradient(rgba(214,52,52,.5) 50%, transparent 50%); background-size: 256px 256px, 56px 56px, 56px 56px; }
+@media (max-width: 760px) { .modal { background-image: var(--grain), repeating-linear-gradient(180deg, transparent 0 33px, rgba(70,130,190,.17) 33px 34px); } }
+
+/* (owner: "its too flashy here"): the Trait Lab's plate is a calm card: no rays until the top tiers, and then faint */
+.sigil .sg-rays { opacity: 0 !important; }
+.sigil.tt5 .sg-rays, .sigil.tt6 .sg-rays { opacity: .16 !important; }
+.sigil, .sigil.tt4, .sigil.tt5, .sigil.tt6, .sigil.x-infinity, .sigil.charging.tc4, .sigil.charging.tc5, .sigil.charging.tc6 { border-radius: 8px; background: #fffdf5 var(--grain) !important; box-shadow: inset 0 0 0 3px var(--tc, rgba(58,42,30,.3)), var(--stick) !important; }
+.sigil.tt6::before, .sigil.tt6::after { display: none; }
+.sg-glyph, .sigil.tt4 .sg-glyph, .sigil.tt5 .sg-glyph, .sigil.tt6 .sg-glyph, .sigil.x-infinity .sg-glyph { background: #fff; box-shadow: var(--stick); animation: none; }
+.sg-name, .sigil.tt6 .sg-name, .sigil.x-infinity .sg-name { color: #3a2a1e; -webkit-text-fill-color: #3a2a1e; background: none; text-shadow: none; animation: none; filter: none; }
+.sg-mult { font-size: 26px; text-shadow: none; }
+
+/* (owner: "i dont really like this tint can u make the rianbow tint cooler"): nothing washes over a mythic hero now. Its card is holographic foil, and its edge a turning rainbow */
+.ucard .ucard-in::after, .ucard.r-mythic .ucard-in::after, .ucard.r-divine .ucard-in::after { content: ""; position: absolute; inset: 2cqw; left: 2cqw; top: 2cqw; width: auto; aspect-ratio: auto; translate: none; z-index: 2; border-radius: 4.6cqw; border: .7cqw dashed rgba(58,42,30,.34); background: none; opacity: 1; animation: none; pointer-events: none; }
+.ucard.r-mythic .ucard-in { background: #fff; }
+.ucard.r-mythic .ucard-in::before { content: ""; display: block; position: absolute; left: -60%; top: -60%; right: auto; bottom: auto; width: 220%; height: 220%; filter: none; z-index: 0; background-image: radial-gradient(circle, #fff 1.1cqw, transparent 1.5cqw), repeating-linear-gradient(115deg, #ffb4e0 0 16%, #ffe19a 16% 32%, #fff6a6 32% 48%, #b4f7c4 48% 64%, #a6e6ff 64% 80%, #cdb6ff 80% 100%); background-size: 13cqw 13cqw, auto; animation: sjFoil 5s ease-in-out infinite alternate; }
+@keyframes sjFoil { from { transform: translate(-12%, -8%); } to { transform: translate(12%, 8%); } }
+.ucard.r-mythic .ucard-frame { background: #fff; box-shadow: 0 0 0 1.6cqw #fff, var(--stick); }
+.ucard.r-mythic .ucard-frame::before { content: ""; background: conic-gradient(var(--rainbow)); }
+.ucard.r-mythic .ucard-in { position: relative; }
+.ucard.r-mythic .ucard-art, .ucard.r-mythic .ucard-name > span, .ucard.r-mythic .ucard-inc { position: absolute; z-index: 1; }
+
+/* (owner: "maybe have rarity border on this too"): the hover card wears its rarity round its edge, a mythic's in rainbow */
+.w3-tip { border-radius: 6px; background: #fffdf5 var(--grain); box-shadow: inset 0 0 0 3px var(--rc, rgba(58,42,30,.3)), 0 2px 3px rgba(60,30,10,.28), 0 12px 24px rgba(60,30,10,.32); }
+.w3-tip.r-mythic { border: 3px solid transparent; background: linear-gradient(#fffdf5, #fffdf5) padding-box, conic-gradient(var(--rainbow)) border-box; box-shadow: 0 2px 3px rgba(60,30,10,.28), 0 12px 24px rgba(60,30,10,.32); }
+
+/* (owner: "let indexes give rewards too"): a row of tags along each set, the ready ones stitched and lifted */
+.ix-rw { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin: 0 0 12px; }
+.ix-r { position: relative; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 2px 5px; min-height: 42px; padding: 6px 5px 5px 20px; border-radius: 3px; background: #efe3c8 var(--grain); color: var(--text); opacity: .72; cursor: default; }
+.ix-r em { position: absolute; left: 3px; top: 3px; display: grid; place-items: center; width: 17px; height: 17px; border-radius: 50%; background: #fffdf5; font: 400 13px/1 var(--body); }
+.ix-r em .ei { width: 13px; height: 13px; }
+.ix-r .ec { display: inline-flex; align-items: center; gap: 2px; font: 400 15px/1 var(--body); }
+.ix-r .ec .ei { width: 17px; height: 17px; }
+.ix-r.ready { opacity: 1; background-color: #f7c63e; box-shadow: 0 3px 0 #b4840f, 0 6px 10px rgba(60,20,10,.22); outline: 2px dashed rgba(120,80,0,.55); outline-offset: -3px; cursor: pointer; animation: ixPulse 1.5s ease-in-out infinite; }
+.ix-r.ready:hover { filter: brightness(1.06); }
+.ix-r.paid { opacity: .5; background-color: #dce9cd; }
+@keyframes ixPulse { 50% { translate: 0 -2px; } }
+
+/* (owner: "i still cant see the 3d model ... behind this ui"): the page itself paints nothing on the Heroes tab, only the bar and the details do. The counts sit on the bar */
+.w3d #p-units.w3-box { padding: 0; border-radius: 0; background: none; box-shadow: none; overflow: visible; }
+.w3d #p-units .toolbar.w3-head { position: absolute; left: 12px; right: auto; top: auto; bottom: 186px; width: fit-content; margin: 0; padding: 3px 10px; border-radius: 2px; background: #fffdf5 var(--grain); box-shadow: var(--stick); rotate: -.8deg; }
+
+/* (owner: "fix the top part"): the trait sits under the hero, not across its hat, with the rarity alone at the top and room for the hat below it */
+.ucard-in > .chip, .ucard.shiny .ucard-in > .chip { top: auto; right: auto; left: 50%; bottom: 32cqw; translate: -50% 0; max-width: 92%; white-space: nowrap; }
+.ucard-in > .chip span { overflow: visible; text-overflow: clip; }
+.ucard-art { top: 7cqw; }
+@container (max-width: 170px) { .ucard-in > .chip span { display: none; } }
+
+/* (owner: "when i hover over the stickynote things sometimes it boucnes up and down"): a hover lift moved the thing out from under the mouse, which ended the hover. Hovering now only grows it, and growing can't lose the mouse */
+.tab:hover, .w3d .tabs.picking .tab:hover { translate: none; scale: 1.05; }
+.tab:nth-of-type(n):hover { rotate: inherit; }
+.tab:nth-of-type(1):hover { rotate: -2.2deg; } .tab:nth-of-type(2):hover { rotate: 1.4deg; translate: 0 2px; } .tab:nth-of-type(3):hover { rotate: -1deg; } .tab:nth-of-type(4):hover { rotate: 1.9deg; translate: 0 1px; } .tab:nth-of-type(5):hover { rotate: -1.5deg; translate: 0 2px; } .tab:nth-of-type(6):hover { rotate: 1deg; }
+.tab.on:hover { translate: 0 -5px; rotate: 0deg; scale: 1.08; }
+.btn:hover { transform: scale(1.03); }
+.iconbtn:hover { transform: scale(1.07); }
+.em-dockb:hover { translate: none; scale: 1.06; }
+.ep-slot:hover { translate: none; scale: 1.02; rotate: 0deg; }
+.ep-slot:nth-child(1):hover { rotate: -1.8deg; } .ep-slot:nth-child(2):hover { rotate: 1.2deg; } .ep-slot:nth-child(3):hover { rotate: -.8deg; }
+.ep-benchb:hover { scale: 1.05; }
+.ep-benchb:nth-child(odd):hover { rotate: -2.5deg; } .ep-benchb:nth-child(even):hover { rotate: 2deg; }
+.ucard:hover .ucard-frame { rotate: none; }
+.ucard:hover { scale: 1.02; }
+
+/* (owner: "give journal a journaly border"): a leather cover, stitched, with the binding's punched holes down the spine */
+.w3d #p-journal.w3-box { border-style: solid; border-color: transparent; border-width: 16px 16px 16px 36px; border-radius: 12px; padding: 16px; background-color: #6b3f22; background-image: linear-gradient(#fbf6e8, #fbf6e8), var(--grain), radial-gradient(circle 6px at 18px 26px, #2a170a 92%, transparent), linear-gradient(90deg, #4f2d17 0 34px, #6b3f22 36px); background-clip: padding-box, border-box, border-box, border-box; background-origin: padding-box, border-box, border-box, border-box; background-size: auto, 256px 256px, 100% 52px, auto; background-repeat: repeat, repeat, repeat-y, no-repeat; box-shadow: inset 0 0 0 1px rgba(40,20,8,.6), 0 3px 0 #efe6d2, 0 7px 0 #e2d7bd, 0 18px 34px rgba(50,25,8,.45); outline: 2px dashed rgba(255,226,180,.62); outline-offset: -8px; }
+.w3d #p-journal .w3-head { position: sticky; top: -16px; margin: -16px -16px 0; padding: 16px 16px 6px; border-radius: 0; background: #fbf6e8; }
+.w3d #p-journal .journal-top h1 { font-size: 36px; }
+.newtag.worn-by { background: #fffdf5; color: var(--text); }
+
+/* (owner: "make the border more noticable maybe idk") */
+.w3-tip { box-shadow: inset 0 0 0 5px var(--rc, rgba(58,42,30,.3)), 0 0 0 2px rgba(60,30,10,.55), 0 0 18px 2px var(--rc, transparent), 0 14px 26px rgba(60,30,10,.34); }
+.w3-tip.r-mythic { border-width: 6px; box-shadow: 0 0 0 2px rgba(60,30,10,.55), 0 0 22px 3px rgba(255,120,220,.6), 0 14px 26px rgba(60,30,10,.34); }
+
+/* (owner: "optimize the summon animation its really laggy"): a full-screen blur and shadow filters over a moving world took a third of each frame */
+.rv-dim { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(12,8,20,.74); }
+.rv-card.best { filter: none; }
+.rv-card.best .ucard-frame { box-shadow: 0 0 0 3px #fff, 0 0 0 7px var(--rc, #ffd23a), var(--stick); }
+.modal-back { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(70,40,15,.52); }
+
+/* energy on the Auto button */
+.ep-en { position: absolute; right: 0; bottom: 0; display: flex; align-items: center; gap: 1px; padding: 1px 5px 1px 2px; border-radius: 9px; background: #fffdf5; box-shadow: var(--stick); color: #3a2a1e; font: 400 13px/1 var(--body); font-style: normal; }
+.ep-en .ei { width: 13px; height: 13px; }
+.ep-en b { font-weight: 400; }
+/* (5 Nov, owner: "remove the multiplier thing on trait odds and replace it with the effects"): the middle column says what the trait does */
+.otab td.teff { font: 400 14px/1.25 var(--body); color: var(--text); white-space: normal; }
+/* (5 Nov, owner: "can u make these like sticky notes"): each gate is a note stuck on with tape, and the chosen one has a pin in it */
+.summon > #sumKind { grid-column: 1 / -1; }
+.sum-kind { display: flex; gap: 8px; }
+.sk-b { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; height: 40px; padding: 0 8px; border: 0; border-radius: 3px; background: #fffdf5; box-shadow: var(--stick); color: var(--text); cursor: pointer; transform: rotate(-.7deg); transition: transform .15s; }
+.sk-b:nth-child(2) { transform: rotate(.7deg); }
+.sk-b .ei { width: 24px; height: 24px; }
+.sk-b b { font: 400 20px/1 var(--display); }
+.sk-b.on { background: #e2452f; color: #fff; transform: rotate(0) translateY(-1px); }
+.sk-b:not(.on):hover { transform: rotate(0) translateY(-2px); }
+.gates { gap: 16px; }
+.gate, .gate.on { --note: #ffe97a; --note2: #f6d950; padding: 16px 14px 14px; border-radius: 2px 2px 26px 2px / 2px 2px 7px 2px; background: linear-gradient(172deg, color-mix(in srgb, var(--note) 55%, #fff) 0%, var(--note) 62%, var(--note2) 100%); color: #3a2a1e; box-shadow: 0 9px 10px -7px rgba(70,40,10,.55), 0 1px 2px rgba(70,40,10,.25); transform: rotate(-1.2deg); }
+.gate:nth-child(even) { --note: #bfeaff; --note2: #93d6f6; transform: rotate(1deg); }
+.gate[data-g="sanrio"] { --note: #ffc6dd; --note2: #ff9ec6; }
+.gate::before { content: ""; position: absolute; top: -8px; left: 50%; width: 62px; height: 18px; margin-left: -31px; background: rgba(255,250,230,.72); box-shadow: 0 1px 2px rgba(70,40,10,.2); transform: rotate(-2deg); pointer-events: none; }
+.gate:hover, .gate:nth-child(even):hover { transform: rotate(0) translateY(-3px); }
+.gate.on, .gate.on:nth-child(even), .gate.on:hover { transform: rotate(0) scale(1.03); box-shadow: 0 13px 14px -8px rgba(70,40,10,.6), 0 0 0 3px #e2452f; }
+.gate.on::before { top: -9px; left: auto; right: 12px; width: 18px; height: 18px; margin: 0; border-radius: 50%; background: radial-gradient(circle at 36% 32%, #ff9a8a, #e2452f 58%, #a82818); box-shadow: 0 3px 3px rgba(70,40,10,.4); transform: none; }
+.gate-n { color: #3a2a1e; font-size: 19px; }
+.gate-c { color: #5a4634; }
+.gate.locked { filter: saturate(.45); }
+.gate.locked .gate-n, .gate.locked .gate-c { color: #5a4634; }
+.gate-bar { background: rgba(70,40,10,.18); }
+/* (5 Nov, owner: "a different combination is required for some of the rooms"): locks on a stage's board */
+.ep-locks { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; margin: 6px 0; }
+.ep-lock { display: inline-flex; align-items: center; gap: 5px; padding: 3px 7px; border-radius: 3px; background: #fffdf5; box-shadow: var(--stick); }
+.ep-lock > .ei { width: 22px; height: 22px; flex: none; }
+.ep-lock b { color: var(--text); font: 400 15px/1 var(--body); }
+.ep-lock em { display: flex; gap: 2px; font-style: normal; }
+.ep-lock.have { box-shadow: var(--stick), inset 0 0 0 2px #4ab86a; }
+.ep-lockh { display: block; width: 28px; height: 28px; }
+.ep-lockh canvas { display: block; width: 100%; height: 100%; }
+.ep-lockh .ei { width: 100%; height: 100%; filter: grayscale(.8); opacity: .6; }
+.ep-skill.sig { box-shadow: 0 1px 2px rgba(60,30,10,.2), inset 3px 0 0 #ffb648; }
+/* (5 Nov, owner: "make it so they can use auto play after they complete the level once first") */
+.ep-auto.locked > .ei { filter: grayscale(1); opacity: .45; }
+.ep-auto.locked { cursor: not-allowed; }
+.ep-auto.locked .ep-en { padding: 1px 3px; }
+.ep-auto.locked:hover { translate: none; }
+/* (owner: "optimize the summon animation"): the last filters on a reveal's cards */
+.reveal .ucard, .reveal .ucard * { filter: none !important; }
+
+/* the list a little bigger, so every price can be read at any window size */
+.w3d #uGrid { height: 202px; }
+.w3d #uGrid .tw { flex: 0 0 124px; }
+.w3d #p-units .toolbar.w3-head { bottom: 208px; }
+.u-detail { bottom: 236px; }
+
+/* (owner, of the old crystal: "maybe give it a cool hover card"): foil edge turning round a page of your collection */
+.w3-tip.cr-tip { width: 262px; gap: 8px; padding: 12px 14px 13px; border: 5px solid transparent; border-radius: 11px; background: var(--grain) padding-box, linear-gradient(#fffdf5, #fffdf5) padding-box, conic-gradient(from var(--spin), #ff6a3d, #ffd23a, #ff4fa8, #a97dff, #7fe3ff, #ffd23a, #ff6a3d) border-box; animation: spin 3s linear infinite; box-shadow: 0 0 0 2px rgba(60,30,10,.5), 0 0 26px 4px rgba(255,106,61,.65), 0 16px 28px rgba(60,30,10,.36); color: var(--text); }
+.cr-head { display: flex; align-items: center; gap: 11px; }
+.cr-head > div { display: flex; flex: 1; align-items: baseline; justify-content: space-between; gap: 8px; min-width: 0; }
+.cr-gem { position: relative; flex: none; width: 30px; height: 44px; background: linear-gradient(135deg, #ffd29a 0 22%, #ff8a4a 22% 50%, #ff5a2e 50% 78%, #c9361a 78%); clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); animation: crGem 1.6s ease-in-out infinite; }
+@keyframes crGem { 50% { transform: translateY(-3px) scaleX(.82); } }
+.cr-name { font: 400 25px/1 var(--display); color: #b4322e; white-space: nowrap; }
+.cr-pct { font: 400 21px/1 var(--body); color: var(--text); }
+.cr-bar { height: 12px; padding: 2px; border-radius: 7px; background: rgba(58,42,30,.18); }
+.cr-bar i { display: block; height: 100%; min-width: 8px; border-radius: 5px; background: linear-gradient(90deg, #ff6a3d, #ffd23a, #ff4fa8, #7fe3ff); }
+.cr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+.cr-c { display: flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; background: rgba(58,42,30,.07); font: 400 19px/1 var(--body); color: var(--text); }
+.cr-c .ei { flex: none; width: 24px; height: 24px; }
+.cr-c b { font-weight: 400; }
+.cr-c small { font-size: 14px; color: var(--muted); }
+.cr-best { position: relative; display: flex; justify-content: center; min-height: 26px; }
+.cr-best .chip { position: static; font-size: 14px; padding: 4px 10px; gap: 5px; max-width: none; --cu: 3px; }
+
+/* (owner: "fix up the composition here theres too much empty space"): the bar hugs its cards, in the middle, with the world on either side instead of an empty tray; the counts sit centred on its top edge */
+.w3d #uGrid { left: 50%; right: auto; translate: -50% 0; width: fit-content; max-width: 100%; }
+.w3d #p-units .toolbar.w3-head { left: 50%; translate: -50% 0; rotate: 0deg; z-index: 2; }
+.u-detail { width: 460px; }
+
+/* (owner's screenshot, "fix this"): a trait's label is a clean paper tag edged in its tier's colour, with nothing behind its letters */
+.chip, .chip.tt0, .chip.tt1, .chip.tt2, .chip.tt3, .chip.tt4, .chip.tt5, .chip.tt6 { background: #fffdf5; color: #3a2a1e; box-shadow: inset 0 0 0 2px var(--tc, rgba(58,42,30,.3)), 0 1px 2px rgba(60,30,10,.28); text-shadow: none; filter: none; animation: none; }
+.chip span, .chip b { color: #3a2a1e; -webkit-text-fill-color: #3a2a1e; background: none; text-shadow: none; filter: none; animation: none; font-family: var(--body); font-weight: 400; }
+.um-trait .chip { font-size: 18px; padding: 7px 13px; }
+
+/* (owner: "maybe redesign the rightside card to fill more of the screen"): a full page down the right, everything on it bigger, with the hero and the bar sharing the rest */
+.u-detail { top: -18px; bottom: 0; width: 590px; padding: 26px 30px 22px 38px; }
+.w3d #p-units.open #uGrid { left: calc((100% - 606px) / 2); max-width: calc(100% - 606px); height: 188px; }
+.w3d #p-units.open #uGrid .tw { flex-basis: 112px; }
+.w3d #p-units.open .toolbar.w3-head { left: calc((100% - 606px) / 2); bottom: 194px; }
+.u-detail .um-right { display: flex; flex-direction: column; gap: 14px; min-height: 100%; }
+.u-detail .um-head h2 { font-size: 54px; line-height: 1; margin-top: 2px; }
+.u-detail .um-head .rtag, .u-detail .um-head .sp-tag, .u-detail .um-head .um-ctx { height: 28px; font-size: 14px; padding: 0 12px; }
+.u-detail .um-trait { padding: 10px 12px; }
+.u-detail .um-wear { gap: 14px; }
+.u-detail .um-slot { min-height: 190px; }
+.u-detail .um-slot canvas { width: 130px; height: 130px; }
+.u-detail .tw-sk { font-size: 20px; }
+.u-detail .ep-hero { gap: 10px; }
+.u-detail .ep-skill { padding: 10px 12px; }
+.u-detail .ep-skill > i .ei { width: 36px; height: 36px; }
+.u-detail .ep-skill b { font-size: 23px; }
+.u-detail .ec { font-size: 18px; }
+.u-detail .ec .ei { width: 22px; height: 22px; }
+.u-detail .um-act { margin-top: auto; }
+.u-detail .um-act .btn { min-height: 54px; }
+
+/* (owner: "have claude design design a new hero page have the bottombar stretch to be like this the whole time and just make it look better"), drawn at the design canvas's "New Heroes page":
+   the bar runs the width of the screen whether details are open or not, and the details are an open notebook above it, bound in leather: who they are and what they wear on the left page, how they fight on the right */
+.w3d #uGrid, .w3d #p-units.open #uGrid { left: -32px; right: -32px; bottom: -16px; width: auto; max-width: none; height: 206px; translate: none; justify-content: safe center; gap: 12px; padding: 18px 26px 10px; border-radius: 0; background: #e9cf9e var(--grain); box-shadow: 0 -6px 14px rgba(60,30,10,.28); outline-offset: -8px; }
+.w3d #uGrid .tw, .w3d #p-units.open #uGrid .tw { flex: 0 0 124px; }
+.w3d #p-units .toolbar.w3-head, .w3d #p-units.open .toolbar.w3-head { left: 2px; bottom: 198px; translate: none; rotate: -1deg; }
+.u-detail { top: -22px; right: 0; bottom: 204px; width: 800px; padding: 12px; overflow: hidden; border-radius: 12px; background: #6b3f22 var(--grain); box-shadow: inset 0 0 0 1px rgba(40,20,8,.6), 0 18px 34px rgba(50,25,8,.45); outline: 2px dashed rgba(255,226,180,.6); outline-offset: -6px; }
+.u-detail .umodal { height: 100%; border-radius: 6px; overflow: hidden; background-color: #fffdf5; background-image: var(--grain), linear-gradient(90deg, transparent calc(50% - 16px), rgba(60,30,10,.2) 50%, transparent calc(50% + 16px)), repeating-linear-gradient(180deg, transparent 0 33px, rgba(70,130,190,.15) 33px 34px); }
+.u-detail .um-right { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto auto minmax(0, 1fr) auto; column-gap: 44px; row-gap: 10px; height: 100%; padding: 16px 22px 14px; box-sizing: border-box; }
+.u-detail .um-right > * { grid-column: 1; min-width: 0; margin-top: 0; }
+.u-detail .um-right > .um-def, .u-detail .um-right > .ep-hero, .u-detail .um-right > :has(.ep-hero) { grid-column: 2; grid-row: 1 / -1; align-self: stretch; overflow: hidden auto; scrollbar-width: thin; background: none; box-shadow: none; padding: 0; }
+.u-detail .um-head h2 { font-size: 56px; }
+.u-detail .um-wear { min-height: 0; height: 100%; }
+.u-detail .um-slot { min-height: 0; height: 100%; }
+.u-detail .um-slot canvas { width: min(124px, 80%); height: auto; aspect-ratio: 1; }
+.u-detail .um-act { margin-top: 0; }
+.u-detail .m-x { right: 18px; top: 18px; }
+/* the binding down the middle */
+.u-detail::after { content: ""; position: absolute; left: 50%; top: 22px; bottom: 22px; width: 26px; margin-left: -13px; background: radial-gradient(circle 6px at 13px 13px, #c9b48a 92%, transparent) 0 0 / 26px 56px repeat-y; pointer-events: none; }
+
+/* (owner: "fix this composition up a bit have claude design make a better looking card"): the hero's window bound like its notebook. The card and what it wears on the left, how it fights on the right, and each thing said once */
+@media (min-width: 761px) {
+  .modal.um-win { width: min(1040px, 96vw); padding: 14px; border-radius: 12px; background: #6b3f22 var(--grain); box-shadow: inset 0 0 0 1px rgba(40,20,8,.6), 0 26px 60px rgba(40,20,8,.55); outline: 2px dashed rgba(255,226,180,.6); outline-offset: -7px; }
+  .modal.um-win::after { display: none; }
+  .modal.um-win::before { display: none; }
+  .modal.um-win .umodal { display: grid; grid-template-columns: 330px minmax(0, 1fr); grid-template-rows: auto auto minmax(0, 1fr) auto; gap: 10px 34px; align-items: stretch; padding: 20px 24px 18px 22px; border-radius: 6px; background-color: #fffdf5; background-image: var(--grain), linear-gradient(90deg, transparent 346px, rgba(60,30,10,.18) 360px, transparent 374px), repeating-linear-gradient(180deg, transparent 0 33px, rgba(70,130,190,.13) 33px 34px); }
+  .modal.um-win .um-right { display: contents; }
+  .modal.um-win .um-left { grid-column: 1; grid-row: 1 / span 3; display: block; padding: 0; }
+  .modal.um-win .um-left .ucard { width: 100%; }
+  .modal.um-win .um-wear { grid-column: 1; grid-row: 4; gap: 10px; }
+  .modal.um-win .um-slot { min-height: 0; padding: 6px 6px 8px; }
+  .modal.um-win .um-slot canvas { width: 92px; height: 92px; }
+  .modal.um-win .um-slot-empty svg { width: 34px; height: 34px; padding: 8px; }
+  .modal.um-win .um-head, .modal.um-win .um-trait, .modal.um-win .um-def, .modal.um-win .um-act, .modal.um-win .ep-hero { grid-column: 2; min-width: 0; margin: 0; }
+  .modal.um-win .um-head { grid-row: 1; }
+  .modal.um-win .um-trait { grid-row: 2; }
+  .modal.um-win .um-right > .um-def, .modal.um-win .um-right > .ep-hero, .modal.um-win .um-right > :has(.ep-hero) { grid-column: 2; grid-row: 3; align-self: start; background: none; box-shadow: none; padding: 0; }
+  .modal.um-win .um-act { grid-row: 4; align-self: end; }
+  .modal.um-win .um-act .btn { min-height: 56px; font-size: 21px; }
+  /* said once: the card has the name and rarity, the page has the trait */
+  .modal.um-win .um-head h2, .modal.um-win .um-head .rtag { display: none; }
+  .modal.um-win .um-left .chip { display: none; }
+  .modal.um-win .um-trait .chip { font-size: 21px; padding: 8px 14px; }
+  .modal.um-win .ep-skill b { font-size: 22px; }
+}
+
+/* a better card: its name on a strip of paper, its numbers on a tag, and less going on behind the hero */
+.ucard-name > span { left: 8cqw; right: 8cqw; bottom: 18cqw; padding: 1.6cqw 0 1cqw; background: #fffdf5 var(--grain); box-shadow: 0 .6cqw 1.6cqw rgba(60,30,10,.28); rotate: -1deg; font-size: 11cqw; }
+.ucard-inc { left: 4cqw; right: 4cqw; bottom: 3cqw; height: 13cqw; background: none; border: 0; border-radius: 0; }
+.ucard-st { padding: 1cqw 3.4cqw; background: rgba(255,253,245,.92); border-radius: 6cqw; box-shadow: 0 .4cqw 1cqw rgba(60,30,10,.22); }
+.ucard-art { height: 74%; }
+.r-legendary .ucard-in, .r-mythic .ucard-in { background-image: var(--grain), radial-gradient(circle, rgba(255,255,255,.34) .9cqw, transparent 1.2cqw); }
+.ucard.r-mythic .ucard-in::before { background-image: radial-gradient(circle, rgba(255,255,255,.55) .9cqw, transparent 1.2cqw), repeating-linear-gradient(115deg, #ffc8e8 0 16%, #ffe9b4 16% 32%, #fff8c0 32% 48%, #c8f8d4 48% 64%, #c0ecff 64% 80%, #dccbff 80% 100%); }
+.ucard-name small { box-shadow: 0 .6cqw 1.4cqw rgba(60,30,10,.34); }
+
+/* (owner: "the journal stretches the equipment weridly"), redrawn on the design canvas's "New Heroes page": the notebook is as tall as what is in it, sitting on the bar, and the two slots keep their shape */
+.u-detail { top: auto; bottom: 204px; height: auto; max-height: calc(100% - 190px); overflow: hidden auto; }
+.u-detail .umodal { height: auto; }
+.u-detail .um-right { height: auto; grid-template-rows: auto auto auto auto; row-gap: 12px; padding: 18px 24px 16px; }
+.u-detail .um-wear { height: 168px; }
+.u-detail .um-slot { height: 168px; padding: 6px 6px 8px; }
+.u-detail .um-slot canvas { width: 112px; height: 112px; aspect-ratio: auto; }
+.u-detail .um-right > .um-def, .u-detail .um-right > .ep-hero, .u-detail .um-right > :has(.ep-hero) { overflow: visible; }
+.u-detail .ep-skill { padding: 8px 10px; }
+
+/* names */
+.hero-n { display: flex; align-items: center; gap: 8px; }
+.nameable { cursor: text; }
+.hero-n .ei { flex: none; width: 24px; height: 24px; opacity: .45; transition: opacity .12s, scale .12s; }
+.hero-n:hover .ei { opacity: 1; scale: 1.12; }
+/* (4 Nov, owner: "the stat card is still weirdly placed can u place it somewhere better for better composition"): it hung off the bar in the corner, with nothing above it. It now floats halfway between the tabs and the bar, off the screen's edge, and island.js centres the hero in what is left */
+.u-detail { top: 0; right: 24px; bottom: 204px; height: fit-content; margin-block: auto; max-height: calc(100% - 204px); }
+.name-in { width: 100%; min-width: 0; padding: 0 4px; border: 0; border-bottom: 3px dashed #d6403c; background: #fff8d8; color: #3a2a1e; font: inherit; font-size: inherit; outline: none; }
+.ucard-name .name-in { text-align: center; }
+
+/* a short window: the same layout, smaller, so nothing has to scroll */
+@media (min-width: 761px) and (max-height: 760px) {
+  .modal.um-win .umodal { grid-template-columns: 230px minmax(0, 1fr); gap: 6px 26px; padding: 12px 18px 12px 14px; background-image: var(--grain); }
+  .modal.um-win .um-slot canvas { width: 52px; height: 52px; }
+  .modal.um-win .tw-sk { font-size: 15px; }
+  .modal.um-win .um-act .btn { min-height: 42px; font-size: 17px; }
+  .modal.um-win .ep-skill { padding: 3px 8px; }
+  .modal.um-win .ep-hero { gap: 3px; }
+}
+
+/* (owner: "add more landmarks"): a landmark's name, on a paper tag by the mouse */
+.em-lm { position: absolute; z-index: 5; translate: 14px -130%; padding: 3px 10px 2px; background: #fffdf5 var(--grain); box-shadow: 0 2px 6px rgba(60,30,10,.35); rotate: -1.5deg; font: 400 20px/1.1 var(--display); color: #3a2a1e; white-space: nowrap; pointer-events: none; }
+.em-lm[hidden] { display: none; }
+
+/* (owner: "make them have a special node"): a landmark's postcard stop */
+.lm-win { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.lm-card { position: relative; padding: 10px 10px 12px; background: #fffdf5 var(--grain); box-shadow: 0 6px 16px rgba(60,30,10,.35); rotate: -1deg; }
+.lm-card canvas { display: block; width: min(420px, 78vw); height: auto; aspect-ratio: 3 / 2; }
+.lm-stamp { position: absolute; right: 22px; top: 22px; display: grid; place-items: center; width: 62px; height: 62px; border: 4px dashed #d6403c; border-radius: 50%; background: rgba(255,253,245,.82); rotate: 12deg; animation: lmStamp .4s cubic-bezier(.2,1.6,.4,1) both; }
+.lm-stamp .ei { width: 34px; height: 34px; }
+@keyframes lmStamp { from { scale: 2.2; opacity: 0; } to { scale: 1; opacity: 1; } }
+.lm-loot { justify-content: center; }
+#lmRest { display: flex; align-items: center; justify-content: center; gap: 8px; min-width: 240px; }
+#lmRest .ei { width: 28px; height: 28px; }
+.lm-now { display: inline-flex; align-items: center; gap: 2px; margin-left: 10px; padding: 2px 8px; border-radius: 10px; background: rgba(255,253,245,.8); color: #3a2a1e; font-size: 16px; }
+.lm-now .ei { width: 18px; height: 18px; }
+.lm-set { display: flex; align-items: center; gap: 8px; }
+.lm-mini { display: grid; place-items: center; width: 72px; height: 50px; padding: 3px; background: #fffdf5; box-shadow: 0 2px 5px rgba(60,30,10,.3); }
+.lm-mini canvas { width: 100%; height: 100%; display: block; }
+.lm-mini.off { background: rgba(58,42,30,.12); box-shadow: inset 0 0 0 2px rgba(58,42,30,.25); }
+.lm-mini .ei { width: 22px; height: 22px; opacity: .6; }
+.lm-mini.here { outline: 3px solid #d6403c; outline-offset: 1px; }
+.lm-all { margin-left: 6px; font: 400 22px/1 var(--display); color: #3a2a1e; }
+
+/* (owner: "show what type a hero is on their info card") */
+.role-tag { display: inline-flex; align-items: center; gap: 4px; height: 28px; padding: 0 10px 0 6px; border-radius: 14px; background: #fffdf5; box-shadow: inset 0 0 0 2px var(--rc, #3a2a1e); color: #3a2a1e; font: 400 15px/1 var(--body); vertical-align: middle; }
+.role-tag .ei { width: 18px; height: 18px; }
+
+/* (owner: "a puzzle"): what each raider means to do, and what is coming at each hero */
+.ep-int { position: absolute; left: 50%; bottom: 100%; translate: -50% -2px; display: flex; align-items: center; justify-content: center; gap: 2px; min-height: 0; color: #3a2a1e; font: 400 15px/1 var(--body); white-space: nowrap; }
+.ep-int:not(:empty) { padding: 1px 6px; border-radius: 9px; background: #fffdf5; box-shadow: 0 1px 3px rgba(40,20,8,.45); }
+.ep-int .ei { width: 18px; height: 18px; } .ep-int u { display: flex; text-decoration: none; } .ep-int u .ei { width: 14px; height: 14px; } .ep-int b { font-weight: 400; }
+.ep-int.k-big { background: #ffe0d8; box-shadow: inset 0 0 0 2px #d6403c, 0 1px 3px rgba(40,20,8,.45); animation: epBig .7s ease-in-out infinite; }
+@keyframes epBig { 50% { scale: 1.12; } }
+.ep-int.k-all { box-shadow: inset 0 0 0 2px #e8902a, 0 1px 3px rgba(40,20,8,.45); }
+.ep-int.inc { color: #b4322e; } .ep-int.inc .ei { width: 14px; height: 14px; }
+.ep-int.lethal { background: #d6403c; color: #fff; animation: epBig .7s ease-in-out infinite; }
+.ep-i-next { display: flex; align-items: center; gap: 6px; margin-top: 6px; font: 400 16px/1.1 var(--body); } .ep-i-next .ei { width: 22px; height: 22px; } .ep-i-next b { font-weight: 400; }
+#epRule { display: flex; align-items: center; gap: 4px; margin-left: 8px; pointer-events: auto; }
+.ep-rl { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #fffdf5; box-shadow: 0 2px 5px rgba(40,20,8,.4); } .ep-rl .ei { width: 26px; height: 26px; }
+.ep-heat { padding: 3px 8px; border-radius: 10px; background: #d6403c; color: #fff; font: 400 16px/1 var(--body); }
+/* a stage's rule on its board */
+.ep-rules { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+.ep-rulec { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px 5px 8px; border-radius: 6px; background: #fff3c8; box-shadow: 0 1px 4px rgba(60,30,10,.3); color: #3a2a1e; font: 400 18px/1 var(--body); rotate: -.6deg; }
+.ep-rulec > .ei { width: 26px; height: 26px; } .ep-rulec b { font-weight: 400; } .ep-rulec em { display: inline-flex; gap: 2px; margin-left: 4px; padding-left: 8px; border-left: 2px dashed rgba(58,42,30,.3); font-style: normal; } .ep-rulec em .ei { width: 20px; height: 20px; }
+.ep-rolew { gap: 4px; } .ep-rolew b { font-weight: 400; }
+/* the Guide */
+.gd-win { width: min(760px, 94vw); }
+.gd { display: flex; flex-direction: column; gap: 12px; max-height: min(74vh, 680px); }
+.gd-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+.gd-t { display: inline-flex; align-items: center; gap: 5px; padding: 6px 10px; border: 0; border-radius: 3px 3px 10px 3px; background: #fff3c8; box-shadow: 0 2px 4px rgba(60,30,10,.25); color: #3a2a1e; font: 400 17px/1 var(--body); cursor: pointer; }
+.gd-t .ei { width: 22px; height: 22px; } .gd-t.on { background: #ffc8b0; box-shadow: inset 0 0 0 2px #d6403c; }
+.gd-page { flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; padding: 2px 6px 2px 2px; }
+.gd-l { display: flex; gap: 10px; align-items: flex-start; } .gd-l > .ei { flex: none; width: 34px; height: 34px; }
+.gd-l b { font: 400 21px/1.1 var(--display); color: #3a2a1e; } .gd-l p { margin: 2px 0 0; font: 400 18px/1.25 var(--body); color: #3a2a1e; }
+.gd-good { display: inline-flex; gap: 3px; margin-top: 3px; } .gd-good .ei { width: 22px; height: 22px; }
+.gd-note { margin: 0; padding: 6px 10px; background: #fff3c8; font: 400 18px/1.25 var(--body); color: #3a2a1e; }
+#gdReplay { align-self: flex-end; display: inline-flex; align-items: center; gap: 6px; } #gdReplay .ei { width: 20px; height: 20px; }
+.set-guide { display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; margin-bottom: 6px; } .set-guide .ei { width: 26px; height: 26px; }
+#bHelp .ei { width: 26px; height: 26px; }
+
+/* (owner: "i dont think it showed the new unit i got"): a card of its own beside the win, big enough to meet them */
+.ep-over-in:has(.ep-joined) { position: relative; }
+.ep-joined { position: absolute; right: calc(100% + 26px); top: 50%; translate: 0 -50%; flex-direction: column; gap: 6px; width: 250px; padding: 14px 14px 16px; border-radius: 4px; background: #fffdf5 var(--grain); box-shadow: 0 10px 26px rgba(40,20,8,.5); rotate: -2deg; animation: epJoin .55s .25s cubic-bezier(.2,1.5,.4,1) backwards; }
+@keyframes epJoin { from { scale: .3; opacity: 0; } }
+.ep-joined > span[data-card] { width: 210px; height: 210px; }
+.ep-joined > span[data-card] canvas { display: block; width: 100%; height: 100%; }
+.ep-j-new { font: 400 26px/1 var(--display); color: #d6403c; }
+.ep-j-name { font: 400 40px/1 var(--display); color: #3a2a1e; }
+.ep-joined em { position: absolute; right: 10px; top: 10px; font-style: normal; } .ep-joined em .ei { width: 30px; height: 30px; }
+@media (max-width: 1100px), (max-height: 620px) { .ep-joined { position: static; translate: none; flex-direction: row; flex-wrap: wrap; justify-content: center; width: auto; padding: 8px 12px; } .ep-joined > span[data-card] { width: 150px; height: 150px; } .ep-j-name { font-size: 28px; } .ep-j-new { width: 100%; text-align: center; font-size: 20px; } .ep-joined em { position: static; } }
+
+/* (owner: "make it display how much materials i have") */
+.ep-have { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 12px; padding: 6px 12px; border-radius: 6px; background: #fff3c8; box-shadow: 0 1px 4px rgba(60,30,10,.25); }
+.ep-have > span { display: inline-flex; align-items: center; gap: 3px; color: #3a2a1e; font: 400 19px/1 var(--body); }
+.ep-have b { font-weight: 400; } .ep-have .ei { width: 24px; height: 24px; }
+.ep-cost { font-family: var(--body); font-size: 15px; font-weight: 400; } .ep-cost b { font-weight: 400; }

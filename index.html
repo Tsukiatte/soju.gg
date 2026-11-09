@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Picnic Patrol</title>
+<meta name="description" content="A round-cube animal crew on a turn-based expedition, with very rare skins.">
+<meta name="build" content="9 Nov 2026, 1:56 PM">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23ffd63e' d='M6.3 0h3.4v2.4H6.3z'/%3E%3Cpath fill='%23e8b52a' d='M8.6 0h1.1v2.4H8.6z'/%3E%3Cpath fill='%231f7a44' d='M6.7 2.4h.9v2.8L7.3 8v8H4.8V7.6l1.9-2.4z'/%3E%3Cpath fill='%2322904c' d='M7.6 2.4h.9v2.8L8.8 8v8H7.3V8l.3-2.8z'/%3E%3Cpath fill='%233aaa62' d='M8.5 2.4h.8v2.8l1.9 2.4V16H8.8V8z'/%3E%3Cpath fill='%23fcfbf6' d='M4.8 8.6h6.4v6H4.8z'/%3E%3Cpath fill='%23cd322d' d='M5.4 9.2h1.3v2.2H5.4z'/%3E%3Cpath fill='%23f8c428' d='M7.2 9.2h3.3v2.2H7.2z'/%3E%3Cpath fill='%23f09e1e' d='M6.6 11.9h2.6v2.1H6.6z'/%3E%3Cpath fill='%235ca23c' d='M5.5 11.9h1.1v1H5.5z'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Gochi+Hand&family=Patrick+Hand&display=swap">
+<link rel="stylesheet" href="css/game.css?v=5f175ce924">
+<link rel="stylesheet" href="css/progress.css?v=a47e12c54f">
+<link rel="stylesheet" href="css/defense.css?v=3f41628bc4">
+<link rel="stylesheet" href="css/world.css?v=758bb08190">
+<link rel="stylesheet" href="css/soju.css?v=f7685ab93c">
+<link rel="stylesheet" href="css/epic.css?v=1707ccd509">
+<link rel="stylesheet" href="css/paper_auto.css?v=546819c021">
+<link rel="stylesheet" href="css/scrapbook.css?v=6d5d2d9eab">
+</head>
+<body>
+<div id="app"></div>
+<div id="layer"></div>
+<canvas id="fxc"></canvas>
+<div id="toasts" aria-live="polite"></div>
+<script src="js/three.min.js?v=0a7288ac5d"></script>
+<script src="js/data.js?v=c6a40fe3ca"></script>
+<script src="js/kit.js?v=22be335bfe"></script>
+<script src="js/soju.js?v=f262a88681"></script>
+<script src="js/soju_logo.js?v=00f2ba4a31"></script>
+<script src="js/units.js?v=be16974f9e"></script>
+<script src="js/units_gates.js?v=a0bcdb1520"></script>
+<script src="js/units_evo.js?v=e184cc64c1"></script>
+<script src="js/units_abs.js?v=0e65fbdf26"></script>
+<script src="js/units_sovn.js?v=7f0c2043b7"></script>
+<script src="js/units_jenny.js?v=f89512ad01"></script>
+<script src="js/merchant.js?v=c0aa8f8be0"></script>
+<script src="js/attacks.js?v=ddff05a1bb"></script>
+<script src="js/render.js?v=f0de20e9e8"></script>
+<script src="js/game.js?v=f3e8a5dea0"></script>
+<script src="js/fx.js?v=62bef542e2"></script>
+<script src="js/unitsfx.js?v=26964b49a4"></script>
+<script src="js/td.js?v=6e0365ee51"></script>
+<script src="js/tdgate.js?v=3b4c05e1ce"></script>
+<script src="js/tdmaps.js?v=3031057b96"></script>
+<script src="js/tdtower.js?v=5bcc5690d5"></script>
+<script src="js/vfx.js?v=f4be29c7fd"></script>
+<script src="js/tdfx.js?v=4e7b4921f5"></script>
+<script src="js/tdsig.js?v=4b5256e283"></script>
+<script src="js/tdrel.js?v=2f17d6bdf1"></script>
+<script src="js/tdhell.js?v=c0229681e9"></script>
+<script src="js/worlds.js?v=a8cc3089a0"></script>
+<script src="js/bosses.js?v=ef3fd8128e"></script>
+<script src="js/board.js?v=ef39beacc2"></script>
+<script src="js/icons.js?v=cacfdfe0b6"></script>
+<script src="js/volcano.js?v=82a865e306"></script>
+<script src="js/soju_gatedata.js?v=63a9fc9f4c"></script>
+<script src="js/soju_gates.js?v=307b967321"></script>
+<script src="js/island.js?v=e9b65b196f"></script>
+<script src="js/clouds.js?v=a15150f807"></script>
+<script src="js/soju_wear.js?v=1a46b3a1d0"></script>
+<script src="js/soju_rules.js?v=0a15ff39e3"></script>
+<script src="js/soju_auras.js?v=10d7ffe8a5"></script>
+<script src="js/soju_stacks.js?v=75905438fb"></script>
+<script src="js/epic_rules.js?v=432142562f"></script>
+<script src="js/epic_world.js?v=77b53dbcbe"></script>
+<script src="js/soju_tips.js?v=634e1b6b8e"></script>
+<script src="js/epic_iconatlas.js?v=6445896c00"></script>
+<script src="js/epic_icons.js?v=53ab6feac6"></script>
+<script src="js/soju_tutorial.js?v=20ac2b3bc0"></script>
+<script src="js/soju_guide.js?v=32ccdb6fc1"></script>
+<script src="js/ui.js?v=0fbe38babf"></script>
+<script src="js/epic_mapspots.js?v=ca884adb47"></script>
+<script src="js/epic_landmarks.js?v=0307348132"></script>
+<script src="js/epic_map.js?v=d571933e39"></script>
+<script src="js/epic_battle.js?v=af9fb52152"></script>
+<script src="js/expedition.js?v=8846a5c3a2"></script>
+</body>
+</html>
