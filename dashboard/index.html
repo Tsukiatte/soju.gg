@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Lab Report · @pixel.knows</title>
+<meta name="description" content="Live stats for Try This Science (@pixel.knows): every reel's reach, skip rate and watch time, updated every 2 hours.">
+<meta name="theme-color" content="#94bcf9">
+<meta property="og:title" content="The Lab Report · @pixel.knows">
+<meta property="og:description" content="Live stats for the pixel science channel, updated every 2 hours.">
+<link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..800,0..100,0..1;1,9..144,400..800,0..100,0..1&family=Inter:wght@400;500;600;700&family=Pixelify+Sans:wght@500;700&display=swap">
+<link rel="preload" as="image" href="art/plate.webp">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top" id="top">
+  <a class="brand" href="#top" aria-label="The Lab Report, back to top">
+    <img src="art/eye.png" alt="" width="61" height="64"><span>pixel.knows</span>
+  </a>
+  <div class="top-right">
+    <span class="live" id="live"><i aria-hidden="true"></i><span>Live</span></span>
+    <a class="pill-link" href="https://www.instagram.com/pixel.knows/" target="_blank" rel="noopener">Instagram<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="hero" aria-labelledby="title">
+    <div class="sky" aria-hidden="true"></div>
+    <div class="depth d-plate" aria-hidden="true"><div class="strip plate"><div class="glints" id="glints"></div></div></div>
+    <div class="rays" aria-hidden="true"></div>
+    <div class="clouds" aria-hidden="true"><i></i><i></i><i></i></div>
+
+    <div class="depth d-copy">
+      <div class="hero-copy">
+        <img class="mascot" src="art/eye.png" alt="" width="61" height="64">
+        <h1 class="title" id="title" aria-label="the lab report"><span class="line">the lab</span> <span class="line">report</span></h1>
+        <p class="lede">Live numbers for <a href="https://www.instagram.com/pixel.knows/" target="_blank" rel="noopener">@pixel.knows</a>, the pixel science channel. A new reel every 2 hours.</p>
+      </div>
+    </div>
+
+    <div class="depth d-phone" aria-hidden="true">
+      <div class="phone">
+        <div class="island"></div>
+        <div class="chat-head">
+          <img src="art/eye.png" alt="" width="61" height="64">
+          <div><b>pixel.knows</b><span>lab bot · online</span></div>
+        </div>
+        <div class="thread" id="thread"></div>
+        <div class="composer"><span>Message</span><i></i></div>
+      </div>
+    </div>
+
+    <div class="depth d-chips-back" aria-hidden="true" id="chips-back"></div>
+    <div class="depth d-rail" aria-hidden="true"><div class="strip rail"></div></div>
+    <div class="depth d-chips-front" aria-hidden="true" id="chips-front"></div>
+
+    <a class="cta" href="https://www.instagram.com/pixel.knows/" target="_blank" rel="noopener">
+      Watch the reels on Instagram<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+    </a>
+  </section>
+
+  <div class="deep">
+    <div class="deep-bg" aria-hidden="true"></div>
+
+    <section class="block" aria-labelledby="h-numbers">
+      <div class="wrap">
+        <h2 class="tape" id="h-numbers" data-reveal>the <em>numbers</em></h2>
+        <div class="numbers" id="numbers"></div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-reels">
+      <div class="wrap">
+        <h2 class="tape" id="h-reels" data-reveal>every <em>reel</em> so far</h2>
+        <p class="sub" data-reveal>Tap a photo to watch it. Newest first.</p>
+      </div>
+      <div class="polaroids" id="polaroids"></div>
+    </section>
+
+    <section class="block" aria-labelledby="h-stick">
+      <div class="wrap">
+        <h2 class="tape" id="h-stick" data-reveal>who <em>sticks</em> around</h2>
+        <figure class="chart-card" id="chart" data-reveal></figure>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-notes">
+      <div class="wrap">
+        <h2 class="tape" id="h-notes" data-reveal>what the <em>numbers</em> say</h2>
+        <ul class="notes" id="notes"></ul>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-next">
+      <div class="wrap">
+        <h2 class="tape" id="h-next" data-reveal>coming <em>up</em></h2>
+        <ol class="tickets" id="tickets"></ol>
+        <p class="nextbuild" id="nextbuild" data-reveal></p>
+      </div>
+    </section>
+
+    <section class="block how" aria-labelledby="h-how">
+      <div class="wrap">
+        <h2 class="tape" id="h-how" data-reveal>how the <em>lab</em> works</h2>
+        <ol class="steps">
+          <li data-reveal><span class="num">1</span><h3>A new reel every 2 hours</h3><p>Pixel-art science you can test on yourself, drawn entirely in code.</p></li>
+          <li data-reveal><span class="num">2</span><h3>Read the numbers</h3><p>Reach, skip rate and watch time come straight from Instagram's official API, at 2, 6, 24 and 72 hours.</p></li>
+          <li data-reveal><span class="num">3</span><h3>Keep what works</h3><p>Each reel gets a lab score against the reels posted around it at the same age: 40% who stays past 3 seconds, 40% how much they watch, 20% reach. The best ideas get built next.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="wrap">
+        <p id="updated">Loading the latest numbers…</p>
+        <p><a href="https://www.instagram.com/pixel.knows/" target="_blank" rel="noopener">@pixel.knows</a> · Try This Science</p>
+      </div>
+    </footer>
+  </div>
+</main>
+
+<div class="tip" id="tip" role="tooltip" hidden></div>
+<div class="grain" aria-hidden="true"></div>
+<noscript><p class="noscript">Turn on JavaScript to see the live numbers.</p></noscript>
+<script src="app.js" defer></script>
+</body>
+</html>

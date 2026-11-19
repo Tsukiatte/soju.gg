@@ -1,0 +1,355 @@
+{
+ "updated": "2026-11-19T13:40-07:00",
+ "account": {
+  "username": "pixel.knows",
+  "name": "Try This Science",
+  "url": "https://www.instagram.com/pixel.knows/",
+  "followers": 1,
+  "posts": 7
+ },
+ "every_h": 2,
+ "totals": {
+  "views": 8347,
+  "reach": 6789,
+  "likes": 74,
+  "comments": 3,
+  "shares": 6,
+  "saves": 9,
+  "watch_hours": 23.6
+ },
+ "reels": [
+  {
+   "id": "ep001_afterimage",
+   "n": 1,
+   "topic": "Negative afterimage",
+   "type": "screen",
+   "hook": "STARE AT THE DOT FOR 20 SECONDS",
+   "does": "Stares, then sees colours on grey",
+   "posted_at": "2026-11-19T00:14:06-07:00",
+   "url": "https://www.instagram.com/pixel.knows/reel/Df6hEEbBOK6/",
+   "cover": "covers/ep001_afterimage.png",
+   "length_s": 36.0,
+   "age_h": 13.4,
+   "views": 1442,
+   "reach": 1193,
+   "likes": 11,
+   "comments": 1,
+   "shares": 3,
+   "saves": 1,
+   "avg_watch_s": 11.81,
+   "watch_pct": 33,
+   "skip_pct": 54.7,
+   "hold_pct": 45.3,
+   "score": 1.0,
+   "history": [
+    {
+     "h": 0.6,
+     "reach": 4,
+     "views": 86
+    },
+    {
+     "h": 3.9,
+     "reach": 1171,
+     "views": 1414
+    },
+    {
+     "h": 8.0,
+     "reach": 1177,
+     "views": 1426
+    },
+    {
+     "h": 13.4,
+     "reach": 1193,
+     "views": 1442
+    }
+   ],
+   "best": false
+  },
+  {
+   "id": "ep002_stroop",
+   "n": 2,
+   "topic": "Stroop effect",
+   "type": "screen",
+   "hook": "SAY THE COLOUR NOT THE WORD",
+   "does": "Names ink colours out loud",
+   "posted_at": "2026-11-19T02:13:45-07:00",
+   "url": "https://www.instagram.com/pixel.knows/reel/Df6u09KRwjs/",
+   "cover": "covers/ep002_stroop.png",
+   "length_s": 32.0,
+   "age_h": 11.5,
+   "views": 1374,
+   "reach": 1148,
+   "likes": 9,
+   "comments": 0,
+   "shares": 1,
+   "saves": 1,
+   "avg_watch_s": 8.17,
+   "watch_pct": 26,
+   "skip_pct": 56.4,
+   "hold_pct": 43.6,
+   "score": 0.88,
+   "history": [
+    {
+     "h": 4.0,
+     "reach": 1143,
+     "views": 1351
+    },
+    {
+     "h": 8.0,
+     "reach": 1145,
+     "views": 1370
+    },
+    {
+     "h": 11.5,
+     "reach": 1148,
+     "views": 1374
+    }
+   ],
+   "best": false
+  },
+  {
+   "id": "ep003_blindspot",
+   "n": 3,
+   "topic": "Blind spot",
+   "type": "screen",
+   "hook": "MAKE THIS DOT DISAPPEAR",
+   "does": "Closes left eye, moves the phone",
+   "posted_at": "2026-11-19T04:14:11-07:00",
+   "url": "https://www.instagram.com/pixel.knows/reel/Df68k6tteSE/",
+   "cover": "covers/ep003_blindspot.png",
+   "length_s": 33.0,
+   "age_h": 9.4,
+   "views": 1417,
+   "reach": 1190,
+   "likes": 10,
+   "comments": 2,
+   "shares": 1,
+   "saves": 1,
+   "avg_watch_s": 15.04,
+   "watch_pct": 46,
+   "skip_pct": 43.0,
+   "hold_pct": 57.0,
+   "score": 1.25,
+   "history": [
+    {
+     "h": 4.0,
+     "reach": 1164,
+     "views": 1398
+    },
+    {
+     "h": 8.0,
+     "reach": 1184,
+     "views": 1409
+    },
+    {
+     "h": 9.4,
+     "reach": 1190,
+     "views": 1417
+    }
+   ],
+   "best": true
+  },
+  {
+   "id": "ep004_spiral",
+   "n": 4,
+   "topic": "Motion aftereffect",
+   "type": "screen",
+   "hook": "WATCH THE SPIRAL FOR 20 SECONDS",
+   "does": "Watches a spinning spiral, then a still picture \"moves\"",
+   "posted_at": "2026-11-19T06:13:38-07:00",
+   "url": "https://www.instagram.com/pixel.knows/reel/Df7KSCeSQQl/",
+   "cover": "covers/ep004_spiral.png",
+   "length_s": 36.0,
+   "age_h": 7.5,
+   "views": 1115,
+   "reach": 931,
+   "likes": 12,
+   "comments": 0,
+   "shares": 0,
+   "saves": 0,
+   "avg_watch_s": 12.17,
+   "watch_pct": 34,
+   "skip_pct": 50.5,
+   "hold_pct": 49.5,
+   "score": null,
+   "history": [
+    {
+     "h": 4.0,
+     "reach": 839,
+     "views": 998
+    },
+    {
+     "h": 7.5,
+     "reach": 931,
+     "views": 1115
+    }
+   ],
+   "best": false
+  },
+  {
+   "id": "ep005_shepard",
+   "n": 5,
+   "topic": "Shepard tone",
+   "type": "sound",
+   "hook": "IS THIS SOUND GOING UP FOREVER?",
+   "does": "Listens; the pitch seems to rise forever (perfect loop)",
+   "posted_at": "2026-11-19T08:14:11-07:00",
+   "url": "https://www.instagram.com/pixel.knows/reel/Df7YBwNSJed/",
+   "cover": "covers/ep005_shepard.png",
+   "length_s": 36.0,
+   "age_h": 5.4,
+   "views": 1464,
+   "reach": 1070,
+   "likes": 17,
+   "comments": 0,
+   "shares": 1,
+   "saves": 4,
+   "avg_watch_s": 15.52,
+   "watch_pct": 43,
+   "skip_pct": 35.1,
+   "hold_pct": 64.9,
+   "score": null,
+   "history": [
+    {
+     "h": 4.0,
+     "reach": 1067,
+     "views": 1462
+    },
+    {
+     "h": 5.4,
+     "reach": 1070,
+     "views": 1464
+    }
+   ],
+   "best": false
+  },
+  {
+   "id": "ep007_humnose",
+   "n": 6,
+   "topic": "Hum with your nose pinched",
+   "type": "sound",
+   "hook": "HUM. NOW PINCH YOUR NOSE",
+   "does": "Humming stops",
+   "posted_at": "2026-11-19T10:13:57-07:00",
+   "url": "https://www.instagram.com/pixel.knows/reel/Df7lxp5Px04/",
+   "cover": "covers/ep007_humnose.png",
+   "length_s": 32.0,
+   "age_h": 3.5,
+   "views": 1414,
+   "reach": 1147,
+   "likes": 14,
+   "comments": 0,
+   "shares": 0,
+   "saves": 2,
+   "avg_watch_s": 12.89,
+   "watch_pct": 40,
+   "skip_pct": 37.4,
+   "hold_pct": 62.6,
+   "score": null,
+   "history": [
+    {
+     "h": 3.5,
+     "reach": 1147,
+     "views": 1414
+    }
+   ],
+   "best": false
+  },
+  {
+   "id": "ep006_scintgrid",
+   "n": 7,
+   "topic": "Scintillating grid",
+   "type": "screen",
+   "hook": "COUNT THE BLACK DOTS",
+   "does": "Counts dots that flicker in and out (there are none)",
+   "posted_at": "2026-11-19T12:14:10-07:00",
+   "url": "https://www.instagram.com/pixel.knows/reel/Df7ziHlJe_e/",
+   "cover": "covers/ep006_scintgrid.png",
+   "length_s": 34.0,
+   "age_h": 1.4,
+   "views": 121,
+   "reach": 110,
+   "likes": 1,
+   "comments": 0,
+   "shares": 0,
+   "saves": 0,
+   "avg_watch_s": 8.94,
+   "watch_pct": 26,
+   "skip_pct": 45.9,
+   "hold_pct": 54.1,
+   "score": null,
+   "history": [
+    {
+     "h": 1.4,
+     "reach": 110,
+     "views": 121
+    }
+   ],
+   "best": false
+  }
+ ],
+ "upcoming": [
+  {
+   "id": "ep008_troxler",
+   "topic": "Troxler fading",
+   "type": "screen",
+   "hook": "STARE AT THE CENTRE WATCH THE COLOURS VANISH",
+   "does": "Fixates; blurry blobs fade away",
+   "eta": "2026-11-19T14:14-07:00",
+   "length_s": 34.0,
+   "cover": "covers/ep008_troxler.png"
+  },
+  {
+   "id": "ep010_drift",
+   "topic": "Peripheral drift",
+   "type": "screen",
+   "hook": "THIS PICTURE IS NOT MOVING",
+   "does": "Looks around a still pattern that seems to rotate",
+   "eta": "2026-11-19T16:14-07:00",
+   "length_s": 32.5,
+   "cover": "covers/ep010_drift.png"
+  },
+  {
+   "id": "ep009_tritone",
+   "topic": "Tritone paradox",
+   "type": "sound",
+   "hook": "DOES IT GO UP OR DOWN?",
+   "does": "Hears a two-note pair go up or down; others may hear the opposite",
+   "eta": "2026-11-19T18:14-07:00",
+   "length_s": 36.0,
+   "cover": "covers/ep009_tritone.png"
+  }
+ ],
+ "next_build": {
+  "type": "screen",
+  "label": "on-screen illusion",
+  "reason": "on-screen reels score best so far"
+ },
+ "notes": [
+  {
+   "tone": "good",
+   "text": "Shepard tone keeps people best: 65% stay past the first 3 seconds, and they watch 43% of it on average."
+  },
+  {
+   "tone": "info",
+   "text": "Sound reels keep more people past 3 seconds so far: 64% against 49% for on-screen illusions."
+  },
+  {
+   "tone": "info",
+   "text": "Compared at the same age, Blind spot has the best lab score so far (1.25)."
+  },
+  {
+   "tone": "watch",
+   "text": "On average 46% of viewers swipe away in the first 3 seconds. The opening is the part to keep improving."
+  },
+  {
+   "tone": "info",
+   "text": "Instagram tests each new reel on about 1,150 people in its first hours. Reach only keeps growing if that group watches and shares."
+  },
+  {
+   "tone": "good",
+   "text": "Negative afterimage is the most shared so far (3 shares)."
+  }
+ ],
+ "source": "live"
+}
