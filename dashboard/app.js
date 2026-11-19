@@ -72,6 +72,7 @@
     renderChart(d);
     renderNotes(d);
     renderNext(d);
+    renderDash(d);
     $('#updated').textContent = `Updated ${when(d.updated)}. Numbers come from Instagram's official API and refresh every 2 hours.`;
     observeReveals();
     startChat(d);
@@ -256,6 +257,200 @@
     $('#nextbuild').innerHTML = nb ? `After these, the next one built is <b>${article(nb.label)} ${esc(nb.label)}</b>: ${esc(nb.reason)}.` : '';
   }
 
+  // ---------- the dashboard view ----------
+  let SORT = { key: 'n', dir: -1 };
+  const avgOf = (rows, k) => (rows.length ? rows.reduce((a, r) => a + (r[k] || 0), 0) / rows.length : null);
+  const COLS = [
+    { key: 'n', label: 'Reel', get: (r) => r.n, cell: (r) => `<span class="rname">#${r.n} ${esc(r.topic)}</span><span class="rtype">${esc(KIND[r.type] || '')}</span>` },
+    { key: 'posted_at', label: 'Posted', get: (r) => r.posted_at, cell: (r) => esc(when(r.posted_at).replace(/^today /, '')) },
+    { key: 'reach', label: 'Reached', get: (r) => r.reach, cell: (r) => fmt(r.reach) },
+    { key: 'views', label: 'Views', get: (r) => r.views, cell: (r) => fmt(r.views) },
+    { key: 'vpp', label: 'Views per person', get: (r) => (r.reach ? r.views / r.reach : null), cell: (r) => (r.reach ? (r.views / r.reach).toFixed(2) : '–') },
+    { key: 'hold_pct', label: 'Stayed past 3 s', get: (r) => r.hold_pct, cell: (r) => meterCell('stay', r.hold_pct) },
+    { key: 'watch_pct', label: 'Share watched', get: (r) => r.watch_pct, cell: (r) => meterCell('watch', r.watch_pct) },
+    { key: 'avg_watch_s', label: 'Avg watch', get: (r) => r.avg_watch_s, cell: (r) => (r.avg_watch_s != null ? r.avg_watch_s.toFixed(1) + ' s' : '–') },
+    { key: 'likes', label: 'Likes', get: (r) => r.likes, cell: (r) => fmt(r.likes) },
+    { key: 'comments', label: 'Comments', get: (r) => r.comments, cell: (r) => fmt(r.comments) },
+    { key: 'shares', label: 'Shares', get: (r) => r.shares, cell: (r) => fmt(r.shares) },
+    { key: 'saves', label: 'Saves', get: (r) => r.saves, cell: (r) => fmt(r.saves) },
+    { key: 'score', label: 'Lab score', get: (r) => r.score, cell: (r) => (r.score != null ? r.score.toFixed(2) : '–') },
+    { key: 'trend', label: 'Reach so far', cell: (r) => spark(r) },
+    { key: 'link', label: '', cell: (r) => `<a class="go" href="${esc(r.url)}" target="_blank" rel="noopener" aria-label="Watch reel ${r.n} on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>` },
+  ];
+  function meterCell(kind, v) {
+    return `<span class="mini-meter ${kind}"><i><b style="width:${v ?? 0}%"></b></i>${pct(v)}</span>`;
+  }
+  function spark(r) {
+    const pts = (r.history || []).filter((p) => p.h != null && p.reach != null);
+    if (!pts.length) return '–';
+    const W = 72, H = 26, mh = Math.max(...pts.map((p) => p.h)) || 1, mr = Math.max(...pts.map((p) => p.reach)) || 1;
+    const all = [[3, H - 3], ...pts.map((p) => [3 + (p.h / mh) * (W - 8), H - 3 - (p.reach / mr) * (H - 7)])];
+    const d = all.map((q, i) => (i ? 'L' : 'M') + q[0].toFixed(1) + ' ' + q[1].toFixed(1)).join(' ');
+    const e = all[all.length - 1];
+    const label = `Reach over time: ${pts.map((p) => `${fmt(p.reach)} at ${p.h} h`).join(', ')}`;
+    return `<svg class="spark" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(label)}"><path d="${d}"/><circle cx="${e[0].toFixed(1)}" cy="${e[1].toFixed(1)}" r="3.5"/></svg>`;
+  }
+  function tableBody(d) {
+    const col = COLS.find((c) => c.key === SORT.key) || COLS[0];
+    const rows = d.reels.slice().sort((a, b) => {
+      const x = col.get(a), y = col.get(b);
+      if (x == null && y == null) return 0;
+      if (x == null) return 1;
+      if (y == null) return -1;
+      return (x > y ? 1 : x < y ? -1 : 0) * SORT.dir;
+    });
+    return rows.map((r) => `<tr>${COLS.map((c) => `<td>${c.cell(r)}</td>`).join('')}</tr>`).join('');
+  }
+  function tableHead() {
+    return COLS.map((c) => {
+      if (!c.get) return `<th scope="col">${c.label ? `<span class="th-l">${c.label}</span>` : '<span class="sr">Link</span>'}</th>`;
+      const sort = SORT.key === c.key ? ` aria-sort="${SORT.dir > 0 ? 'ascending' : 'descending'}"` : '';
+      return `<th scope="col"${sort}><button type="button" data-sort="${c.key}">${c.label}</button></th>`;
+    }).join('');
+  }
+  function barsHTML(rows, series, max) {
+    return rows.map((r) => `
+      <div class="brow"><span class="bl">#${r.n} ${esc(r.topic)}<small>${fmt(r.reach)} reached</small></span>
+        <div class="plot">${series.map((s) => {
+          const v = s.get(r), isMax = v != null && v === max[s.key];
+          const tip = `<b>#${r.n} ${esc(r.topic)}</b><br>${s.name}: <b>${s.fmt(v)}</b>${r.age_h < 6 ? '<br>still being tested' : ''}`;
+          return `<span class="bar" tabindex="0" style="--c:${s.color};--w:${s.width(v)}%" data-tip="${esc(tip)}" aria-label="${esc(`#${r.n} ${r.topic}, ${s.name}: ${s.fmt(v)}`)}">${isMax ? `<span class="val">${s.fmt(v)}</span>` : ''}</span>`;
+        }).join('')}</div>
+      </div>`).join('');
+  }
+  function renderDash(d) {
+    const t = d.totals, R = d.reels;
+    const solid = R.filter((r) => r.hold_pct != null && (r.reach || 0) >= 300);
+    $('#dash-sub').textContent = `@pixel.knows · updated ${when(d.updated)} · refreshes every 2 hours`;
+    // kpi(icon, label, value, decimals, suffix, sub, extra class, text shown instead of a number)
+    const kpi = (icon, label, val, dec, suf, sub, cls = '', text = null) => `
+      <div class="kpi ${cls}"><div class="k-label">${ic(icon)}${label}</div>
+        <div class="k-value"${val != null && text == null ? ` data-count="${val}" data-dec="${dec}" data-suffix="${suf}"` : ''}>${text != null ? text : val != null ? fmt(val, dec) + suf : '–'}</div>${sub ? `<div class="k-sub">${sub}</div>` : ''}</div>`;
+    const stay = avgOf(solid, 'hold_pct'), watch = avgOf(solid, 'watch_pct'), avgw = avgOf(solid, 'avg_watch_s');
+    const subSolid = 'average, reels with 300+ viewers';
+    const next = d.upcoming[0];
+    // by type
+    const types = ['screen', 'sound', 'body'].map((k) => {
+      const rs = R.filter((r) => r.type === k), sol = rs.filter((r) => (r.reach || 0) >= 300 && r.hold_pct != null);
+      return { k, n: rs.length, reach: avgOf(rs, 'reach'), stay: avgOf(sol, 'hold_pct'), watch: avgOf(sol, 'watch_pct') };
+    }).filter((x) => x.n);
+    const sw = [
+      { key: 'hold', name: 'Stayed past 3 s', color: 'var(--blue)', get: (r) => r.hold_pct, fmt: pct, width: (v) => v ?? 0 },
+      { key: 'watch', name: 'Share watched', color: 'var(--orange)', get: (r) => r.watch_pct, fmt: pct, width: (v) => v ?? 0 },
+    ];
+    const maxReach = Math.max(...R.map((r) => r.reach || 0)) || 1;
+    // a clean axis: the smallest round step that covers the largest bar (plus room for its label) in 5 steps or fewer
+    const step = [50, 100, 200, 250, 500, 1000, 2000, 2500, 5000, 10000, 25000, 50000, 100000].find((s) => Math.ceil(maxReach * 1.1 / s) <= 5) || 100000;
+    const axisMax = step * Math.ceil(maxReach * 1.1 / step);
+    const ticks = [];
+    for (let v = 0; v <= axisMax; v += step) ticks.push(v);
+    const rr = [{ key: 'reach', name: 'Reached', color: '#6250d6', get: (r) => r.reach, fmt: (v) => fmt(v), width: (v) => ((v || 0) / axisMax) * 100 }];
+    const withHold = R.filter((r) => r.hold_pct != null);
+    $('#dash-body').innerHTML = `
+      <div class="kpis">
+        ${kpi('eye', 'Views', t.views, 0, '', `across ${R.length} reels`, 'hero-kpi')}
+        ${kpi('users', 'Accounts reached', t.reach, 0, '', 'added up across reels')}
+        ${kpi('stay', 'Stayed past 3 s', stay != null ? Math.round(stay) : null, 0, '%', subSolid)}
+        ${kpi('eye', 'Share watched', watch != null ? Math.round(watch) : null, 0, '%', subSolid)}
+        ${kpi('clock', 'Avg watch time', avgw, 1, ' s', subSolid)}
+        ${kpi('clock', 'Hours watched', t.watch_hours, 1, '', 'all reels together')}
+        ${kpi('heart', one(t.likes, 'Like', 'Likes'), t.likes, 0, '', '')}
+        ${kpi('comment', one(t.comments, 'Comment', 'Comments'), t.comments, 0, '', '')}
+        ${kpi('send', one(t.shares, 'Share', 'Shares'), t.shares, 0, '', '')}
+        ${kpi('save', one(t.saves, 'Save', 'Saves'), t.saves, 0, '', '')}
+        ${kpi('follow', one(d.account.followers, 'Follower', 'Followers'), d.account.followers, 0, '', next ? esc(`next reel about ${time(next.eta)}`) : '')}
+      </div>
+      <div class="dgrid">
+        <section class="dcard two-thirds" aria-labelledby="dc-sw">
+          <h3 id="dc-sw">Stayed past 3 seconds, and share of each reel watched</h3>
+          <p class="desc">Higher is better for both. Reels under 6 hours old are still being tested.</p>
+          <div class="legend"><span><i style="--c:var(--blue)"></i>Stayed past 3 s</span><span><i style="--c:var(--orange)"></i>Share of reel watched</span></div>
+          <div class="bars">${barsHTML(withHold, sw, { hold: Math.max(...withHold.map((r) => r.hold_pct)), watch: Math.max(...withHold.map((r) => r.watch_pct ?? 0)) })}</div>
+          <div class="axis"><span></span><div class="ticks"><span style="left:0">0%</span><span style="left:25%">25%</span><span style="left:50%">50%</span><span style="left:75%">75%</span><span style="left:100%">100%</span></div></div>
+        </section>
+        <section class="dcard third" aria-labelledby="dc-type">
+          <h3 id="dc-type">By kind of reel</h3>
+          <p class="desc">Averages. Stayed and watched count reels with 300+ viewers.</p>
+          <div class="dtable-wrap"><table class="dtable">
+            <thead><tr><th scope="col">Kind</th><th scope="col">Reels</th><th scope="col">Avg reached</th></tr></thead>
+            <tbody>${types.map((x) => `<tr><td><span class="rname">${esc(KIND[x.k])}</span></td><td>${x.n}</td><td>${fmt(x.reach)}</td></tr>
+              <tr><td colspan="3" style="text-align:left">${meterCell('stay', x.stay)} <span class="muted">stayed</span>&nbsp;&nbsp; ${meterCell('watch', x.watch)} <span class="muted">watched</span></td></tr>`).join('')}</tbody>
+          </table></div>
+        </section>
+        <section class="dcard half" aria-labelledby="dc-reach">
+          <h3 id="dc-reach">Accounts reached, by reel</h3>
+          <p class="desc">Each reel's test push from Instagram so far.</p>
+          <div class="bars nogrid"><div class="gridx">${ticks.map((v) => `<i style="left:${(v / axisMax) * 100}%"></i>`).join('')}</div>${barsHTML(R, rr, { reach: maxReach })}</div>
+          <div class="axis"><span></span><div class="ticks">${ticks.map((v) => `<span style="left:${(v / axisMax) * 100}%">${fmt(v)}</span>`).join('')}</div></div>
+        </section>
+        <section class="dcard half" aria-labelledby="dc-next">
+          <h3 id="dc-next">Coming up</h3>
+          <p class="desc">Posted about every 2 hours, in the order the analysis picked.</p>
+          <ul class="dlist">${d.upcoming.map((u, i) => `
+            <li><span class="thumb-s">${u.cover ? `<img src="${esc(u.cover)}" alt="" loading="lazy">` : ''}</span>
+              <span><span class="when">about ${esc(time(u.eta))} · <span data-eta="${esc(u.eta)}">${countdown(u.eta)}</span></span>
+              #${R.length + i + 1} ${esc(u.topic)} <span class="muted">· ${esc(u.hook)}</span><br><span class="pill-k ${esc(u.type)}">${esc(KIND_LONG[u.type] || u.type)}</span></span></li>`).join('')}
+          </ul>
+          ${d.next_build ? `<p class="foot-note">After these, the next one built is ${article(d.next_build.label)} ${esc(d.next_build.label)}: ${esc(d.next_build.reason)}.</p>` : ''}
+        </section>
+        <section class="dcard" aria-labelledby="dc-all">
+          <h3 id="dc-all">Every reel</h3>
+          <p class="desc">Select a column to sort. "Reach so far" traces each reel's reach from the moment it went up.</p>
+          <div class="dtable-wrap"><table class="dtable" id="dtable">
+            <thead><tr>${tableHead()}</tr></thead><tbody>${tableBody(d)}</tbody>
+          </table></div>
+        </section>
+        <section class="dcard" aria-labelledby="dc-notes">
+          <h3 id="dc-notes">What the numbers say</h3>
+          <ul class="dlist">${d.notes.map((n) => `<li><span class="tone ${esc(n.tone)}">${ic({ good: 'trend', info: 'info', watch: 'eye' }[n.tone] || 'info')}</span><span>${esc(n.text)}</span></li>`).join('')}</ul>
+          <p class="foot-note">Stayed past 3 s is 100% minus Instagram's skip rate. Share watched is the average watch time divided by the reel's length. The lab score compares each reel with the reels posted around it at the same age: 40% stayed past 3 s, 40% share watched, 20% reach. 1.00 is typical.</p>
+        </section>
+      </div>`;
+    if (!dash.hidden) dash.querySelectorAll('[data-count]').forEach(countUp);
+  }
+
+  const dash = $('#dash');
+  let lastFocus = null, closeTimer = 0;
+  function openDash() {
+    if (dash.classList.contains('open')) return;
+    clearTimeout(closeTimer);
+    lastFocus = document.activeElement;
+    dash.hidden = false;
+    document.documentElement.classList.add('dash-open');
+    $('#top').inert = true;
+    $('main').inert = true;
+    requestAnimationFrame(() => requestAnimationFrame(() => dash.classList.add('open')));
+    setTimeout(() => $('.dash-close', dash).focus({ preventScroll: true }), 80);
+    dash.querySelectorAll('[data-count]').forEach(countUp);
+    if (location.hash !== '#dashboard') history.replaceState(null, '', '#dashboard');
+  }
+  function closeDash() {
+    if (dash.hidden) return;
+    dash.classList.remove('open');
+    document.documentElement.classList.remove('dash-open');
+    $('#top').inert = false;
+    $('main').inert = false;
+    tip.hidden = true;
+    closeTimer = setTimeout(() => { dash.hidden = true; }, reduce ? 0 : 450);
+    if (location.hash === '#dashboard') history.replaceState(null, '', location.pathname + location.search);
+    if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+  }
+  document.addEventListener('click', (e) => {
+    if (e.target.closest('[data-open-dash]')) { e.preventDefault(); openDash(); return; }
+    if (e.target.closest('[data-close-dash]')) { closeDash(); return; }
+    const s = e.target.closest('#dtable th button[data-sort]');
+    if (s && DATA) {
+      const k = s.dataset.sort;
+      SORT = { key: k, dir: SORT.key === k ? -SORT.dir : -1 };            // a new column starts highest first
+      $('#dtable thead tr').innerHTML = tableHead();
+      $('#dtable tbody').innerHTML = tableBody(DATA);
+      const again = $(`#dtable th button[data-sort="${k}"]`);
+      if (again) again.focus();
+    }
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !dash.hidden) closeDash(); });
+  addEventListener('hashchange', () => { if (location.hash === '#dashboard') openDash(); else closeDash(); });
+
   // ---------- motion ----------
   let io;
   function observeReveals() {
@@ -284,7 +479,7 @@
     const t0 = performance.now(), dur = 1300;
     const step = (t) => {
       const k = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - k, 3);
-      el.textContent = fmt(end * e, dec);
+      el.textContent = fmt(end * e, dec) + (el.dataset.suffix || '');
       if (k < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
@@ -345,7 +540,7 @@
   setInterval(() => document.querySelectorAll('[data-eta]').forEach((el) => { el.textContent = countdown(el.dataset.eta); }), 30e3);
   setInterval(() => load(false).catch(() => {}), 10 * 60e3);
 
-  load(true).catch((e) => {
+  load(true).then(() => { if (location.hash === '#dashboard') openDash(); }).catch((e) => {
     $('#updated').textContent = 'The numbers could not be loaded right now. Try again in a minute.';
     console.error(e);
   });

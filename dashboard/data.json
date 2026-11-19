@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-19T13:40-07:00",
+ "updated": "2026-11-19T14:03-07:00",
  "account": {
   "username": "pixel.knows",
   "name": "Try This Science",
@@ -9,13 +9,13 @@
  },
  "every_h": 2,
  "totals": {
-  "views": 8347,
-  "reach": 6789,
+  "views": 8360,
+  "reach": 6801,
   "likes": 74,
   "comments": 3,
   "shares": 6,
   "saves": 9,
-  "watch_hours": 23.6
+  "watch_hours": 23.7
  },
  "reels": [
   {
@@ -29,7 +29,7 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df6hEEbBOK6/",
    "cover": "covers/ep001_afterimage.png",
    "length_s": 36.0,
-   "age_h": 13.4,
+   "age_h": 13.8,
    "views": 1442,
    "reach": 1193,
    "likes": 11,
@@ -58,7 +58,7 @@
      "views": 1426
     },
     {
-     "h": 13.4,
+     "h": 13.8,
      "reach": 1193,
      "views": 1442
     }
@@ -76,7 +76,7 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df6u09KRwjs/",
    "cover": "covers/ep002_stroop.png",
    "length_s": 32.0,
-   "age_h": 11.5,
+   "age_h": 11.8,
    "views": 1374,
    "reach": 1148,
    "likes": 9,
@@ -100,7 +100,7 @@
      "views": 1370
     },
     {
-     "h": 11.5,
+     "h": 11.8,
      "reach": 1148,
      "views": 1374
     }
@@ -118,7 +118,7 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df68k6tteSE/",
    "cover": "covers/ep003_blindspot.png",
    "length_s": 33.0,
-   "age_h": 9.4,
+   "age_h": 9.8,
    "views": 1417,
    "reach": 1190,
    "likes": 10,
@@ -142,7 +142,7 @@
      "views": 1409
     },
     {
-     "h": 9.4,
+     "h": 9.8,
      "reach": 1190,
      "views": 1417
     }
@@ -160,17 +160,17 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df7KSCeSQQl/",
    "cover": "covers/ep004_spiral.png",
    "length_s": 36.0,
-   "age_h": 7.5,
-   "views": 1115,
-   "reach": 931,
+   "age_h": 7.8,
+   "views": 1126,
+   "reach": 942,
    "likes": 12,
    "comments": 0,
    "shares": 0,
    "saves": 0,
-   "avg_watch_s": 12.17,
+   "avg_watch_s": 12.26,
    "watch_pct": 34,
-   "skip_pct": 50.5,
-   "hold_pct": 49.5,
+   "skip_pct": 50.3,
+   "hold_pct": 49.7,
    "score": null,
    "history": [
     {
@@ -179,9 +179,9 @@
      "views": 998
     },
     {
-     "h": 7.5,
-     "reach": 931,
-     "views": 1115
+     "h": 7.8,
+     "reach": 942,
+     "views": 1126
     }
    ],
    "best": false
@@ -197,7 +197,7 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df7YBwNSJed/",
    "cover": "covers/ep005_shepard.png",
    "length_s": 36.0,
-   "age_h": 5.4,
+   "age_h": 5.8,
    "views": 1464,
    "reach": 1070,
    "likes": 17,
@@ -216,7 +216,7 @@
      "views": 1462
     },
     {
-     "h": 5.4,
+     "h": 5.8,
      "reach": 1070,
      "views": 1464
     }
@@ -234,23 +234,23 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df7lxp5Px04/",
    "cover": "covers/ep007_humnose.png",
    "length_s": 32.0,
-   "age_h": 3.5,
-   "views": 1414,
-   "reach": 1147,
+   "age_h": 3.8,
+   "views": 1416,
+   "reach": 1148,
    "likes": 14,
    "comments": 0,
    "shares": 0,
    "saves": 2,
-   "avg_watch_s": 12.89,
+   "avg_watch_s": 12.88,
    "watch_pct": 40,
    "skip_pct": 37.4,
    "hold_pct": 62.6,
    "score": null,
    "history": [
     {
-     "h": 3.5,
-     "reach": 1147,
-     "views": 1414
+     "h": 3.8,
+     "reach": 1148,
+     "views": 1416
     }
    ],
    "best": false
@@ -266,21 +266,21 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df7ziHlJe_e/",
    "cover": "covers/ep006_scintgrid.png",
    "length_s": 34.0,
-   "age_h": 1.4,
+   "age_h": 1.8,
    "views": 121,
    "reach": 110,
    "likes": 1,
    "comments": 0,
    "shares": 0,
    "saves": 0,
-   "avg_watch_s": 8.94,
-   "watch_pct": 26,
+   "avg_watch_s": 9.25,
+   "watch_pct": 27,
    "skip_pct": 45.9,
    "hold_pct": 54.1,
    "score": null,
    "history": [
     {
-     "h": 1.4,
+     "h": 1.8,
      "reach": 110,
      "views": 121
     }
