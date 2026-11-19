@@ -41,8 +41,8 @@
     stay: '<path d="M6 2h12M6 22h12M7 2v4a5 5 0 0 0 10 0V2M7 22v-4a5 5 0 0 1 10 0v4"/>',
   };
   const ic = (name, cls = '') => `<svg class="${cls}" viewBox="0 0 24 24" aria-hidden="true">${P[name]}</svg>`;
-  const KIND = { screen: 'on-screen illusion', sound: 'sound illusion', body: 'try it with your body' };
-  const KIND_LONG = { screen: 'on-screen illusion', sound: 'sound · headphones on', body: 'try it with your body' };
+  const KIND = { screen: 'on-screen illusion', sound: 'sound illusion', body: 'try it with your body', fact: 'surprising fact', quiz: 'quiz', satisfying: 'satisfying loop', versus: 'size and scale', game: 'play-along game', story: 'true story', relatable: 'relatable skit' };
+  const KIND_LONG = Object.assign({}, KIND, { sound: 'sound · headphones on' });
   const one = (n, a, b) => (n === 1 ? a : b);
   const article = (w) => (/^[aeiou]/i.test(w) ? 'an' : 'a');
 
@@ -403,7 +403,7 @@
         <section class="dcard" aria-labelledby="dc-notes">
           <h3 id="dc-notes">What the numbers say</h3>
           <ul class="dlist">${d.notes.map((n) => `<li><span class="tone ${esc(n.tone)}">${ic({ good: 'trend', info: 'info', watch: 'eye' }[n.tone] || 'info')}</span><span>${esc(n.text)}</span></li>`).join('')}</ul>
-          <p class="foot-note">Stayed past 3 s is 100% minus Instagram's skip rate. Share watched is the average watch time divided by the reel's length. The lab score compares each reel with the reels posted around it at the same age: 40% stayed past 3 s, 40% share watched, 20% reach. 1.00 is typical.</p>
+          <p class="foot-note">Stayed past 3 s is 100% minus Instagram's skip rate. Share watched is the average watch time divided by the reel's length. The lab score is a weighted sum of each reel's rates against the channel's average at the same age, modelled on how Meta ranks reels: shares 24%, stayed past 3 s 22%, share watched 22%, likes 10%, follows 7%, saves 6%, comments 5%, rewatches 4%. Small counts are evened out so one lucky share can't swing it. 1.00 is typical.</p>
         </section>
       </div>`;
     if (!dash.hidden) dash.querySelectorAll('[data-count]').forEach(countUp);
