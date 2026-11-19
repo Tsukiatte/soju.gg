@@ -1,16 +1,16 @@
 {
- "updated": "2026-11-19T14:03-07:00",
+ "updated": "2026-11-19T14:19-07:00",
  "account": {
   "username": "pixel.knows",
   "name": "Try This Science",
   "url": "https://www.instagram.com/pixel.knows/",
   "followers": 1,
-  "posts": 7
+  "posts": 8
  },
  "every_h": 2,
  "totals": {
-  "views": 8360,
-  "reach": 6801,
+  "views": 8362,
+  "reach": 6807,
   "likes": 74,
   "comments": 3,
   "shares": 6,
@@ -29,7 +29,7 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df6hEEbBOK6/",
    "cover": "covers/ep001_afterimage.png",
    "length_s": 36.0,
-   "age_h": 13.8,
+   "age_h": 14.1,
    "views": 1442,
    "reach": 1193,
    "likes": 11,
@@ -40,7 +40,7 @@
    "watch_pct": 33,
    "skip_pct": 54.7,
    "hold_pct": 45.3,
-   "score": 1.0,
+   "score": 0.97,
    "history": [
     {
      "h": 0.6,
@@ -58,7 +58,7 @@
      "views": 1426
     },
     {
-     "h": 13.8,
+     "h": 14.1,
      "reach": 1193,
      "views": 1442
     }
@@ -76,7 +76,7 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df6u09KRwjs/",
    "cover": "covers/ep002_stroop.png",
    "length_s": 32.0,
-   "age_h": 11.8,
+   "age_h": 12.1,
    "views": 1374,
    "reach": 1148,
    "likes": 9,
@@ -87,7 +87,7 @@
    "watch_pct": 26,
    "skip_pct": 56.4,
    "hold_pct": 43.6,
-   "score": 0.88,
+   "score": 0.86,
    "history": [
     {
      "h": 4.0,
@@ -100,7 +100,7 @@
      "views": 1370
     },
     {
-     "h": 11.8,
+     "h": 12.1,
      "reach": 1148,
      "views": 1374
     }
@@ -118,8 +118,8 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df68k6tteSE/",
    "cover": "covers/ep003_blindspot.png",
    "length_s": 33.0,
-   "age_h": 9.8,
-   "views": 1417,
+   "age_h": 10.1,
+   "views": 1418,
    "reach": 1190,
    "likes": 10,
    "comments": 2,
@@ -127,9 +127,9 @@
    "saves": 1,
    "avg_watch_s": 15.04,
    "watch_pct": 46,
-   "skip_pct": 43.0,
-   "hold_pct": 57.0,
-   "score": 1.25,
+   "skip_pct": 42.9,
+   "hold_pct": 57.1,
+   "score": 1.22,
    "history": [
     {
      "h": 4.0,
@@ -142,9 +142,9 @@
      "views": 1409
     },
     {
-     "h": 9.8,
+     "h": 10.1,
      "reach": 1190,
-     "views": 1417
+     "views": 1418
     }
    ],
    "best": true
@@ -160,18 +160,18 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df7KSCeSQQl/",
    "cover": "covers/ep004_spiral.png",
    "length_s": 36.0,
-   "age_h": 7.8,
-   "views": 1126,
-   "reach": 942,
+   "age_h": 8.1,
+   "views": 1127,
+   "reach": 948,
    "likes": 12,
    "comments": 0,
    "shares": 0,
    "saves": 0,
-   "avg_watch_s": 12.26,
+   "avg_watch_s": 12.35,
    "watch_pct": 34,
-   "skip_pct": 50.3,
-   "hold_pct": 49.7,
-   "score": null,
+   "skip_pct": 50.2,
+   "hold_pct": 49.8,
+   "score": 0.99,
    "history": [
     {
      "h": 4.0,
@@ -179,9 +179,14 @@
      "views": 998
     },
     {
-     "h": 7.8,
-     "reach": 942,
+     "h": 8.0,
+     "reach": 948,
      "views": 1126
+    },
+    {
+     "h": 8.1,
+     "reach": 948,
+     "views": 1127
     }
    ],
    "best": false
@@ -197,7 +202,7 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df7YBwNSJed/",
    "cover": "covers/ep005_shepard.png",
    "length_s": 36.0,
-   "age_h": 5.8,
+   "age_h": 6.1,
    "views": 1464,
    "reach": 1070,
    "likes": 17,
@@ -216,7 +221,7 @@
      "views": 1462
     },
     {
-     "h": 5.8,
+     "h": 6.1,
      "reach": 1070,
      "views": 1464
     }
@@ -234,21 +239,26 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df7lxp5Px04/",
    "cover": "covers/ep007_humnose.png",
    "length_s": 32.0,
-   "age_h": 3.8,
+   "age_h": 4.1,
    "views": 1416,
    "reach": 1148,
    "likes": 14,
    "comments": 0,
    "shares": 0,
    "saves": 2,
-   "avg_watch_s": 12.88,
+   "avg_watch_s": 12.87,
    "watch_pct": 40,
    "skip_pct": 37.4,
    "hold_pct": 62.6,
    "score": null,
    "history": [
     {
-     "h": 3.8,
+     "h": 4.0,
+     "reach": 1148,
+     "views": 1416
+    },
+    {
+     "h": 4.1,
      "reach": 1148,
      "views": 1416
     }
@@ -266,7 +276,7 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df7ziHlJe_e/",
    "cover": "covers/ep006_scintgrid.png",
    "length_s": 34.0,
-   "age_h": 1.8,
+   "age_h": 2.1,
    "views": 121,
    "reach": 110,
    "likes": 1,
@@ -280,25 +290,47 @@
    "score": null,
    "history": [
     {
-     "h": 1.8,
+     "h": 2.1,
      "reach": 110,
      "views": 121
+    }
+   ],
+   "best": false
+  },
+  {
+   "id": "ep008_troxler",
+   "n": 8,
+   "topic": "Troxler fading",
+   "type": "screen",
+   "hook": "STARE AT THE CENTRE WATCH THE COLOURS VANISH",
+   "does": "Fixates; blurry blobs fade away",
+   "posted_at": "2026-11-19T14:14:07-07:00",
+   "url": "https://www.instagram.com/pixel.knows/reel/Df8BTkdPA4K/",
+   "cover": "covers/ep008_troxler.png",
+   "length_s": 34.0,
+   "age_h": 0.1,
+   "views": 0,
+   "reach": 0,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saves": 0,
+   "avg_watch_s": 0.0,
+   "watch_pct": null,
+   "skip_pct": 0.0,
+   "hold_pct": 100.0,
+   "score": null,
+   "history": [
+    {
+     "h": 0.1,
+     "reach": 0,
+     "views": 0
     }
    ],
    "best": false
   }
  ],
  "upcoming": [
-  {
-   "id": "ep008_troxler",
-   "topic": "Troxler fading",
-   "type": "screen",
-   "hook": "STARE AT THE CENTRE WATCH THE COLOURS VANISH",
-   "does": "Fixates; blurry blobs fade away",
-   "eta": "2026-11-19T14:14-07:00",
-   "length_s": 34.0,
-   "cover": "covers/ep008_troxler.png"
-  },
   {
    "id": "ep010_drift",
    "topic": "Peripheral drift",
@@ -310,12 +342,22 @@
    "cover": "covers/ep010_drift.png"
   },
   {
+   "id": "ep011_eyedom",
+   "topic": "Eye dominance",
+   "type": "body",
+   "hook": "WHICH EYE DO YOU REALLY USE?",
+   "does": "Triangle-hands test, closes each eye",
+   "eta": "2026-11-19T18:14-07:00",
+   "length_s": 33.5,
+   "cover": "covers/ep011_eyedom.png"
+  },
+  {
    "id": "ep009_tritone",
    "topic": "Tritone paradox",
    "type": "sound",
    "hook": "DOES IT GO UP OR DOWN?",
    "does": "Hears a two-note pair go up or down; others may hear the opposite",
-   "eta": "2026-11-19T18:14-07:00",
+   "eta": "2026-11-19T20:14-07:00",
    "length_s": 36.0,
    "cover": "covers/ep009_tritone.png"
   }
@@ -336,15 +378,15 @@
   },
   {
    "tone": "info",
-   "text": "Compared at the same age, Blind spot has the best lab score so far (1.25)."
+   "text": "Compared at the same age, Blind spot has the best lab score so far (1.22)."
   },
   {
    "tone": "watch",
-   "text": "On average 46% of viewers swipe away in the first 3 seconds. The opening is the part to keep improving."
+   "text": "On average 40% of viewers swipe away in the first 3 seconds. The opening is the part to keep improving."
   },
   {
    "tone": "info",
-   "text": "Instagram tests each new reel on about 1,150 people in its first hours. Reach only keeps growing if that group watches and shares."
+   "text": "Instagram tests each new reel on about 1,140 people in its first hours. Reach only keeps growing if that group watches and shares."
   },
   {
    "tone": "good",
