@@ -1,21 +1,21 @@
 {
- "updated": "2026-11-19T16:14-07:00",
+ "updated": "2026-11-19T18:17-07:00",
  "account": {
   "username": "pixel.knows",
   "name": "Try This Science",
   "url": "https://www.instagram.com/pixel.knows/",
-  "followers": 1,
-  "posts": 8
+  "followers": 2,
+  "posts": 9
  },
  "every_h": 2,
  "totals": {
-  "views": 10115,
-  "reach": 8103,
-  "likes": 94,
+  "views": 10884,
+  "reach": 8629,
+  "likes": 107,
   "comments": 4,
-  "shares": 6,
+  "shares": 8,
   "saves": 9,
-  "watch_hours": 30.7
+  "watch_hours": 34.3
  },
  "reels": [
   {
@@ -29,7 +29,7 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df6hEEbBOK6/",
    "cover": "covers/ep001_afterimage.png",
    "length_s": 36.0,
-   "age_h": 16.0,
+   "age_h": 18.1,
    "views": 1444,
    "reach": 1194,
    "likes": 11,
@@ -40,7 +40,7 @@
    "watch_pct": 33,
    "skip_pct": 54.7,
    "hold_pct": 45.3,
-   "score": 0.98,
+   "score": 0.97,
    "history": [
     {
      "h": 0.6,
@@ -58,7 +58,7 @@
      "views": 1426
     },
     {
-     "h": 16.0,
+     "h": 18.1,
      "reach": 1194,
      "views": 1444
     }
@@ -76,17 +76,17 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df6u09KRwjs/",
    "cover": "covers/ep002_stroop.png",
    "length_s": 32.0,
-   "age_h": 14.0,
-   "views": 1376,
-   "reach": 1148,
+   "age_h": 16.1,
+   "views": 1377,
+   "reach": 1150,
    "likes": 9,
    "comments": 0,
    "shares": 1,
    "saves": 1,
-   "avg_watch_s": 8.2,
+   "avg_watch_s": 8.19,
    "watch_pct": 26,
-   "skip_pct": 56.3,
-   "hold_pct": 43.7,
+   "skip_pct": 56.4,
+   "hold_pct": 43.6,
    "score": 0.86,
    "history": [
     {
@@ -100,9 +100,9 @@
      "views": 1370
     },
     {
-     "h": 14.0,
-     "reach": 1148,
-     "views": 1376
+     "h": 16.1,
+     "reach": 1150,
+     "views": 1377
     }
    ],
    "best": false
@@ -118,18 +118,18 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df68k6tteSE/",
    "cover": "covers/ep003_blindspot.png",
    "length_s": 33.0,
-   "age_h": 12.0,
-   "views": 1421,
-   "reach": 1194,
+   "age_h": 14.1,
+   "views": 1423,
+   "reach": 1196,
    "likes": 10,
    "comments": 2,
    "shares": 1,
    "saves": 1,
    "avg_watch_s": 15.02,
    "watch_pct": 46,
-   "skip_pct": 42.9,
-   "hold_pct": 57.1,
-   "score": 1.07,
+   "skip_pct": 42.8,
+   "hold_pct": 57.2,
+   "score": 1.06,
    "history": [
     {
      "h": 4.0,
@@ -142,9 +142,9 @@
      "views": 1409
     },
     {
-     "h": 12.0,
-     "reach": 1194,
-     "views": 1421
+     "h": 14.1,
+     "reach": 1196,
+     "views": 1423
     }
    ],
    "best": false
@@ -160,18 +160,18 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df7KSCeSQQl/",
    "cover": "covers/ep004_spiral.png",
    "length_s": 36.0,
-   "age_h": 10.0,
-   "views": 1201,
+   "age_h": 12.1,
+   "views": 1206,
    "reach": 1013,
-   "likes": 17,
+   "likes": 18,
    "comments": 0,
    "shares": 0,
    "saves": 0,
-   "avg_watch_s": 12.7,
+   "avg_watch_s": 12.74,
    "watch_pct": 35,
    "skip_pct": 49.8,
    "hold_pct": 50.2,
-   "score": 0.95,
+   "score": 0.94,
    "history": [
     {
      "h": 4.0,
@@ -184,9 +184,9 @@
      "views": 1126
     },
     {
-     "h": 10.0,
+     "h": 12.1,
      "reach": 1013,
-     "views": 1201
+     "views": 1206
     }
    ],
    "best": false
@@ -202,18 +202,18 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df7YBwNSJed/",
    "cover": "covers/ep005_shepard.png",
    "length_s": 36.0,
-   "age_h": 8.0,
-   "views": 1466,
-   "reach": 1072,
+   "age_h": 10.1,
+   "views": 1470,
+   "reach": 1076,
    "likes": 17,
    "comments": 0,
    "shares": 1,
    "saves": 4,
-   "avg_watch_s": 15.52,
+   "avg_watch_s": 15.49,
    "watch_pct": 43,
-   "skip_pct": 35.0,
-   "hold_pct": 65.0,
-   "score": 1.14,
+   "skip_pct": 35.2,
+   "hold_pct": 64.8,
+   "score": 1.13,
    "history": [
     {
      "h": 4.0,
@@ -226,9 +226,9 @@
      "views": 1466
     },
     {
-     "h": 8.0,
-     "reach": 1072,
-     "views": 1466
+     "h": 10.1,
+     "reach": 1076,
+     "views": 1470
     }
    ],
    "best": true
@@ -244,18 +244,18 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df7lxp5Px04/",
    "cover": "covers/ep007_humnose.png",
    "length_s": 32.0,
-   "age_h": 6.0,
-   "views": 1417,
+   "age_h": 8.1,
+   "views": 1420,
    "reach": 1150,
    "likes": 14,
    "comments": 0,
    "shares": 0,
    "saves": 2,
-   "avg_watch_s": 12.88,
+   "avg_watch_s": 12.9,
    "watch_pct": 40,
    "skip_pct": 37.3,
    "hold_pct": 62.7,
-   "score": null,
+   "score": 1.04,
    "history": [
     {
      "h": 4.0,
@@ -263,9 +263,14 @@
      "views": 1416
     },
     {
-     "h": 6.0,
+     "h": 8.0,
      "reach": 1150,
-     "views": 1417
+     "views": 1420
+    },
+    {
+     "h": 8.1,
+     "reach": 1150,
+     "views": 1420
     }
    ],
    "best": false
@@ -281,14 +286,14 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df7ziHlJe_e/",
    "cover": "covers/ep006_scintgrid.png",
    "length_s": 34.0,
-   "age_h": 4.0,
+   "age_h": 6.1,
    "views": 122,
    "reach": 111,
    "likes": 1,
    "comments": 0,
    "shares": 0,
    "saves": 0,
-   "avg_watch_s": 9.34,
+   "avg_watch_s": 9.27,
    "watch_pct": 27,
    "skip_pct": 45.5,
    "hold_pct": 54.5,
@@ -300,7 +305,7 @@
      "views": 122
     },
     {
-     "h": 4.0,
+     "h": 6.1,
      "reach": 111,
      "views": 122
     }
@@ -318,39 +323,66 @@
    "url": "https://www.instagram.com/pixel.knows/reel/Df8BTkdPA4K/",
    "cover": "covers/ep008_troxler.png",
    "length_s": 34.0,
-   "age_h": 2.0,
-   "views": 1668,
-   "reach": 1221,
-   "likes": 15,
+   "age_h": 4.1,
+   "views": 2422,
+   "reach": 1739,
+   "likes": 27,
    "comments": 1,
-   "shares": 0,
+   "shares": 2,
    "saves": 0,
-   "avg_watch_s": 19.57,
-   "watch_pct": 58,
-   "skip_pct": 36.9,
-   "hold_pct": 63.1,
+   "avg_watch_s": 21.11,
+   "watch_pct": 62,
+   "skip_pct": 35.6,
+   "hold_pct": 64.4,
    "score": null,
    "history": [
     {
-     "h": 2.0,
-     "reach": 1221,
-     "views": 1668
+     "h": 4.0,
+     "reach": 1739,
+     "views": 2416
+    },
+    {
+     "h": 4.1,
+     "reach": 1739,
+     "views": 2422
+    }
+   ],
+   "best": false
+  },
+  {
+   "id": "ep009_tritone",
+   "n": 9,
+   "topic": "Tritone paradox",
+   "type": "sound",
+   "hook": "DOES IT GO UP OR DOWN?",
+   "does": "Hears a two-note pair go up or down; others may hear the opposite",
+   "posted_at": "2026-11-19T18:14:51-07:00",
+   "url": "https://www.instagram.com/pixel.knows/reel/Df8cy94h7ja/",
+   "cover": "covers/ep009_tritone.png",
+   "length_s": 36.0,
+   "age_h": 0.0,
+   "views": 0,
+   "reach": 0,
+   "likes": 0,
+   "comments": 0,
+   "shares": 0,
+   "saves": 0,
+   "avg_watch_s": 0.0,
+   "watch_pct": null,
+   "skip_pct": 0.0,
+   "hold_pct": 100.0,
+   "score": null,
+   "history": [
+    {
+     "h": 0.0,
+     "reach": 0,
+     "views": 0
     }
    ],
    "best": false
   }
  ],
  "upcoming": [
-  {
-   "id": "ep009_tritone",
-   "topic": "Tritone paradox",
-   "type": "sound",
-   "hook": "DOES IT GO UP OR DOWN?",
-   "does": "Hears a two-note pair go up or down; others may hear the opposite",
-   "eta": "2026-11-19T18:14-07:00",
-   "length_s": 36.0,
-   "cover": "covers/ep009_tritone.png"
-  },
   {
    "id": "ep011_eyedom",
    "topic": "Eye dominance",
@@ -370,6 +402,16 @@
    "eta": "2026-11-19T22:14-07:00",
    "length_s": 32.5,
    "cover": "covers/ep010_drift.png"
+  },
+  {
+   "id": "ep012_lilac",
+   "topic": "Lilac chaser",
+   "type": "screen",
+   "hook": "STARE AT THE CENTRE THE PINK WILL VANISH",
+   "does": "Fixates; a green dot appears to race round and the pink fades (afterimage + Troxler)",
+   "eta": "2026-11-20T00:14-07:00",
+   "length_s": 28.0,
+   "cover": "covers/ep012_lilac.png"
   }
  ],
  "next_build": {
@@ -388,15 +430,15 @@
   },
   {
    "tone": "info",
-   "text": "Compared at the same age, Shepard tone has the best lab score so far (1.14)."
+   "text": "Compared at the same age, Shepard tone has the best lab score so far (1.13)."
   },
   {
    "tone": "watch",
-   "text": "On average 45% of viewers swipe away in the first 3 seconds. The opening is the part to keep improving."
+   "text": "On average 40% of viewers swipe away in the first 3 seconds. The opening is the part to keep improving."
   },
   {
    "tone": "info",
-   "text": "Instagram tests each new reel on about 1,150 people in its first hours. Reach only keeps growing if that group watches and shares."
+   "text": "Instagram tests each new reel on about 1,140 people in its first hours. Reach only keeps growing if that group watches and shares."
   },
   {
    "tone": "good",
