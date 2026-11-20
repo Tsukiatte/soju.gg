@@ -1,5 +1,8 @@
-/* The Lab Report: renders data.json (written every 2 hours by studio/dashboard.py) into the page
-   and runs the motion: sliding layers, glints, the chat in the phone, parallax, reveals. */
+/* The Lab Report: renders the numbers (data.enc.json, AES-256-GCM, written every 2 hours by studio/dashboard.py)
+   into the page after the owner unlocks it, and runs the motion: sliding layers, glints, the chat in the
+   phone, parallax, reveals. Until unlocked the page shows only the lock screen and holds no numbers.
+   Key: pk = PBKDF2-SHA256(passphrase, salt); mode "pass" uses pk, mode "pass+totp" uses SHA-256(pk || share),
+   where the share comes from the unlock worker for a valid authenticator code. */
 (() => {
   'use strict';
   const $ = (s, el = document) => el.querySelector(s);
@@ -46,26 +49,144 @@
   const one = (n, a, b) => (n === 1 ? a : b);
   const article = (w) => (/^[aeiou]/i.test(w) ? 'an' : 'a');
 
-  // ---------- data ----------
-  async function load(first) {
-    const [d, m] = await Promise.all([
-      fetch('data.json?t=' + Date.now(), { cache: 'no-store' }).then((r) => r.json()),
-      META ? Promise.resolve(META) : fetch('art/hero.json').then((r) => r.json()),
-    ]);
-    META = m;
-    if (!first && DATA && DATA.updated === d.updated) return;
-    DATA = d;
-    render(d, first);
+  // ---------- unlock ----------
+  const root = document.documentElement, SK = 'labkey';
+  let ENV = null, KEY = null;
+  const b64d = (s) => Uint8Array.from(atob(s), (c) => c.charCodeAt(0));
+  const b64e = (u) => btoa(String.fromCharCode(...u));
+  const subtle = () => { if (!window.crypto || !crypto.subtle) throw new Error('secure'); return crypto.subtle; };
+  const store = {
+    get() { try { return sessionStorage.getItem(SK); } catch (e) { return null; } },
+    set(v) { try { sessionStorage.setItem(SK, v); } catch (e) { /* private window: just ask again after a reload */ } },
+    del() { try { sessionStorage.removeItem(SK); } catch (e) { /* nothing stored */ } },
+  };
+  class Fail extends Error {}
+  async function fetchEnv() {
+    const r = await fetch('data.enc.json?t=' + Date.now(), { cache: 'no-store' });
+    if (!r.ok) throw new Error('http ' + r.status);
+    return r.json();
+  }
+  async function decrypt(env, raw) {
+    const k = await subtle().importKey('raw', raw, 'AES-GCM', false, ['decrypt']);
+    const pt = await subtle().decrypt({ name: 'AES-GCM', iv: b64d(env.iv) }, k, b64d(env.ct));
+    return JSON.parse(new TextDecoder().decode(pt));
+  }
+  async function deriveKey(env, pass, code) {
+    const base = await subtle().importKey('raw', new TextEncoder().encode(pass), 'PBKDF2', false, ['deriveBits']);
+    const pk = new Uint8Array(await subtle().deriveBits({ name: 'PBKDF2', hash: 'SHA-256', salt: b64d(env.salt), iterations: env.iter }, base, 256));
+    if (env.mode !== 'pass+totp') return pk;
+    let r;
+    try {
+      r = await fetch(env.unlock, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ code }) });
+    } catch (e) { throw new Fail('Could not reach the unlock service. Check your connection and try again.'); }
+    if (r.status === 429) throw new Fail('Too many wrong codes. Wait 10 minutes and try again.');
+    if (r.status === 401) {
+      const left = (await r.json().catch(() => ({}))).left;
+      throw new Fail('That code did not work. Use the current 6 digits from Google Authenticator.' + (left != null ? ` ${left} ${left === 1 ? 'try' : 'tries'} left.` : ''));
+    }
+    if (!r.ok) throw new Fail('The unlock service had a problem. Try again in a minute.');
+    const share = b64d((await r.json()).share);
+    const cat = new Uint8Array(pk.length + share.length);
+    cat.set(pk);
+    cat.set(share, pk.length);
+    return new Uint8Array(await subtle().digest('SHA-256', cat));
   }
 
-  function render(d, first) {
+  function showLock(env) {
+    const code = $('#lock-code');
+    code.hidden = env.mode !== 'pass+totp';
+    $('#lock-sub').textContent = env.mode === 'pass+totp' ? 'Type your passphrase and the code from Google Authenticator.' : 'Type your passphrase to open the report.';
+    $('#lock').hidden = false;
+    const pass = $('#lock-pass');
+    pass.value = code.value = '';
+    pass.focus({ preventScroll: true });
+  }
+  function lockError(msg) {
+    const card = $('#lock-form');
+    $('#lock-err').textContent = msg;
+    card.classList.remove('shake');
+    void card.offsetWidth;
+    card.classList.add('shake');
+  }
+  $('#lock-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!ENV) return;
+    const pass = $('#lock-pass').value.trim(), code = $('#lock-code').value.replace(/\s/g, '');
+    const go = $('#lock-go');
+    $('#lock-err').textContent = '';
+    if (!pass) { lockError('Type your passphrase first.'); $('#lock-pass').focus(); return; }
+    if (ENV.mode === 'pass+totp' && !/^\d{6}$/.test(code)) { lockError('Type the 6-digit code from Google Authenticator.'); $('#lock-code').focus(); return; }
+    go.disabled = true;
+    go.textContent = 'Unlocking…';
+    try {
+      const raw = await deriveKey(ENV, pass, code);
+      let d;
+      try { d = await decrypt(ENV, raw); } catch (err) { throw new Fail('That passphrase is not right. Try again.'); }
+      KEY = raw;
+      store.set(b64e(raw));
+      $('#lock-pass').value = $('#lock-code').value = '';
+      go.disabled = false;
+      go.textContent = 'Unlock';
+      await unlocked(d, true);
+    } catch (err) {
+      lockError(err instanceof Fail ? err.message : /secure/.test(err.message) ? 'This page needs a secure (https) connection to unlock.' : 'Something went wrong. Reload the page and try again.');
+      go.disabled = false;
+      go.textContent = 'Unlock';
+      $('#lock-pass').select();
+    }
+  });
+  function relock() {
+    store.del();
+    KEY = null;
+    DATA = null;
+    location.reload();
+  }
+  $('#lock-btn').addEventListener('click', relock);
+
+  async function unlocked(d, first) {
+    root.classList.remove('locked');
+    $('#lock').hidden = true;
+    DATA = d;
+    render(d, first);
+    if (location.hash === '#dashboard') openDash();
+  }
+
+  // ---------- data ----------
+  // refresh while open: fetch the newest envelope and open it with the key already held
+  async function refresh() {
+    if (!KEY) return;
+    const env = await fetchEnv();
+    let d;
+    try { d = await decrypt(env, KEY); } catch (e) { relock(); return; }
+    ENV = env;
+    if (DATA && DATA.updated === d.updated) return;
+    DATA = d;
+    render(d, false);
+  }
+  async function start() {
+    META = await fetch('art/hero.json').then((r) => r.json());
+    heroInit();
+    ENV = await fetchEnv();
+    const saved = store.get();
+    if (saved) {
+      try { KEY = b64d(saved); await unlocked(await decrypt(ENV, KEY), true); return; } catch (e) { KEY = null; store.del(); }
+    }
+    showLock(ENV);
+  }
+
+  let heroReady = false;
+  function heroInit() {                       // the sky, bridge and title are shown on the lock screen too
     hero.style.setProperty('--pw', META.photo_w);
     hero.style.setProperty('--ph', META.plate_h);
     hero.style.setProperty('--rw', META.rail_w);
     hero.style.setProperty('--rh', META.rail_h);
-    $('#live').innerHTML = `<i aria-hidden="true"></i><span>Live</span><span class="when">updated ${time(d.updated)}</span>`;
-    if (first) { splitTitle(); }
+    if (!heroReady) { heroReady = true; splitTitle(); }
     placeGlints();
+  }
+
+  function render(d, first) {
+    heroInit();
+    $('#live').innerHTML = `<i aria-hidden="true"></i><span>Live</span><span class="when">updated ${time(d.updated)}</span>`;
     renderChips(d);
     renderNumbers(d);
     renderReels(d);
@@ -412,7 +533,7 @@
   const dash = $('#dash');
   let lastFocus = null, closeTimer = 0;
   function openDash() {
-    if (dash.classList.contains('open')) return;
+    if (root.classList.contains('locked') || dash.classList.contains('open')) return;
     clearTimeout(closeTimer);
     lastFocus = document.activeElement;
     dash.hidden = false;
@@ -535,13 +656,15 @@
   let rz;
   addEventListener('resize', () => {
     clearTimeout(rz);
-    rz = setTimeout(() => { if (DATA && META) { placeGlints(); renderChips(DATA); } }, 150);
+    rz = setTimeout(() => { if (META) { placeGlints(); if (DATA) renderChips(DATA); } }, 150);
   });
   setInterval(() => document.querySelectorAll('[data-eta]').forEach((el) => { el.textContent = countdown(el.dataset.eta); }), 30e3);
-  setInterval(() => load(false).catch(() => {}), 10 * 60e3);
+  setInterval(() => refresh().catch(() => {}), 10 * 60e3);
 
-  load(true).then(() => { if (location.hash === '#dashboard') openDash(); }).catch((e) => {
-    $('#updated').textContent = 'The numbers could not be loaded right now. Try again in a minute.';
+  start().catch((e) => {
+    $('#lock-sub').textContent = 'The page could not load right now. Try again in a minute.';
+    $('#lock').hidden = false;
+    $('#lock-go').disabled = true;
     console.error(e);
   });
 })();

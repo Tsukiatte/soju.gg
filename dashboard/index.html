@@ -1,13 +1,14 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="locked">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>The Lab Report · @pixel.knows</title>
-<meta name="description" content="Live stats for Try This Science (@pixel.knows): every reel's reach, skip rate and watch time, updated every 2 hours.">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="description" content="Private page.">
 <meta name="theme-color" content="#94bcf9">
 <meta property="og:title" content="The Lab Report · @pixel.knows">
-<meta property="og:description" content="Live stats for the pixel science channel, updated every 2 hours.">
+<meta property="og:description" content="Private page.">
 <link rel="icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,6 +23,9 @@
   </a>
   <div class="top-right">
     <span class="live" id="live"><i aria-hidden="true"></i><span>Live</span></span>
+    <button class="pill-link ghost lock-btn" type="button" id="lock-btn" aria-label="Lock the dashboard">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg><span class="lbl">Lock</span>
+    </button>
     <button class="btn-dash" type="button" data-open-dash aria-haspopup="dialog" aria-controls="dash">
       <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>Dashboard
     </button>
@@ -67,6 +71,20 @@
     <div class="vignette" aria-hidden="true"></div>
     <div class="depth d-chips-front" aria-hidden="true" id="chips-front"></div>
     <div class="dots" aria-hidden="true"></div>
+
+    <div class="lock" id="lock" hidden>
+      <form class="lock-card" id="lock-form" autocomplete="off" novalidate>
+        <span class="lock-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+        <h2>private lab</h2>
+        <p class="lock-sub" id="lock-sub">Type your passphrase to open the report.</p>
+        <label class="sr" for="lock-pass">Passphrase</label>
+        <input id="lock-pass" type="password" placeholder="Passphrase" autocomplete="current-password" autocapitalize="off" spellcheck="false">
+        <label class="sr" for="lock-code">Authenticator code</label>
+        <input id="lock-code" type="text" inputmode="numeric" pattern="[0-9 ]*" maxlength="7" placeholder="6-digit code" autocomplete="one-time-code" hidden>
+        <button class="cta lock-go" id="lock-go" type="submit">Unlock</button>
+        <p class="lock-err" id="lock-err" role="alert" aria-live="assertive"></p>
+      </form>
+    </div>
 
     <div class="cta-row">
       <button class="cta" type="button" data-open-dash aria-haspopup="dialog" aria-controls="dash">
