@@ -82,7 +82,7 @@ async function startLive(reel) {
 
   function fit() {                                      // cols/rows follow the window width so letters stay readable
     const w = canvas.parentElement.clientWidth || 560;
-    cols = Math.max(56, Math.min(104, Math.round(w / 5.6)));
+    cols = Math.max(80, Math.min(124, Math.round(w / 3.7)));
     rows = Math.round(cols * 0.4);
     dpr = Math.min(2, window.devicePixelRatio || 1);
     canvas.width = Math.round(w * dpr);
@@ -97,7 +97,7 @@ async function startLive(reel) {
 
   const draw = (t) => {
     const v = { ...sc.view(t) };
-    v.focal *= Math.min(1.5, 1.45 * canvas.width / canvas.height); v.horizon = 0.5;                                     // the reel is 9:16, this window is wider: fill it
+    v.focal *= Math.min(1.95, 1.45 * canvas.width / canvas.height); v.horizon = 0.5;                                     // the reel is 9:16, this window is wider: fill it
     const g = render(cloud, v, cols, rows, CELL, sc.extras ? sc.extras(t) : []);
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -126,15 +126,15 @@ async function startLive(reel) {
     ctx.globalCompositeOperation = "lighter";           // bloom on the lights
     for (const k of glows) {
       const cx = (k % cols) * CELL[0] + CELL[0] / 2, cy = Math.floor(k / cols) * CELL[1] + CELL[1] / 2;
-      const rg = ctx.createRadialGradient(cx, cy, 0, cx, cy, 20);
+      const rg = ctx.createRadialGradient(cx, cy, 0, cx, cy, 9);
       const r = g.rgb[3 * k], gg = g.rgb[3 * k + 1], b = g.rgb[3 * k + 2];
-      rg.addColorStop(0, `rgba(${r},${gg},${b},.55)`); rg.addColorStop(1, `rgba(${r},${gg},${b},0)`);
-      ctx.fillStyle = rg; ctx.fillRect(cx - 20, cy - 20, 40, 40);
+      rg.addColorStop(0, `rgba(${r},${gg},${b},.6)`); rg.addColorStop(1, `rgba(${r},${gg},${b},0)`);
+      ctx.fillStyle = rg; ctx.fillRect(cx - 9, cy - 9, 18, 18);
     }
     ctx.setTransform(1, 0, 0, 1, 0, 0);                 // and a soft glow on everything, as in the reel
     sctx.clearRect(0, 0, small.width, small.height);
     sctx.drawImage(canvas, 0, 0, small.width, small.height);
-    ctx.globalAlpha = 0.5;
+    ctx.globalAlpha = 0.22;
     ctx.drawImage(small, 0, 0, canvas.width, canvas.height);
     ctx.globalAlpha = 1; ctx.globalCompositeOperation = "source-over";
     countEl.textContent = `${g.letters.toLocaleString("en-US")} letters`;
@@ -199,6 +199,7 @@ function renderCards() {
         ${r.url ? `<a href="${esc(r.url)}" target="_blank" rel="noopener">Watch on Instagram</a>` : `<span class="soon">coming soon</span>`}
       </div>
     </article>`).join("");
+  if (REELS.length < 3) $("#cards").insertAdjacentHTML("beforeend", `<article class="card next" aria-label="The next reel is on its way"><span class="cover"><span class="none">next reel<br>coming soon<br><i class="blink">_</i></span></span><span class="cap"><b>What's next?</b><i>A new model, drawn in letters</i></span></article>`);
   document.querySelectorAll(".card .pick").forEach((b) => b.addEventListener("click", () => {
     select(REELS.find((r) => r.id === b.closest(".card").dataset.id), true);
   }));
@@ -207,7 +208,7 @@ function renderCards() {
 let tabFiles = [], tabIdx = 0, curText = "";
 async function select(reel, scroll) {
   sel = reel;
-  document.querySelectorAll(".card").forEach((c) => {
+  document.querySelectorAll(".card:not(.next)").forEach((c) => {
     const on = c.dataset.id === reel.id;
     c.classList.toggle("sel", on); c.querySelector(".pick").setAttribute("aria-pressed", on);
   });
