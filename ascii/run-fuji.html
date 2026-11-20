@@ -1,0 +1,95 @@
+<!doctype html>
+<!-- run.html: draws an asciiwizard scene full-window.
+     Folder layout:  run.html  engine/ascii.js  scenes/<scene>.js
+     Serve the folder (python -m http.server 8000, or npx serve) and open http://localhost:8000/run.html
+     Add ?scene=name to pick another scene file from scenes/. Press P to pause. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>asciiwizard · run</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+  html, body { margin: 0; height: 100%; background: #070914; overflow: hidden; }
+  canvas { position: fixed; inset: 0; width: 100%; height: 100%; display: block; }
+  #hud { position: fixed; left: 14px; bottom: 12px; color: #ff9db5; font: 500 13px/1.4 "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace; text-shadow: 0 1px 6px #000; pointer-events: none; }
+  #err { position: fixed; inset: 0; display: none; place-items: center; padding: 24px; text-align: center; color: #cfd6f5; font: 500 15px/1.5 "IBM Plex Mono", monospace; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<div id="hud"></div>
+<div id="err"></div>
+<script type="module">
+import { render, RAMP } from "./engine/ascii.js";
+
+const name = new URLSearchParams(location.search).get("scene") || "fuji";
+const canvas = document.getElementById("c"), hud = document.getElementById("hud"), ctx = canvas.getContext("2d");
+let sc;
+try { sc = await import(`./scenes/${name}.js`); }
+catch (e) {
+  const err = document.getElementById("err"); err.style.display = "grid";
+  err.innerHTML = "Could not load scenes/" + name + ".js<br>Module scripts need a local server: run <b>python -m http.server 8000</b> in this folder and open http://localhost:8000/run.html";
+  throw e;
+}
+await document.fonts.load('600 15px "IBM Plex Mono"').catch(() => {});
+
+const cloud = sc.build(), D = sc.meta.duration;
+const CELL = [9, 16];
+let cols, rows, scale, sky;
+function fit() {                                          // about 110 columns across, any window shape
+  const dpr = Math.min(2, devicePixelRatio || 1);
+  const w = innerWidth, h = innerHeight;
+  const cw = Math.max(8, w / 110);                        // css px per cell, width
+  cols = Math.ceil(w / cw); rows = Math.ceil(h / (cw * CELL[1] / CELL[0]));
+  canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+  scale = canvas.width / (cols * CELL[0]);                // grid units -> device px (a hair of stretch is fine)
+}
+fit(); addEventListener("resize", fit);
+
+let paused = false, tm = 0, prev = performance.now(), last = 0;
+addEventListener("keydown", (e) => { if (e.key === "p" || e.key === "P") paused = !paused; });
+function frame(now) {
+  requestAnimationFrame(frame);
+  if (document.hidden || now - last < 1000 / 30 - 2) { prev = now; return; }
+  last = now;
+  if (!paused) tm += Math.min(0.1, (now - prev) / 1000);
+  prev = now;
+  const t = tm % D;
+  const v = { ...sc.view(t) };
+  v.focal *= Math.min(1.7, 1.45 * canvas.width / canvas.height);   // fill wide windows, fit tall ones
+  const g = render(cloud, v, cols, rows, CELL, sc.extras ? sc.extras(t) : []);
+  const dusk = v.dusk ?? 0.5, [a, b, c] = sc.meta.sky || ["#0b1430", "#2a3a6e", "#c98aa0"];
+  const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
+  grad.addColorStop(0, a); grad.addColorStop(0.55, b); grad.addColorStop(1, c);
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.globalCompositeOperation = "source-over";
+  ctx.fillStyle = grad; ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = `rgba(6,10,30,${0.25 + 0.5 * dusk})`; ctx.fillRect(0, 0, canvas.width, canvas.height);   // night comes with dusk
+  ctx.setTransform(scale, 0, 0, scale, 0, 0);
+  ctx.font = '600 15px "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace';
+  ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+  const glows = [];
+  for (let r = 0, k = 0; r < rows; r++) for (let c2 = 0; c2 < cols; c2++, k++) {
+    const ch = g.ch[k]; if (!ch) continue;
+    ctx.fillStyle = `rgb(${g.rgb[3 * k]},${g.rgb[3 * k + 1]},${g.rgb[3 * k + 2]})`;
+    ctx.fillText(RAMP[ch], c2 * CELL[0] + CELL[0] / 2, r * CELL[1] + 15);
+    if (g.glow[k]) glows.push(k);
+  }
+  ctx.globalCompositeOperation = "lighter";
+  for (const k of glows) {
+    const cx = (k % cols) * CELL[0] + 4.5, cy = Math.floor(k / cols) * CELL[1] + 8;
+    const rg = ctx.createRadialGradient(cx, cy, 0, cx, cy, 20), col = `${g.rgb[3 * k]},${g.rgb[3 * k + 1]},${g.rgb[3 * k + 2]}`;
+    rg.addColorStop(0, `rgba(${col},.55)`); rg.addColorStop(1, `rgba(${col},0)`);
+    ctx.fillStyle = rg; ctx.fillRect(cx - 20, cy - 20, 40, 40);
+  }
+  hud.textContent = `${sc.meta.title} · ${g.letters.toLocaleString("en-US")} letters · ${name}.js · P to pause`;
+  window.__frames = (window.__frames || 0) + 1;
+}
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

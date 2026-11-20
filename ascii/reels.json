@@ -1,0 +1,25 @@
+{
+ "updated": "2026-11-20T14:11:38-07:00",
+ "profile": "https://www.instagram.com/asciiwizard/",
+ "reels": [
+  {
+   "id": "aw001_fuji",
+   "title": "MOUNT FUJI",
+   "sub": "drawn with letters only",
+   "scene": "fuji",
+   "file": "scenes/fuji.js",
+   "zip": "zips/asciiwizard-fuji.zip",
+   "cover": "covers/aw001_fuji.webp",
+   "posted": null,
+   "url": null,
+   "status": "ready",
+   "accent": "#ff9db5",
+   "sky": [
+    "#0b1430",
+    "#2a3a6e",
+    "#c98aa0"
+   ],
+   "duration": 24
+  }
+ ]
+}
