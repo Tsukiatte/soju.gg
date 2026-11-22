@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-20T14:18:36-07:00",
+ "updated": "2026-11-22T11:51:24-07:00",
  "profile": "https://www.instagram.com/asciiwizard/",
  "reels": [
   {
@@ -10,16 +10,16 @@
    "file": "scenes/fuji.js",
    "zip": "zips/asciiwizard-fuji.zip",
    "cover": "covers/aw001_fuji.webp",
-   "posted": null,
-   "url": null,
-   "status": "ready",
-   "accent": "#ff9db5",
+   "posted": "2026-11-22",
+   "url": "https://www.instagram.com/reel/DgDfR-HpUud/",
+   "status": "posted",
+   "accent": "#ff8fc0",
    "sky": [
-    "#0b1430",
-    "#2a3a6e",
-    "#c98aa0"
+    "#03050f",
+    "#0b1030",
+    "#1c1546"
    ],
-   "duration": 24
+   "duration": 25.046
   }
  ]
 }
