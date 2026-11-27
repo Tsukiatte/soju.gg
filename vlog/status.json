@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T16:32:49-07:00",
+ "updated": "2026-11-27T16:44:03-07:00",
  "title": "Japan vlog",
  "headline": "All sections cut; review + sound-design passes running, PS2 intro round 2 rendering",
  "overall_pct": 79,
@@ -231,6 +231,10 @@
   }
  ],
  "log": [
+  {
+   "t": "16:44",
+   "msg": "Full-film test render OK: 13:01 runtime, clean peaks, interview placeholders and credits in place. Waiting on last reviews + sound passes"
+  },
   {
    "t": "16:19",
    "msg": "PS2 intro round 2 adopted (smooth globe, full-screen game footage, readable character select; timing and audio identical)"
