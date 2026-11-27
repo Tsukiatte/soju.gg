@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T16:00:30-07:00",
+ "updated": "2026-11-27T16:00:32-07:00",
  "title": "Japan vlog",
  "headline": "All sections cut; review + sound-design passes running, PS2 intro round 2 rendering",
  "overall_pct": 74,
@@ -231,6 +231,10 @@
   }
  ],
  "log": [
+  {
+   "t": "16:00",
+   "msg": "Village + lakeside ending approved; sound design mixed on 4 sections (all stems active, loudness on target)"
+  },
   {
    "t": "15:46",
    "msg": "All 13 sections have a first cut (13.0 min incl. placeholders). Premiere timeline XML exports and validates: 618 clips, titles on V2, 4 stereo stems"
