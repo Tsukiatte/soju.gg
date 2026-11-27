@@ -1,23 +1,259 @@
 {
-  "updated": "2026-11-27T14:07:03-07:00",
-  "title": "Japan vlog",
-  "headline": "Cataloguing footage and building tools",
-  "overall_pct": 18,
-  "phase": "Ingest",
-  "steps": [
-    {"name": "Ingest 600 clips", "state": "done", "detail": "108 min, contact sheets built"},
-    {"name": "Catalogue footage", "state": "active", "detail": "6 of 10 batches"},
-    {"name": "Build sections", "state": "pending", "detail": ""}
-  ],
-  "sections": [
-    {"id": "s00", "name": "PS2 intro", "state": "building", "detail": "re-render in progress", "seconds": 36},
-    {"id": "s01", "name": "Hype recap", "state": "pending", "detail": "", "seconds": null}
-  ],
-  "workers": [
-    {"name": "Beat maps", "state": "running", "detail": "12 songs"},
-    {"name": "Sound effects", "state": "done", "detail": ""}
-  ],
-  "log": [
-    {"t": "13:44", "msg": "Fixed worker sandbox so jobs can run Python"}
-  ]
+ "updated": "2026-11-27T14:08:24-07:00",
+ "title": "Japan vlog",
+ "headline": "Cataloguing footage and building the edit tools",
+ "overall_pct": 20,
+ "phase": "Ingest + tooling",
+ "steps": [
+  {
+   "name": "Ingest 600 clips",
+   "state": "done",
+   "detail": "108 min of footage, contact sheets + metrics"
+  },
+  {
+   "name": "Catalogue every clip",
+   "state": "done",
+   "detail": "10 of 10 batches"
+  },
+  {
+   "name": "Build tools",
+   "state": "active",
+   "detail": "3 of 6 ready"
+  },
+  {
+   "name": "Songs + style references",
+   "state": "done",
+   "detail": "12 songs, 8 references"
+  },
+  {
+   "name": "PS2 intro",
+   "state": "active",
+   "detail": "re-rendering"
+  },
+  {
+   "name": "Cut the sections",
+   "state": "pending",
+   "detail": "0 of 14 rendered"
+  },
+  {
+   "name": "Sound design + mix",
+   "state": "pending",
+   "detail": ""
+  },
+  {
+   "name": "Assemble in Premiere",
+   "state": "pending",
+   "detail": ""
+  },
+  {
+   "name": "Review pass",
+   "state": "pending",
+   "detail": ""
+  }
+ ],
+ "sections": [
+  {
+   "id": "s00",
+   "name": "PS2 intro",
+   "state": "pending",
+   "detail": "",
+   "seconds": null
+  },
+  {
+   "id": "s01",
+   "name": "Hype recap",
+   "state": "pending",
+   "detail": "",
+   "seconds": null
+  },
+  {
+   "id": "s02",
+   "name": "Airport ASMR",
+   "state": "pending",
+   "detail": "",
+   "seconds": null
+  },
+  {
+   "id": "s03",
+   "name": "Departure",
+   "state": "pending",
+   "detail": "",
+   "seconds": null
+  },
+  {
+   "id": "gap1",
+   "name": "Interview 1",
+   "state": "gap",
+   "detail": "placeholder for your recording",
+   "seconds": null
+  },
+  {
+   "id": "s04",
+   "name": "Next station: Shibuya",
+   "state": "pending",
+   "detail": "",
+   "seconds": null
+  },
+  {
+   "id": "gap2",
+   "name": "Interview 2",
+   "state": "gap",
+   "detail": "placeholder for your recording",
+   "seconds": null
+  },
+  {
+   "id": "s05",
+   "name": "Road to Kamakura",
+   "state": "pending",
+   "detail": "",
+   "seconds": null
+  },
+  {
+   "id": "gap3",
+   "name": "Interview 3",
+   "state": "gap",
+   "detail": "placeholder for your recording",
+   "seconds": null
+  },
+  {
+   "id": "s06",
+   "name": "Kamakura",
+   "state": "pending",
+   "detail": "",
+   "seconds": null
+  },
+  {
+   "id": "s07",
+   "name": "Kamakura at night",
+   "state": "pending",
+   "detail": "",
+   "seconds": null
+  },
+  {
+   "id": "gap4",
+   "name": "Interview 4",
+   "state": "gap",
+   "detail": "placeholder for your recording",
+   "seconds": null
+  },
+  {
+   "id": "s08",
+   "name": "Road to Nagoya",
+   "state": "pending",
+   "detail": "",
+   "seconds": null
+  },
+  {
+   "id": "s09",
+   "name": "Nagoya countryside",
+   "state": "pending",
+   "detail": "",
+   "seconds": null
+  },
+  {
+   "id": "gap5",
+   "name": "Interview 5",
+   "state": "gap",
+   "detail": "placeholder for your recording",
+   "seconds": null
+  },
+  {
+   "id": "s10",
+   "name": "Osaka",
+   "state": "pending",
+   "detail": "",
+   "seconds": null
+  },
+  {
+   "id": "s11",
+   "name": "Bikes + bowling",
+   "state": "pending",
+   "detail": "",
+   "seconds": null
+  },
+  {
+   "id": "gap6",
+   "name": "Interview 6",
+   "state": "gap",
+   "detail": "placeholder for your recording",
+   "seconds": null
+  },
+  {
+   "id": "s12",
+   "name": "Village + lakeside",
+   "state": "pending",
+   "detail": "",
+   "seconds": null
+  },
+  {
+   "id": "s13",
+   "name": "Flashback + credits",
+   "state": "pending",
+   "detail": "",
+   "seconds": null
+  }
+ ],
+ "workers": [
+  {
+   "name": "Beat + structure maps",
+   "state": "running",
+   "detail": ""
+  },
+  {
+   "name": "Stem mixer",
+   "state": "done",
+   "detail": "22.8 min"
+  },
+  {
+   "name": "Sound effects library",
+   "state": "done",
+   "detail": "9.6 min"
+  },
+  {
+   "name": "Reference style study",
+   "state": "running",
+   "detail": ""
+  },
+  {
+   "name": "Titles + credits generator",
+   "state": "running",
+   "detail": ""
+  },
+  {
+   "name": "Premiere timeline exporter",
+   "state": "done",
+   "detail": "10.4 min"
+  },
+  {
+   "name": "PS2 intro re-render",
+   "state": "running",
+   "detail": ""
+  }
+ ],
+ "log": [
+  {
+   "t": "14:08",
+   "msg": "Progress page live at soju.gg/vlog; stem mixer, SFX library and Premiere exporter finished and tested"
+  },
+  {
+   "t": "14:06",
+   "msg": "All 600 clips catalogued; building the scene-by-scene story map"
+  },
+  {
+   "t": "14:01",
+   "msg": "Codex workers running: beat maps, mixer, SFX, titles, Premiere export, PS2 intro, cataloguing"
+  },
+  {
+   "t": "14:01",
+   "msg": "Audited community skills; installed the 5 that passed"
+  },
+  {
+   "t": "14:01",
+   "msg": "Render engine verified on real clips; 6 film-look LUTs built"
+  },
+  {
+   "t": "14:01",
+   "msg": "600 clips ingested (108 min); 12 songs and 8 references downloaded"
+  }
+ ]
 }
