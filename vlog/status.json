@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-27T14:13:58-07:00",
+ "updated": "2026-11-27T14:18:45-07:00",
  "title": "Japan vlog",
- "headline": "Cataloguing footage and building the edit tools",
+ "headline": "Cutting the sections: director's notes written, cut lists being drafted",
  "overall_pct": 22,
- "phase": "Ingest + tooling",
+ "phase": "Cutting",
  "steps": [
   {
    "name": "Ingest 600 clips",
@@ -32,7 +32,7 @@
   },
   {
    "name": "Cut the sections",
-   "state": "pending",
+   "state": "active",
    "detail": "0 of 14 rendered"
   },
   {
@@ -62,22 +62,22 @@
   {
    "id": "s01",
    "name": "Hype recap",
-   "state": "pending",
-   "detail": "",
+   "state": "building",
+   "detail": "cut list being drafted",
    "seconds": null
   },
   {
    "id": "s02",
    "name": "Airport ASMR",
-   "state": "pending",
-   "detail": "",
+   "state": "building",
+   "detail": "cut list being drafted",
    "seconds": null
   },
   {
    "id": "s03",
    "name": "Departure",
-   "state": "pending",
-   "detail": "",
+   "state": "building",
+   "detail": "cut list being drafted",
    "seconds": null
   },
   {
@@ -90,8 +90,8 @@
   {
    "id": "s04",
    "name": "Next station: Shibuya",
-   "state": "pending",
-   "detail": "",
+   "state": "building",
+   "detail": "cut list being drafted",
    "seconds": null
   },
   {
@@ -104,8 +104,8 @@
   {
    "id": "s05",
    "name": "Road to Kamakura",
-   "state": "pending",
-   "detail": "",
+   "state": "building",
+   "detail": "cut list being drafted",
    "seconds": null
   },
   {
@@ -118,15 +118,15 @@
   {
    "id": "s06",
    "name": "Kamakura",
-   "state": "pending",
-   "detail": "",
+   "state": "building",
+   "detail": "cut list being drafted",
    "seconds": null
   },
   {
    "id": "s07",
    "name": "Kamakura at night",
-   "state": "pending",
-   "detail": "",
+   "state": "building",
+   "detail": "cut list being drafted",
    "seconds": null
   },
   {
@@ -139,15 +139,15 @@
   {
    "id": "s08",
    "name": "Road to Nagoya",
-   "state": "pending",
-   "detail": "",
+   "state": "building",
+   "detail": "cut list being drafted",
    "seconds": null
   },
   {
    "id": "s09",
    "name": "Nagoya countryside",
-   "state": "pending",
-   "detail": "",
+   "state": "building",
+   "detail": "cut list being drafted",
    "seconds": null
   },
   {
@@ -160,15 +160,15 @@
   {
    "id": "s10",
    "name": "Osaka",
-   "state": "pending",
-   "detail": "",
+   "state": "building",
+   "detail": "cut list being drafted",
    "seconds": null
   },
   {
    "id": "s11",
    "name": "Bikes + bowling",
-   "state": "pending",
-   "detail": "",
+   "state": "building",
+   "detail": "cut list being drafted",
    "seconds": null
   },
   {
@@ -181,15 +181,15 @@
   {
    "id": "s12",
    "name": "Village + lakeside",
-   "state": "pending",
-   "detail": "",
+   "state": "building",
+   "detail": "cut list being drafted",
    "seconds": null
   },
   {
    "id": "s13",
    "name": "Flashback + credits",
-   "state": "pending",
-   "detail": "",
+   "state": "building",
+   "detail": "cut list being drafted",
    "seconds": null
   }
  ],
@@ -231,6 +231,10 @@
   }
  ],
  "log": [
+  {
+   "t": "14:17",
+   "msg": "Director's notes written for all 13 sections; first 7 cut lists being drafted against real frames"
+  },
   {
    "t": "14:13",
    "msg": "Beat maps for all 12 songs and the 110-scene story map are done; sourcing real foley recordings"
