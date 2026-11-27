@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T14:49:43-07:00",
+ "updated": "2026-11-27T14:53:12-07:00",
  "title": "Japan vlog",
  "headline": "Cutting the sections: director's notes written, cut lists being drafted",
- "overall_pct": 38,
+ "overall_pct": 41,
  "phase": "Cutting",
  "steps": [
   {
@@ -33,7 +33,7 @@
   {
    "name": "Cut the sections",
    "state": "active",
-   "detail": "4 of 14 rendered"
+   "detail": "5 of 14 rendered"
   },
   {
    "name": "Sound design + mix",
@@ -62,9 +62,9 @@
   {
    "id": "s01",
    "name": "Hype recap",
-   "state": "building",
-   "detail": "cut list being drafted",
-   "seconds": null
+   "state": "rendered",
+   "detail": "first cut built, awaiting review",
+   "seconds": 30
   },
   {
    "id": "s02",
