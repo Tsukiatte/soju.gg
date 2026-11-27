@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T14:28:35-07:00",
+ "updated": "2026-11-27T14:33:36-07:00",
  "title": "Japan vlog",
  "headline": "Cutting the sections: director's notes written, cut lists being drafted",
- "overall_pct": 23,
+ "overall_pct": 25,
  "phase": "Cutting",
  "steps": [
   {
@@ -17,8 +17,8 @@
   },
   {
    "name": "Build tools",
-   "state": "active",
-   "detail": "5 of 6 ready"
+   "state": "done",
+   "detail": "6 of 6 ready"
   },
   {
    "name": "Songs + style references",
@@ -211,8 +211,8 @@
   },
   {
    "name": "Reference style study",
-   "state": "running",
-   "detail": ""
+   "state": "done",
+   "detail": "47.4 min"
   },
   {
    "name": "Titles + credits generator",
