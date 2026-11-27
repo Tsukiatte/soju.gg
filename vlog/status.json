@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T14:11:30-07:00",
+ "updated": "2026-11-27T14:13:58-07:00",
  "title": "Japan vlog",
  "headline": "Cataloguing footage and building the edit tools",
  "overall_pct": 22,
@@ -231,6 +231,10 @@
   }
  ],
  "log": [
+  {
+   "t": "14:13",
+   "msg": "Beat maps for all 12 songs and the 110-scene story map are done; sourcing real foley recordings"
+  },
   {
    "t": "14:08",
    "msg": "Progress page live at soju.gg/vlog; stem mixer, SFX library and Premiere exporter finished and tested"
