@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T15:25:54-07:00",
+ "updated": "2026-11-27T15:34:36-07:00",
  "title": "Japan vlog",
  "headline": "First cuts building; every section goes through a fresh-reviewer revise pass",
  "overall_pct": 71,
@@ -37,8 +37,8 @@
   },
   {
    "name": "Sound design + mix",
-   "state": "pending",
-   "detail": ""
+   "state": "active",
+   "detail": "sound-design pass per section"
   },
   {
    "name": "Assemble in Premiere",
@@ -105,8 +105,8 @@
    "id": "s05",
    "name": "Road to Kamakura",
    "state": "rendered",
-   "detail": "first cut built, awaiting review",
-   "seconds": 44
+   "detail": "revised after review",
+   "seconds": 36
   },
   {
    "id": "gap3",
@@ -120,7 +120,7 @@
    "name": "Kamakura",
    "state": "building",
    "detail": "cut list being drafted",
-   "seconds": null
+   "seconds": 78
   },
   {
    "id": "s07",
@@ -231,6 +231,10 @@
   }
  ],
  "log": [
+  {
+   "t": "15:32",
+   "msg": "96 licence-clear foley recordings sourced; sound-design pass started on revised sections"
+  },
   {
    "t": "15:24",
    "msg": "PS2 intro v1 rendered (keeps the original audio); round 2 under way with director's notes"
