@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T16:19:21-07:00",
+ "updated": "2026-11-27T16:32:49-07:00",
  "title": "Japan vlog",
  "headline": "All sections cut; review + sound-design passes running, PS2 intro round 2 rendering",
- "overall_pct": 78,
+ "overall_pct": 79,
  "phase": "Cutting",
  "steps": [
   {
@@ -48,7 +48,7 @@
   {
    "name": "Review pass",
    "state": "active",
-   "detail": "4 of 14 sections reviewed"
+   "detail": "5 of 14 sections reviewed"
   }
  ],
  "sections": [
@@ -160,8 +160,8 @@
   {
    "id": "s10",
    "name": "Osaka",
-   "state": "rendered",
-   "detail": "first cut built, awaiting review",
+   "state": "reviewed",
+   "detail": "approved: day -> harbour sunset -> neon night",
    "seconds": 71
   },
   {
