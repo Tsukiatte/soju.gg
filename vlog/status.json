@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T15:34:36-07:00",
+ "updated": "2026-11-27T15:35:14-07:00",
  "title": "Japan vlog",
  "headline": "First cuts building; every section goes through a fresh-reviewer revise pass",
- "overall_pct": 71,
+ "overall_pct": 74,
  "phase": "Cutting",
  "steps": [
   {
@@ -33,7 +33,7 @@
   {
    "name": "Cut the sections",
    "state": "active",
-   "detail": "12 of 14 rendered"
+   "detail": "13 of 14 rendered"
   },
   {
    "name": "Sound design + mix",
@@ -118,8 +118,8 @@
   {
    "id": "s06",
    "name": "Kamakura",
-   "state": "building",
-   "detail": "cut list being drafted",
+   "state": "rendered",
+   "detail": "first cut built, awaiting review",
    "seconds": 78
   },
   {
