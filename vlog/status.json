@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T15:24:05-07:00",
+ "updated": "2026-11-27T15:25:54-07:00",
  "title": "Japan vlog",
  "headline": "First cuts building; every section goes through a fresh-reviewer revise pass",
- "overall_pct": 62,
+ "overall_pct": 71,
  "phase": "Cutting",
  "steps": [
   {
@@ -27,13 +27,13 @@
   },
   {
    "name": "PS2 intro",
-   "state": "active",
-   "detail": "re-rendering"
+   "state": "done",
+   "detail": ""
   },
   {
    "name": "Cut the sections",
    "state": "active",
-   "detail": "11 of 14 rendered"
+   "detail": "12 of 14 rendered"
   },
   {
    "name": "Sound design + mix",
@@ -55,9 +55,9 @@
   {
    "id": "s00",
    "name": "PS2 intro",
-   "state": "pending",
-   "detail": "",
-   "seconds": null
+   "state": "building",
+   "detail": "v1 rendered; round 2 fixing brightness and character readability",
+   "seconds": 36
   },
   {
    "id": "s01",
@@ -181,9 +181,9 @@
   {
    "id": "s12",
    "name": "Village + lakeside",
-   "state": "building",
-   "detail": "cut list being drafted",
-   "seconds": null
+   "state": "rendered",
+   "detail": "first cut built, awaiting review",
+   "seconds": 96
   },
   {
    "id": "s13",
@@ -226,11 +226,15 @@
   },
   {
    "name": "PS2 intro re-render",
-   "state": "failed",
-   "detail": "102.5 min"
+   "state": "running",
+   "detail": ""
   }
  ],
  "log": [
+  {
+   "t": "15:24",
+   "msg": "PS2 intro v1 rendered (keeps the original audio); round 2 under way with director's notes"
+  },
   {
    "t": "15:18",
    "msg": "Review loop working: Kamakura night revised (layout 3->9/10, trimmed to 42 s); Shinkansen variety 7->9. 10 of 13 sections built"
