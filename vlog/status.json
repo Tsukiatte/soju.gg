@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T14:36:48-07:00",
+ "updated": "2026-11-27T14:36:52-07:00",
  "title": "Japan vlog",
  "headline": "Cutting the sections: director's notes written, cut lists being drafted",
- "overall_pct": 25,
+ "overall_pct": 28,
  "phase": "Cutting",
  "steps": [
   {
@@ -33,7 +33,7 @@
   {
    "name": "Cut the sections",
    "state": "active",
-   "detail": "0 of 14 rendered"
+   "detail": "1 of 14 rendered"
   },
   {
    "name": "Sound design + mix",
@@ -188,8 +188,8 @@
   {
    "id": "s13",
    "name": "Flashback + credits",
-   "state": "building",
-   "detail": "cut list being drafted",
+   "state": "rendered",
+   "detail": "flashback cut built; credits rendering",
    "seconds": 7
   }
  ],
@@ -231,6 +231,10 @@
   }
  ],
  "log": [
+  {
+   "t": "14:36",
+   "msg": "First section built end to end (flashback): picture, stems, master and storyboard all check out"
+  },
   {
    "t": "14:28",
    "msg": "Colour grade matched to measured reference targets (whites 77-87%, warm highlights, dense blacks); titles generator ready"
