@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T15:12:42-07:00",
+ "updated": "2026-11-27T15:15:02-07:00",
  "title": "Japan vlog",
  "headline": "First cuts building; every section goes through a fresh-reviewer revise pass",
- "overall_pct": 54,
+ "overall_pct": 57,
  "phase": "Cutting",
  "steps": [
   {
@@ -33,7 +33,7 @@
   {
    "name": "Cut the sections",
    "state": "active",
-   "detail": "9 of 14 rendered"
+   "detail": "10 of 14 rendered"
   },
   {
    "name": "Sound design + mix",
@@ -104,9 +104,9 @@
   {
    "id": "s05",
    "name": "Road to Kamakura",
-   "state": "building",
-   "detail": "cut list being drafted",
-   "seconds": null
+   "state": "rendered",
+   "detail": "first cut built, awaiting review",
+   "seconds": 44
   },
   {
    "id": "gap3",
