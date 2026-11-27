@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T16:15:27-07:00",
+ "updated": "2026-11-27T16:19:12-07:00",
  "title": "Japan vlog",
  "headline": "All sections cut; review + sound-design passes running, PS2 intro round 2 rendering",
  "overall_pct": 74,
@@ -226,8 +226,8 @@
   },
   {
    "name": "PS2 intro re-render",
-   "state": "running",
-   "detail": ""
+   "state": "done",
+   "detail": "51.4 min"
   }
  ],
  "log": [
