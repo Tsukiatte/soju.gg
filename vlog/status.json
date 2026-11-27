@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T15:09:56-07:00",
+ "updated": "2026-11-27T15:12:42-07:00",
  "title": "Japan vlog",
  "headline": "First cuts building; every section goes through a fresh-reviewer revise pass",
- "overall_pct": 51,
+ "overall_pct": 54,
  "phase": "Cutting",
  "steps": [
   {
@@ -33,7 +33,7 @@
   {
    "name": "Cut the sections",
    "state": "active",
-   "detail": "8 of 14 rendered"
+   "detail": "9 of 14 rendered"
   },
   {
    "name": "Sound design + mix",
@@ -76,9 +76,9 @@
   {
    "id": "s03",
    "name": "Departure",
-   "state": "building",
-   "detail": "cut list being drafted",
-   "seconds": null
+   "state": "rendered",
+   "detail": "first cut built, awaiting review",
+   "seconds": 66
   },
   {
    "id": "gap1",
