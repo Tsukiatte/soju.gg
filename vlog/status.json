@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T16:19:12-07:00",
+ "updated": "2026-11-27T16:19:21-07:00",
  "title": "Japan vlog",
  "headline": "All sections cut; review + sound-design passes running, PS2 intro round 2 rendering",
- "overall_pct": 74,
+ "overall_pct": 78,
  "phase": "Cutting",
  "steps": [
   {
@@ -32,8 +32,8 @@
   },
   {
    "name": "Cut the sections",
-   "state": "active",
-   "detail": "13 of 14 rendered"
+   "state": "done",
+   "detail": "14 of 14 rendered"
   },
   {
    "name": "Sound design + mix",
@@ -48,15 +48,15 @@
   {
    "name": "Review pass",
    "state": "active",
-   "detail": "3 of 14 sections reviewed"
+   "detail": "4 of 14 sections reviewed"
   }
  ],
  "sections": [
   {
    "id": "s00",
    "name": "PS2 intro",
-   "state": "building",
-   "detail": "v1 rendered; round 2 fixing brightness and character readability",
+   "state": "reviewed",
+   "detail": "round 2 adopted: brighter, denser, readable characters; original audio kept",
    "seconds": 36
   },
   {
@@ -231,6 +231,10 @@
   }
  ],
  "log": [
+  {
+   "t": "16:19",
+   "msg": "PS2 intro round 2 adopted (smooth globe, full-screen game footage, readable character select; timing and audio identical)"
+  },
   {
    "t": "16:04",
    "msg": "Caught a launcher bug: six review jobs had not started (multi-page storyboards). Fixed and restarted; no work lost, about an hour of delay on those sections"
