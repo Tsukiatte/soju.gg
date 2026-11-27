@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T15:07:45-07:00",
+ "updated": "2026-11-27T15:09:56-07:00",
  "title": "Japan vlog",
- "headline": "Cutting the sections: director's notes written, cut lists being drafted",
- "overall_pct": 44,
+ "headline": "First cuts building; every section goes through a fresh-reviewer revise pass",
+ "overall_pct": 51,
  "phase": "Cutting",
  "steps": [
   {
@@ -33,7 +33,7 @@
   {
    "name": "Cut the sections",
    "state": "active",
-   "detail": "6 of 14 rendered"
+   "detail": "8 of 14 rendered"
   },
   {
    "name": "Sound design + mix",
@@ -69,9 +69,9 @@
   {
    "id": "s02",
    "name": "Airport ASMR",
-   "state": "building",
-   "detail": "cut list being drafted",
-   "seconds": null
+   "state": "rendered",
+   "detail": "first cut built, awaiting review",
+   "seconds": 40
   },
   {
    "id": "s03",
@@ -167,8 +167,8 @@
   {
    "id": "s11",
    "name": "Bikes + bowling",
-   "state": "building",
-   "detail": "cut list being drafted",
+   "state": "rendered",
+   "detail": "first cut built, awaiting review",
    "seconds": 44
   },
   {
