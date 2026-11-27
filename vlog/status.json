@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T14:08:24-07:00",
+ "updated": "2026-11-27T14:11:30-07:00",
  "title": "Japan vlog",
  "headline": "Cataloguing footage and building the edit tools",
- "overall_pct": 20,
+ "overall_pct": 22,
  "phase": "Ingest + tooling",
  "steps": [
   {
@@ -18,7 +18,7 @@
   {
    "name": "Build tools",
    "state": "active",
-   "detail": "3 of 6 ready"
+   "detail": "4 of 6 ready"
   },
   {
    "name": "Songs + style references",
@@ -196,8 +196,8 @@
  "workers": [
   {
    "name": "Beat + structure maps",
-   "state": "running",
-   "detail": ""
+   "state": "done",
+   "detail": "25.2 min"
   },
   {
    "name": "Stem mixer",
