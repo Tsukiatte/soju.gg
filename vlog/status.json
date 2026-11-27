@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T15:52:54-07:00",
+ "updated": "2026-11-27T16:00:30-07:00",
  "title": "Japan vlog",
  "headline": "All sections cut; review + sound-design passes running, PS2 intro round 2 rendering",
- "overall_pct": 73,
+ "overall_pct": 74,
  "phase": "Cutting",
  "steps": [
   {
@@ -47,8 +47,8 @@
   },
   {
    "name": "Review pass",
-   "state": "pending",
-   "detail": ""
+   "state": "active",
+   "detail": "2 of 14 sections reviewed"
   }
  ],
  "sections": [
@@ -126,7 +126,7 @@
    "id": "s07",
    "name": "Kamakura at night",
    "state": "rendered",
-   "detail": "picture revised, sound designed",
+   "detail": "first cut built, awaiting review",
    "seconds": 42
   },
   {
@@ -140,7 +140,7 @@
    "id": "s08",
    "name": "Road to Nagoya",
    "state": "rendered",
-   "detail": "picture revised, sound designed",
+   "detail": "first cut built, awaiting review",
    "seconds": 49
   },
   {
@@ -181,15 +181,15 @@
   {
    "id": "s12",
    "name": "Village + lakeside",
-   "state": "rendered",
-   "detail": "picture revised, sound designed",
+   "state": "reviewed",
+   "detail": "approved: lane -> lake -> paddies -> night train",
    "seconds": 82
   },
   {
    "id": "s13",
    "name": "Flashback + credits",
-   "state": "rendered",
-   "detail": "picture revised, sound designed",
+   "state": "reviewed",
+   "detail": "approved",
    "seconds": 7
   }
  ],
