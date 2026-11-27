@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T16:07:43-07:00",
+ "updated": "2026-11-27T16:15:27-07:00",
  "title": "Japan vlog",
  "headline": "All sections cut; review + sound-design passes running, PS2 intro round 2 rendering",
  "overall_pct": 74,
@@ -48,7 +48,7 @@
   {
    "name": "Review pass",
    "state": "active",
-   "detail": "2 of 14 sections reviewed"
+   "detail": "3 of 14 sections reviewed"
   }
  ],
  "sections": [
@@ -105,7 +105,7 @@
    "id": "s05",
    "name": "Road to Kamakura",
    "state": "rendered",
-   "detail": "revised after review",
+   "detail": "picture revised, sound designed",
    "seconds": 36
   },
   {
@@ -146,8 +146,8 @@
   {
    "id": "s09",
    "name": "Nagoya countryside",
-   "state": "rendered",
-   "detail": "picture revised, sound designed",
+   "state": "reviewed",
+   "detail": "approved (tightened to 42 s)",
    "seconds": 42
   },
   {
