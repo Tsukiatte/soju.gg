@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T15:19:58-07:00",
+ "updated": "2026-11-27T15:24:05-07:00",
  "title": "Japan vlog",
  "headline": "First cuts building; every section goes through a fresh-reviewer revise pass",
- "overall_pct": 60,
+ "overall_pct": 62,
  "phase": "Cutting",
  "steps": [
   {
@@ -47,8 +47,8 @@
   },
   {
    "name": "Review pass",
-   "state": "pending",
-   "detail": ""
+   "state": "active",
+   "detail": "2 of 14 sections reviewed"
   }
  ],
  "sections": [
@@ -125,8 +125,8 @@
   {
    "id": "s07",
    "name": "Kamakura at night",
-   "state": "rendered",
-   "detail": "revised after review",
+   "state": "reviewed",
+   "detail": "revised and approved",
    "seconds": 42
   },
   {
@@ -139,16 +139,16 @@
   {
    "id": "s08",
    "name": "Road to Nagoya",
-   "state": "rendered",
-   "detail": "revised after review",
+   "state": "reviewed",
+   "detail": "revised and approved",
    "seconds": 49
   },
   {
    "id": "s09",
    "name": "Nagoya countryside",
    "state": "rendered",
-   "detail": "first cut built, awaiting review",
-   "seconds": 60
+   "detail": "revised after review",
+   "seconds": 42
   },
   {
    "id": "gap5",
@@ -226,8 +226,8 @@
   },
   {
    "name": "PS2 intro re-render",
-   "state": "running",
-   "detail": ""
+   "state": "failed",
+   "detail": "102.5 min"
   }
  ],
  "log": [
