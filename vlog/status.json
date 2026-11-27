@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T15:38:44-07:00",
+ "updated": "2026-11-27T15:44:52-07:00",
  "title": "Japan vlog",
  "headline": "First cuts building; every section goes through a fresh-reviewer revise pass",
- "overall_pct": 74,
+ "overall_pct": 73,
  "phase": "Cutting",
  "steps": [
   {
@@ -48,7 +48,7 @@
   {
    "name": "Review pass",
    "state": "active",
-   "detail": "2 of 14 sections reviewed"
+   "detail": "1 of 14 sections reviewed"
   }
  ],
  "sections": [
@@ -125,8 +125,8 @@
   {
    "id": "s07",
    "name": "Kamakura at night",
-   "state": "reviewed",
-   "detail": "revised and approved",
+   "state": "rendered",
+   "detail": "picture revised, sound designed",
    "seconds": 42
   },
   {
@@ -182,8 +182,8 @@
    "id": "s12",
    "name": "Village + lakeside",
    "state": "rendered",
-   "detail": "first cut built, awaiting review",
-   "seconds": 96
+   "detail": "revised after review",
+   "seconds": 82
   },
   {
    "id": "s13",
