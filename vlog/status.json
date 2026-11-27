@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T14:27:08-07:00",
+ "updated": "2026-11-27T14:28:35-07:00",
  "title": "Japan vlog",
  "headline": "Cutting the sections: director's notes written, cut lists being drafted",
  "overall_pct": 23,
@@ -231,6 +231,10 @@
   }
  ],
  "log": [
+  {
+   "t": "14:28",
+   "msg": "Colour grade matched to measured reference targets (whites 77-87%, warm highlights, dense blacks); titles generator ready"
+  },
   {
    "t": "14:17",
    "msg": "Director's notes written for all 13 sections; first 7 cut lists being drafted against real frames"
