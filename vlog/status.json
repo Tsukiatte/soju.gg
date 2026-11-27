@@ -1,0 +1,23 @@
+{
+  "updated": "2026-11-27T14:05:00-08:00",
+  "title": "Japan vlog",
+  "headline": "Cataloguing footage and building tools",
+  "overall_pct": 18,
+  "phase": "Ingest",
+  "steps": [
+    {"name": "Ingest 600 clips", "state": "done", "detail": "108 min, contact sheets built"},
+    {"name": "Catalogue footage", "state": "active", "detail": "6 of 10 batches"},
+    {"name": "Build sections", "state": "pending", "detail": ""}
+  ],
+  "sections": [
+    {"id": "s00", "name": "PS2 intro", "state": "building", "detail": "re-render in progress", "seconds": 36},
+    {"id": "s01", "name": "Hype recap", "state": "pending", "detail": "", "seconds": null}
+  ],
+  "workers": [
+    {"name": "Beat maps", "state": "running", "detail": "12 songs"},
+    {"name": "Sound effects", "state": "done", "detail": ""}
+  ],
+  "log": [
+    {"t": "13:44", "msg": "Fixed worker sandbox so jobs can run Python"}
+  ]
+}

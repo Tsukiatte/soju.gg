@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vlog progress</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Private progress page.">
+<meta name="theme-color" content="#94bcf9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b1b33'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23ffc828'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,400..800,0..100,0..1;1,9..144,400..800,0..100,0..1&family=Inter:wght@400;500;600;700&family=Pixelify+Sans:wght@500;700&display=swap">
+<link rel="preload" as="image" href="art/plate.webp">
+<link rel="stylesheet" href="style.css?v=20261127a">
+</head>
+<body>
+<header class="top" id="top">
+  <a class="brand" href="#top" aria-label="Vlog progress, back to top"><span>soju &middot; vlog</span></a>
+  <div class="top-right">
+    <span class="live" id="live" role="status"><i aria-hidden="true"></i><span id="live-text">Loading&hellip;</span></span>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="hero" aria-labelledby="title">
+    <div class="sky" aria-hidden="true"></div>
+    <div class="depth d-plate" aria-hidden="true">
+      <div class="strip plate soft"></div>
+      <div class="strip plate sharp"></div>
+    </div>
+    <div class="rays" aria-hidden="true"></div>
+    <div class="clouds" aria-hidden="true"><i></i><i></i><i></i></div>
+
+    <div class="depth d-copy">
+      <div class="hero-copy">
+        <h1 class="title" id="title">Vlog progress</h1>
+        <p class="lede" id="headline">Loading the latest status&hellip;</p>
+      </div>
+    </div>
+
+    <div class="depth d-rail" aria-hidden="true"><div class="strip rail"></div></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="dots" aria-hidden="true"></div>
+  </section>
+
+  <div class="deep">
+    <div class="deep-bg" aria-hidden="true"></div>
+
+    <div class="wrap banners">
+      <p class="banner warn" id="b-stale" role="alert" hidden></p>
+      <p class="banner err" id="b-offline" role="status" hidden></p>
+    </div>
+
+    <section class="block" aria-labelledby="h-overall">
+      <div class="wrap">
+        <h2 class="tape" id="h-overall" data-reveal>the <em>progress</em></h2>
+        <div class="numbers">
+          <div class="hero-fig"><span class="big" id="pct">&ndash;</span><span class="lbl" id="phase">&nbsp;</span></div>
+          <div class="meter-big" id="meter" role="progressbar" aria-label="Overall progress" aria-valuemin="0" aria-valuemax="100"><i id="pbar"></i></div>
+          <div class="vk" id="kpis">
+            <div class="kpi"><div class="k-label">Rendered</div><div class="k-value" id="k-rendered">&ndash;</div><div class="k-sub" id="k-rendered-sub">&nbsp;</div></div>
+            <div class="kpi"><div class="k-label">Sections</div><div class="k-value" id="k-sections">&ndash;</div><div class="k-sub" id="k-sections-sub">&nbsp;</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-pipeline">
+      <div class="wrap">
+        <h2 class="tape" id="h-pipeline" data-reveal>the <em>pipeline</em></h2>
+        <div class="dcard vcard"><ul class="dlist vlist" id="steps"></ul></div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-sections">
+      <div class="wrap">
+        <h2 class="tape" id="h-sections" data-reveal>the <em>sections</em></h2>
+        <p class="sub" id="sections-sub" data-reveal>In film order.</p>
+        <div class="dcard vcard"><ul class="dlist vlist" id="sections"></ul></div>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-workers">
+      <div class="wrap">
+        <h2 class="tape" id="h-workers" data-reveal>the <em>workers</em></h2>
+        <ul class="stickers workers" id="workers"></ul>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="h-log">
+      <div class="wrap">
+        <h2 class="tape" id="h-log" data-reveal>the <em>log</em></h2>
+        <p class="sub" data-reveal>Latest first.</p>
+        <div class="dcard vcard"><ul class="dlist vlist logs" id="log"></ul></div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <div class="wrap">
+        <p id="updated">Loading the latest status&hellip;</p>
+        <p>Checks again every 30 seconds.</p>
+      </div>
+    </footer>
+  </div>
+</main>
+
+<div class="grain" aria-hidden="true"></div>
+<noscript><p class="noscript">Turn on JavaScript to see the live progress.</p></noscript>
+<script src="app.js?v=20261127a" defer></script>
+</body>
+</html>
