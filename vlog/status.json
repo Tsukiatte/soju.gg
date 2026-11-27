@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T15:15:02-07:00",
+ "updated": "2026-11-27T15:19:58-07:00",
  "title": "Japan vlog",
  "headline": "First cuts building; every section goes through a fresh-reviewer revise pass",
- "overall_pct": 57,
+ "overall_pct": 60,
  "phase": "Cutting",
  "steps": [
   {
@@ -33,7 +33,7 @@
   {
    "name": "Cut the sections",
    "state": "active",
-   "detail": "10 of 14 rendered"
+   "detail": "11 of 14 rendered"
   },
   {
    "name": "Sound design + mix",
@@ -126,8 +126,8 @@
    "id": "s07",
    "name": "Kamakura at night",
    "state": "rendered",
-   "detail": "first cut built, awaiting review",
-   "seconds": 55
+   "detail": "revised after review",
+   "seconds": 42
   },
   {
    "id": "gap4",
@@ -140,7 +140,7 @@
    "id": "s08",
    "name": "Road to Nagoya",
    "state": "rendered",
-   "detail": "first cut built, awaiting review",
+   "detail": "revised after review",
    "seconds": 49
   },
   {
@@ -160,9 +160,9 @@
   {
    "id": "s10",
    "name": "Osaka",
-   "state": "building",
-   "detail": "cut list being drafted",
-   "seconds": null
+   "state": "rendered",
+   "detail": "first cut built, awaiting review",
+   "seconds": 71
   },
   {
    "id": "s11",
@@ -231,6 +231,10 @@
   }
  ],
  "log": [
+  {
+   "t": "15:18",
+   "msg": "Review loop working: Kamakura night revised (layout 3->9/10, trimmed to 42 s); Shinkansen variety 7->9. 10 of 13 sections built"
+  },
   {
    "t": "15:03",
    "msg": "Shibuya section built: 125 cuts in 67 s with the accelerating 'next station' build into the drop; now in review"
