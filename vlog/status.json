@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T14:53:12-07:00",
+ "updated": "2026-11-27T15:00:53-07:00",
  "title": "Japan vlog",
  "headline": "Cutting the sections: director's notes written, cut lists being drafted",
  "overall_pct": 41,
@@ -92,7 +92,7 @@
    "name": "Next station: Shibuya",
    "state": "building",
    "detail": "cut list being drafted",
-   "seconds": null
+   "seconds": 68
   },
   {
    "id": "gap2",
@@ -231,6 +231,10 @@
   }
  ],
  "log": [
+  {
+   "t": "14:54",
+   "msg": "Hook built: 46 cuts in 30 s, 96% on the beat. Review round started (fresh reviewer scores each storyboard, fixes anything under 9/10)"
+  },
   {
    "t": "14:43",
    "msg": "Shinkansen-to-Nagoya section built: Fuji lands on the music surge, 100% of cuts on the beat"
