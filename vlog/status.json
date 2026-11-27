@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T15:00:53-07:00",
+ "updated": "2026-11-27T15:03:38-07:00",
  "title": "Japan vlog",
  "headline": "Cutting the sections: director's notes written, cut lists being drafted",
- "overall_pct": 41,
+ "overall_pct": 44,
  "phase": "Cutting",
  "steps": [
   {
@@ -33,7 +33,7 @@
   {
    "name": "Cut the sections",
    "state": "active",
-   "detail": "5 of 14 rendered"
+   "detail": "6 of 14 rendered"
   },
   {
    "name": "Sound design + mix",
@@ -90,8 +90,8 @@
   {
    "id": "s04",
    "name": "Next station: Shibuya",
-   "state": "building",
-   "detail": "cut list being drafted",
+   "state": "rendered",
+   "detail": "first cut built, awaiting review",
    "seconds": 68
   },
   {
@@ -231,6 +231,10 @@
   }
  ],
  "log": [
+  {
+   "t": "15:03",
+   "msg": "Shibuya section built: 125 cuts in 67 s with the accelerating 'next station' build into the drop; now in review"
+  },
   {
    "t": "14:54",
    "msg": "Hook built: 46 cuts in 30 s, 96% on the beat. Review round started (fresh reviewer scores each storyboard, fixes anything under 9/10)"
