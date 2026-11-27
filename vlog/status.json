@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T14:18:45-07:00",
+ "updated": "2026-11-27T14:27:08-07:00",
  "title": "Japan vlog",
  "headline": "Cutting the sections: director's notes written, cut lists being drafted",
- "overall_pct": 22,
+ "overall_pct": 23,
  "phase": "Cutting",
  "steps": [
   {
@@ -18,7 +18,7 @@
   {
    "name": "Build tools",
    "state": "active",
-   "detail": "4 of 6 ready"
+   "detail": "5 of 6 ready"
   },
   {
    "name": "Songs + style references",
@@ -216,8 +216,8 @@
   },
   {
    "name": "Titles + credits generator",
-   "state": "running",
-   "detail": ""
+   "state": "done",
+   "detail": "40.4 min"
   },
   {
    "name": "Premiere timeline exporter",
