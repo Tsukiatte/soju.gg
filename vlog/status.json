@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-27T15:44:52-07:00",
+ "updated": "2026-11-27T15:46:33-07:00",
  "title": "Japan vlog",
- "headline": "First cuts building; every section goes through a fresh-reviewer revise pass",
+ "headline": "All sections cut; review + sound-design passes running, PS2 intro round 2 rendering",
  "overall_pct": 73,
  "phase": "Cutting",
  "steps": [
@@ -47,8 +47,8 @@
   },
   {
    "name": "Review pass",
-   "state": "active",
-   "detail": "1 of 14 sections reviewed"
+   "state": "pending",
+   "detail": ""
   }
  ],
  "sections": [
@@ -139,8 +139,8 @@
   {
    "id": "s08",
    "name": "Road to Nagoya",
-   "state": "reviewed",
-   "detail": "revised and approved",
+   "state": "rendered",
+   "detail": "picture revised, sound designed",
    "seconds": 49
   },
   {
@@ -231,6 +231,10 @@
   }
  ],
  "log": [
+  {
+   "t": "15:46",
+   "msg": "All 13 sections have a first cut (13.0 min incl. placeholders). Premiere timeline XML exports and validates: 618 clips, titles on V2, 4 stereo stems"
+  },
   {
    "t": "15:32",
    "msg": "96 licence-clear foley recordings sourced; sound-design pass started on revised sections"
