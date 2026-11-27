@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T14:43:02-07:00",
+ "updated": "2026-11-27T14:49:43-07:00",
  "title": "Japan vlog",
  "headline": "Cutting the sections: director's notes written, cut lists being drafted",
- "overall_pct": 28,
+ "overall_pct": 38,
  "phase": "Cutting",
  "steps": [
   {
@@ -33,7 +33,7 @@
   {
    "name": "Cut the sections",
    "state": "active",
-   "detail": "1 of 14 rendered"
+   "detail": "4 of 14 rendered"
   },
   {
    "name": "Sound design + mix",
@@ -125,9 +125,9 @@
   {
    "id": "s07",
    "name": "Kamakura at night",
-   "state": "building",
-   "detail": "cut list being drafted",
-   "seconds": null
+   "state": "rendered",
+   "detail": "first cut built, awaiting review",
+   "seconds": 55
   },
   {
    "id": "gap4",
@@ -139,16 +139,16 @@
   {
    "id": "s08",
    "name": "Road to Nagoya",
-   "state": "building",
-   "detail": "cut list being drafted",
+   "state": "rendered",
+   "detail": "first cut built, awaiting review",
    "seconds": 49
   },
   {
    "id": "s09",
    "name": "Nagoya countryside",
-   "state": "building",
-   "detail": "cut list being drafted",
-   "seconds": null
+   "state": "rendered",
+   "detail": "first cut built, awaiting review",
+   "seconds": 60
   },
   {
    "id": "gap5",
@@ -231,6 +231,10 @@
   }
  ],
  "log": [
+  {
+   "t": "14:43",
+   "msg": "Shinkansen-to-Nagoya section built: Fuji lands on the music surge, 100% of cuts on the beat"
+  },
   {
    "t": "14:36",
    "msg": "First section built end to end (flashback): picture, stems, master and storyboard all check out"
