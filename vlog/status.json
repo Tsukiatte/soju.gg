@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T17:00:35-07:00",
+ "updated": "2026-11-27T17:04:18-07:00",
  "title": "Japan vlog",
  "headline": "All sections cut; review + sound-design passes running, PS2 intro round 2 rendering",
  "overall_pct": 79,
@@ -90,8 +90,8 @@
   {
    "id": "s04",
    "name": "Next station: Shibuya",
-   "state": "rendered",
-   "detail": "revised after review",
+   "state": "reviewed",
+   "detail": "approved: station build -> drop on the crossing -> Tokyo edit",
    "seconds": 67
   },
   {
@@ -160,8 +160,8 @@
   {
    "id": "s10",
    "name": "Osaka",
-   "state": "reviewed",
-   "detail": "approved: day -> harbour sunset -> neon night",
+   "state": "rendered",
+   "detail": "picture revised, sound designed",
    "seconds": 71
   },
   {
