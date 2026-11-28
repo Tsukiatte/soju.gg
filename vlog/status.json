@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T18:18:20-07:00",
+ "updated": "2026-11-27T18:23:00-07:00",
  "title": "Japan vlog",
- "headline": "Final stretch: last two sound passes, then full assembly and quality check",
- "overall_pct": 77,
+ "headline": "All 13 sections finished; final assembly rendering",
+ "overall_pct": 94,
  "phase": "Cutting",
  "steps": [
   {
@@ -37,8 +37,8 @@
   },
   {
    "name": "Sound design + mix",
-   "state": "active",
-   "detail": "sound-design pass per section"
+   "state": "done",
+   "detail": "all 13 sections sound-designed and mixed"
   },
   {
    "name": "Assemble in Premiere",
@@ -48,7 +48,7 @@
   {
    "name": "Review pass",
    "state": "active",
-   "detail": "1 of 14 sections reviewed"
+   "detail": "14 of 14 sections reviewed"
   }
  ],
  "sections": [
@@ -62,22 +62,22 @@
   {
    "id": "s01",
    "name": "Hype recap",
-   "state": "rendered",
-   "detail": "picture revised, sound designed",
+   "state": "reviewed",
+   "detail": "picture approved, sound designed",
    "seconds": 30
   },
   {
    "id": "s02",
    "name": "Airport ASMR",
-   "state": "rendered",
-   "detail": "first cut built, awaiting review",
+   "state": "reviewed",
+   "detail": "picture approved, sound designed",
    "seconds": 25
   },
   {
    "id": "s03",
    "name": "Departure",
-   "state": "rendered",
-   "detail": "first cut built, awaiting review",
+   "state": "reviewed",
+   "detail": "picture approved, sound designed",
    "seconds": 66
   },
   {
@@ -90,8 +90,8 @@
   {
    "id": "s04",
    "name": "Next station: Shibuya",
-   "state": "rendered",
-   "detail": "first cut built, awaiting review",
+   "state": "reviewed",
+   "detail": "picture approved, sound designed",
    "seconds": 67
   },
   {
@@ -104,8 +104,8 @@
   {
    "id": "s05",
    "name": "Road to Kamakura",
-   "state": "rendered",
-   "detail": "first cut built, awaiting review",
+   "state": "reviewed",
+   "detail": "picture approved, sound designed",
    "seconds": 36
   },
   {
@@ -118,15 +118,15 @@
   {
    "id": "s06",
    "name": "Kamakura",
-   "state": "rendered",
-   "detail": "picture revised, sound designed",
+   "state": "reviewed",
+   "detail": "picture approved, sound designed",
    "seconds": 78
   },
   {
    "id": "s07",
    "name": "Kamakura at night",
-   "state": "rendered",
-   "detail": "first cut built, awaiting review",
+   "state": "reviewed",
+   "detail": "picture approved, sound designed",
    "seconds": 42
   },
   {
@@ -139,15 +139,15 @@
   {
    "id": "s08",
    "name": "Road to Nagoya",
-   "state": "rendered",
-   "detail": "first cut built, awaiting review",
+   "state": "reviewed",
+   "detail": "picture approved, sound designed",
    "seconds": 49
   },
   {
    "id": "s09",
    "name": "Nagoya countryside",
-   "state": "rendered",
-   "detail": "first cut built, awaiting review",
+   "state": "reviewed",
+   "detail": "picture approved, sound designed",
    "seconds": 42
   },
   {
@@ -160,15 +160,15 @@
   {
    "id": "s10",
    "name": "Osaka",
-   "state": "rendered",
-   "detail": "first cut built, awaiting review",
+   "state": "reviewed",
+   "detail": "picture approved, sound designed",
    "seconds": 71
   },
   {
    "id": "s11",
    "name": "Bikes + bowling",
-   "state": "rendered",
-   "detail": "picture revised, sound designed",
+   "state": "reviewed",
+   "detail": "picture approved, sound designed",
    "seconds": 44
   },
   {
@@ -181,15 +181,15 @@
   {
    "id": "s12",
    "name": "Village + lakeside",
-   "state": "rendered",
-   "detail": "first cut built, awaiting review",
+   "state": "reviewed",
+   "detail": "picture approved, sound designed",
    "seconds": 82
   },
   {
    "id": "s13",
    "name": "Flashback + credits",
-   "state": "rendered",
-   "detail": "first cut built, awaiting review",
+   "state": "reviewed",
+   "detail": "picture approved, sound designed",
    "seconds": 7
   }
  ],
@@ -231,6 +231,10 @@
   }
  ],
  "log": [
+  {
+   "t": "18:22",
+   "msg": "All 13 sections through review + sound design. Final assembly render started"
+  },
   {
    "t": "18:17",
    "msg": "Kamakura title: typed letters and key clicks locked to the song's first 8 beats. 12 of 13 sections fully finished"
