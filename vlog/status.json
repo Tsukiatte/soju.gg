@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T18:03:26-07:00",
+ "updated": "2026-11-27T18:06:39-07:00",
  "title": "Japan vlog",
  "headline": "All sections cut; review + sound-design passes running, PS2 intro round 2 rendering",
- "overall_pct": 79,
+ "overall_pct": 78,
  "phase": "Cutting",
  "steps": [
   {
@@ -48,7 +48,7 @@
   {
    "name": "Review pass",
    "state": "active",
-   "detail": "6 of 14 sections reviewed"
+   "detail": "3 of 14 sections reviewed"
   }
  ],
  "sections": [
@@ -105,7 +105,7 @@
    "id": "s05",
    "name": "Road to Kamakura",
    "state": "rendered",
-   "detail": "picture revised, sound designed",
+   "detail": "first cut built, awaiting review",
    "seconds": 36
   },
   {
@@ -146,8 +146,8 @@
   {
    "id": "s09",
    "name": "Nagoya countryside",
-   "state": "reviewed",
-   "detail": "approved (tightened to 42 s)",
+   "state": "rendered",
+   "detail": "first cut built, awaiting review",
    "seconds": 42
   },
   {
@@ -161,7 +161,7 @@
    "id": "s10",
    "name": "Osaka",
    "state": "rendered",
-   "detail": "picture revised, sound designed",
+   "detail": "first cut built, awaiting review",
    "seconds": 71
   },
   {
@@ -181,15 +181,15 @@
   {
    "id": "s12",
    "name": "Village + lakeside",
-   "state": "reviewed",
-   "detail": "approved: lane -> lake -> paddies -> night train",
+   "state": "rendered",
+   "detail": "first cut built, awaiting review",
    "seconds": 82
   },
   {
    "id": "s13",
    "name": "Flashback + credits",
-   "state": "reviewed",
-   "detail": "approved",
+   "state": "rendered",
+   "detail": "first cut built, awaiting review",
    "seconds": 7
   }
  ],
