@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T17:40:03-07:00",
+ "updated": "2026-11-27T17:47:27-07:00",
  "title": "Japan vlog",
  "headline": "All sections cut; review + sound-design passes running, PS2 intro round 2 rendering",
- "overall_pct": 81,
+ "overall_pct": 80,
  "phase": "Cutting",
  "steps": [
   {
@@ -48,7 +48,7 @@
   {
    "name": "Review pass",
    "state": "active",
-   "detail": "8 of 14 sections reviewed"
+   "detail": "7 of 14 sections reviewed"
   }
  ],
  "sections": [
@@ -90,8 +90,8 @@
   {
    "id": "s04",
    "name": "Next station: Shibuya",
-   "state": "reviewed",
-   "detail": "approved: station build -> drop on the crossing -> Tokyo edit",
+   "state": "rendered",
+   "detail": "picture revised, sound designed",
    "seconds": 67
   },
   {
