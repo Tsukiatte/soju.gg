@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T17:39:28-07:00",
+ "updated": "2026-11-27T17:40:03-07:00",
  "title": "Japan vlog",
  "headline": "All sections cut; review + sound-design passes running, PS2 intro round 2 rendering",
- "overall_pct": 80,
+ "overall_pct": 81,
  "phase": "Cutting",
  "steps": [
   {
@@ -48,7 +48,7 @@
   {
    "name": "Review pass",
    "state": "active",
-   "detail": "7 of 14 sections reviewed"
+   "detail": "8 of 14 sections reviewed"
   }
  ],
  "sections": [
@@ -69,15 +69,15 @@
   {
    "id": "s02",
    "name": "Airport ASMR",
-   "state": "rendered",
-   "detail": "picture revised, sound designed",
+   "state": "reviewed",
+   "detail": "approved, sound designed",
    "seconds": 25
   },
   {
    "id": "s03",
    "name": "Departure",
-   "state": "reviewed",
-   "detail": "approved: flight -> Welcome to Japan -> first night",
+   "state": "rendered",
+   "detail": "picture revised, sound designed",
    "seconds": 66
   },
   {
@@ -118,8 +118,8 @@
   {
    "id": "s06",
    "name": "Kamakura",
-   "state": "rendered",
-   "detail": "first cut built, awaiting review",
+   "state": "reviewed",
+   "detail": "approved: Fuji title shot, seawall triptychs, tram on the drop, Great Buddha",
    "seconds": 78
   },
   {
@@ -231,6 +231,10 @@
   }
  ],
  "log": [
+  {
+   "t": "17:40",
+   "msg": "11 of 13 sections approved. Remaining: bikes + bowling review, and sound passes on the hook, Shibuya and Kamakura"
+  },
   {
    "t": "17:10",
    "msg": "Airport scene rebuilt full-frame (Roblox readable, reaction kept, 25 s); Shibuya and Osaka approved; two-up layout redesigned to fill the frame"
