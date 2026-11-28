@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T16:56:09-07:00",
+ "updated": "2026-11-27T17:00:35-07:00",
  "title": "Japan vlog",
  "headline": "All sections cut; review + sound-design passes running, PS2 intro round 2 rendering",
  "overall_pct": 79,
@@ -91,8 +91,8 @@
    "id": "s04",
    "name": "Next station: Shibuya",
    "state": "rendered",
-   "detail": "first cut built, awaiting review",
-   "seconds": 68
+   "detail": "revised after review",
+   "seconds": 67
   },
   {
    "id": "gap2",
