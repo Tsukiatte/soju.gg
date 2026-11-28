@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T17:58:01-07:00",
+ "updated": "2026-11-27T18:03:26-07:00",
  "title": "Japan vlog",
  "headline": "All sections cut; review + sound-design passes running, PS2 intro round 2 rendering",
- "overall_pct": 80,
+ "overall_pct": 79,
  "phase": "Cutting",
  "steps": [
   {
@@ -48,7 +48,7 @@
   {
    "name": "Review pass",
    "state": "active",
-   "detail": "7 of 14 sections reviewed"
+   "detail": "6 of 14 sections reviewed"
   }
  ],
  "sections": [
@@ -62,8 +62,8 @@
   {
    "id": "s01",
    "name": "Hype recap",
-   "state": "reviewed",
-   "detail": "approved: faces and places alternate from second 1",
+   "state": "rendered",
+   "detail": "picture revised, sound designed",
    "seconds": 30
   },
   {
@@ -77,7 +77,7 @@
    "id": "s03",
    "name": "Departure",
    "state": "rendered",
-   "detail": "picture revised, sound designed",
+   "detail": "first cut built, awaiting review",
    "seconds": 66
   },
   {
