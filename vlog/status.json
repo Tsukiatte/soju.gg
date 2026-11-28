@@ -1,9 +1,9 @@
 {
- "updated": "2026-11-27T18:35:01-07:00",
+ "updated": "2026-11-27T18:43:01-07:00",
  "title": "Japan vlog",
- "headline": "All 13 sections finished; final assembly rendering",
+ "headline": "First full cut is done: 12:46, ready to watch. Premiere import is the one step left",
  "overall_pct": 94,
- "phase": "Cutting",
+ "phase": "Delivered (v1)",
  "steps": [
   {
    "name": "Ingest 600 clips",
@@ -42,12 +42,12 @@
   },
   {
    "name": "Assemble in Premiere",
-   "state": "pending",
-   "detail": ""
+   "state": "active",
+   "detail": "timeline XML ready (621 clips); import it once Premiere's MCP Bridge panel is open"
   },
   {
    "name": "Review pass",
-   "state": "active",
+   "state": "done",
    "detail": "14 of 14 sections reviewed"
   }
  ],
@@ -231,6 +231,10 @@
   }
  ],
  "log": [
+  {
+   "t": "18:43",
+   "msg": "FULL CUT RENDERED: 12:46, 1080p24, peaks -1.0 dBFS, -15.4 LUFS. QC clean (only the six interview placeholders and the credits are black/silent)"
+  },
   {
    "t": "18:22",
    "msg": "All 13 sections through review + sound design. Final assembly render started"
