@@ -9,7 +9,7 @@
   const AGE_TICK_MS = 15000;
   const FETCH_TIMEOUT_MS = 15000;
   const STALE_MIN = 20;
-  const MAX_LOG = 30;
+  const MAX_LOG = 2000;   // the whole history; the list itself scrolls
   const SVG_NS = 'http://www.w3.org/2000/svg';
 
   const $ = (s) => document.querySelector(s);
@@ -156,12 +156,18 @@
 
   function drawLog(log) {
     const ul = $('#log');
-    if (!log.length) { ul.replaceChildren(el('li', 'empty', 'Nothing logged yet.')); return; }
+    const sub = $('#log-sub');
+    if (!log.length) { ul.replaceChildren(el('li', 'empty', 'Nothing logged yet.')); if (sub) sub.textContent = 'Latest first.'; return; }
+    const keep = ul.scrollTop;                       // a refresh must not yank the reader back to the top
+    const n = log.filter((l) => l.t).length;
     ul.replaceChildren(...log.map((l) => {
+      if (!l.t) return el('li', 'day', l.msg);        // an entry with no time is a date divider
       const li = el('li');
       li.append(el('span', 't', l.t), el('span', 'm', l.msg));
       return li;
     }));
+    ul.scrollTop = keep;
+    if (sub) sub.textContent = 'Latest first · ' + n + (n === 1 ? ' entry' : ' entries') + ' · scroll for the full history';
   }
 
   function draw(d) {

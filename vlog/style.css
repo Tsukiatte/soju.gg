@@ -334,6 +334,14 @@ a { color: inherit; }
 .logs li { grid-template-columns: 52px minmax(0, 1fr); align-items: start; font-size: 14px; }
 .logs .t { font: 500 13px/1.5 var(--pixel); letter-spacing: .04em; color: #52514e; }
 .logs .m { overflow-wrap: anywhere; }
+/* the full history lives in its own scroll box so the page stays short on a phone */
+.logs { max-height: min(66vh, 620px); overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable; scrollbar-width: thin; scrollbar-color: #b9b6ad transparent; padding-right: 6px; }
+.logs::-webkit-scrollbar { width: 6px; }
+.logs::-webkit-scrollbar-thumb { background: #b9b6ad; border-radius: 3px; }
+.logs:focus-visible { outline: 2px solid #1d2b53; outline-offset: 4px; }
+.logs li.day { display: block; position: sticky; top: 0; z-index: 1; margin: 0; padding: 8px 0 6px; background: #fff;
+  font: 500 12px/1.2 var(--pixel); letter-spacing: .12em; text-transform: uppercase; color: #6b6a64; }
 .empty { margin: 0; padding: 6px 0; color: #6b6a64; font: 400 14px/1.4 var(--sans); }
 
 .foot { padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px)); }

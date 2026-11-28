@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T18:43:01-07:00",
+ "updated": "2026-11-27T18:46:40-07:00",
  "title": "Japan vlog",
  "headline": "First full cut is done: 12:46, ready to watch. Premiere import is the one step left",
  "overall_pct": 94,
@@ -232,8 +232,24 @@
  ],
  "log": [
   {
+   "t": "",
+   "msg": "Friday 27 November 2026 (today)"
+  },
+  {
+   "t": "18:46",
+   "msg": "Activity log on this page now shows the full history in a scroll box"
+  },
+  {
    "t": "18:43",
    "msg": "FULL CUT RENDERED: 12:46, 1080p24, peaks -1.0 dBFS, -15.4 LUFS. QC clean (only the six interview placeholders and the credits are black/silent)"
+  },
+  {
+   "t": "18:36",
+   "msg": "Full film rendered (1080p)"
+  },
+  {
+   "t": "18:23",
+   "msg": "Premiere timeline XML exported and validated"
   },
   {
    "t": "18:22",
@@ -241,27 +257,175 @@
   },
   {
    "t": "18:17",
+   "msg": "Sound design mixed in: Bikes + bowling"
+  },
+  {
+   "t": "18:17",
    "msg": "Kamakura title: typed letters and key clicks locked to the song's first 8 beats. 12 of 13 sections fully finished"
+  },
+  {
+   "t": "18:17",
+   "msg": "Sound design written: Bikes + bowling (21.7 min)"
+  },
+  {
+   "t": "18:16",
+   "msg": "Sound design mixed in: Kamakura"
+  },
+  {
+   "t": "18:15",
+   "msg": "Sound design written: Kamakura (35.9 min)"
+  },
+  {
+   "t": "18:02",
+   "msg": "Sound design mixed in: Hype recap"
+  },
+  {
+   "t": "18:01",
+   "msg": "Sound design written: Hype recap (52.2 min)"
   },
   {
    "t": "17:58",
    "msg": "12 of 13 sections approved on picture; 10 fully sound-designed. Fixed two mix issues (Shibuya remix format, airport loudness now -20.9 LUFS)"
   },
   {
+   "t": "17:55",
+   "msg": "Sound design started: Bikes + bowling"
+  },
+  {
+   "t": "17:47",
+   "msg": "Sound design mixed in: Next station: Shibuya"
+  },
+  {
+   "t": "17:46",
+   "msg": "Sound design written: Next station: Shibuya (45.4 min)"
+  },
+  {
    "t": "17:40",
    "msg": "11 of 13 sections approved. Remaining: bikes + bowling review, and sound passes on the hook, Shibuya and Kamakura"
+  },
+  {
+   "t": "17:39",
+   "msg": "Sound design started: Kamakura"
+  },
+  {
+   "t": "17:38",
+   "msg": "Sound design mixed in: Departure"
+  },
+  {
+   "t": "17:37",
+   "msg": "Sound design written: Departure (29.5 min)"
+  },
+  {
+   "t": "17:37",
+   "msg": "Sound design mixed in: Airport ASMR"
+  },
+  {
+   "t": "17:36",
+   "msg": "Sound design written: Airport ASMR (26.4 min)"
+  },
+  {
+   "t": "17:35",
+   "msg": "Rebuilt after review: Kamakura"
+  },
+  {
+   "t": "17:35",
+   "msg": "Review + revision finished: Kamakura (91.1 min)"
   },
   {
    "t": "17:10",
    "msg": "Airport scene rebuilt full-frame (Roblox readable, reaction kept, 25 s); Shibuya and Osaka approved; two-up layout redesigned to fill the frame"
   },
   {
+   "t": "17:10",
+   "msg": "Sound design started: Airport ASMR"
+  },
+  {
+   "t": "17:09",
+   "msg": "Sound design started: Hype recap"
+  },
+  {
+   "t": "17:08",
+   "msg": "Rebuilt after review: Hype recap"
+  },
+  {
+   "t": "17:08",
+   "msg": "Sound design started: Departure"
+  },
+  {
+   "t": "17:06",
+   "msg": "Review + revision finished: Hype recap (62 min)"
+  },
+  {
+   "t": "17:05",
+   "msg": "Rebuilt after review: Departure"
+  },
+  {
+   "t": "17:05",
+   "msg": "Sound design started: Airport ASMR"
+  },
+  {
+   "t": "17:05",
+   "msg": "Review + revision finished: Departure (61 min)"
+  },
+  {
+   "t": "17:03",
+   "msg": "Sound design mixed in: Osaka"
+  },
+  {
+   "t": "17:02",
+   "msg": "Sound design written: Osaka (30.8 min)"
+  },
+  {
+   "t": "17:01",
+   "msg": "Sound design started: Next station: Shibuya"
+  },
+  {
+   "t": "16:58",
+   "msg": "Rebuilt after review: Next station: Shibuya"
+  },
+  {
+   "t": "16:57",
+   "msg": "Review + revision finished: Next station: Shibuya (53.2 min)"
+  },
+  {
    "t": "16:44",
    "msg": "Full-film test render OK: 13:01 runtime, clean peaks, interview placeholders and credits in place. Waiting on last reviews + sound passes"
   },
   {
+   "t": "16:31",
+   "msg": "Sound design started: Osaka"
+  },
+  {
+   "t": "16:24",
+   "msg": "Rebuilt after review: Osaka"
+  },
+  {
+   "t": "16:23",
+   "msg": "Review + revision finished: Osaka (19 min)"
+  },
+  {
    "t": "16:19",
    "msg": "PS2 intro round 2 adopted (smooth globe, full-screen game footage, readable character select; timing and audio identical)"
+  },
+  {
+   "t": "16:16",
+   "msg": "Worker finished: PS2 intro re-render (51.4 min)"
+  },
+  {
+   "t": "16:15",
+   "msg": "Sound design mixed in: Road to Kamakura"
+  },
+  {
+   "t": "16:14",
+   "msg": "Sound design written: Road to Kamakura (39.7 min)"
+  },
+  {
+   "t": "16:05",
+   "msg": "Sound design mixed in: Nagoya countryside"
+  },
+  {
+   "t": "16:05",
+   "msg": "Sound design written: Nagoya countryside (33.2 min)"
   },
   {
    "t": "16:04",
@@ -272,40 +436,284 @@
    "msg": "Village + lakeside ending approved; sound design mixed on 4 sections (all stems active, loudness on target)"
   },
   {
+   "t": "15:52",
+   "msg": "Sound design mixed in: Village + lakeside"
+  },
+  {
+   "t": "15:52",
+   "msg": "Sound design written: Village + lakeside (8 min)"
+  },
+  {
    "t": "15:46",
    "msg": "All 13 sections have a first cut (13.0 min incl. placeholders). Premiere timeline XML exports and validates: 618 clips, titles on V2, 4 stereo stems"
+  },
+  {
+   "t": "15:46",
+   "msg": "Sound design mixed in: Road to Nagoya"
+  },
+  {
+   "t": "15:46",
+   "msg": "Sound design written: Road to Nagoya (14.1 min)"
+  },
+  {
+   "t": "15:44",
+   "msg": "Sound design mixed in: Kamakura at night"
+  },
+  {
+   "t": "15:44",
+   "msg": "Sound design written: Kamakura at night (12.2 min)"
+  },
+  {
+   "t": "15:43",
+   "msg": "Sound design started: Village + lakeside"
+  },
+  {
+   "t": "15:39",
+   "msg": "Rebuilt after review: Village + lakeside"
+  },
+  {
+   "t": "15:39",
+   "msg": "Review + revision finished: Village + lakeside (13.4 min)"
+  },
+  {
+   "t": "15:37",
+   "msg": "Sound design mixed in: Flashback + credits"
+  },
+  {
+   "t": "15:36",
+   "msg": "Sound design written: Flashback + credits (4.6 min)"
+  },
+  {
+   "t": "15:35",
+   "msg": "Fresh-reviewer pass started: Kamakura"
+  },
+  {
+   "t": "15:35",
+   "msg": "Sound design started: Road to Kamakura"
   },
   {
    "t": "15:32",
    "msg": "96 licence-clear foley recordings sourced; sound-design pass started on revised sections"
   },
   {
+   "t": "15:32",
+   "msg": "Sound design started: Flashback + credits"
+  },
+  {
+   "t": "15:32",
+   "msg": "Sound design started: Nagoya countryside"
+  },
+  {
+   "t": "15:31",
+   "msg": "Sound design started: Road to Nagoya"
+  },
+  {
+   "t": "15:31",
+   "msg": "Sound design started: Kamakura at night"
+  },
+  {
+   "t": "15:30",
+   "msg": "Rebuilt after review: Road to Kamakura"
+  },
+  {
+   "t": "15:30",
+   "msg": "First cut built: Kamakura"
+  },
+  {
+   "t": "15:30",
+   "msg": "Cut list drafted against real frames: Kamakura (72.6 min)"
+  },
+  {
+   "t": "15:30",
+   "msg": "Review + revision finished: Road to Kamakura (14.9 min)"
+  },
+  {
+   "t": "15:28",
+   "msg": "Foley library sourced: 96 licence-clear recordings"
+  },
+  {
+   "t": "15:26",
+   "msg": "Fresh-reviewer pass started: Village + lakeside"
+  },
+  {
    "t": "15:24",
    "msg": "PS2 intro v1 rendered (keeps the original audio); round 2 under way with director's notes"
+  },
+  {
+   "t": "15:24",
+   "msg": "Fresh-reviewer pass started: Osaka"
+  },
+  {
+   "t": "15:20",
+   "msg": "First cut built: Village + lakeside"
+  },
+  {
+   "t": "15:20",
+   "msg": "Cut list drafted against real frames: Village + lakeside (62.3 min)"
+  },
+  {
+   "t": "15:19",
+   "msg": "Rebuilt after review: Nagoya countryside"
+  },
+  {
+   "t": "15:19",
+   "msg": "Review + revision finished: Nagoya countryside (28.7 min)"
+  },
+  {
+   "t": "15:18",
+   "msg": "Rebuilt after review: Road to Nagoya"
   },
   {
    "t": "15:18",
    "msg": "Review loop working: Kamakura night revised (layout 3->9/10, trimmed to 42 s); Shinkansen variety 7->9. 10 of 13 sections built"
   },
   {
+   "t": "15:16",
+   "msg": "Rebuilt after review: Kamakura at night"
+  },
+  {
+   "t": "15:15",
+   "msg": "Review + revision finished: Kamakura at night (25.9 min)"
+  },
+  {
+   "t": "15:15",
+   "msg": "Review + revision finished: Road to Nagoya (25.2 min)"
+  },
+  {
+   "t": "15:15",
+   "msg": "Fresh-reviewer pass started: Road to Kamakura"
+  },
+  {
+   "t": "15:15",
+   "msg": "First cut built: Osaka"
+  },
+  {
+   "t": "15:12",
+   "msg": "Fresh-reviewer pass started: Departure"
+  },
+  {
+   "t": "15:12",
+   "msg": "First cut built: Road to Kamakura"
+  },
+  {
+   "t": "15:10",
+   "msg": "Fresh-reviewer pass started: Airport ASMR"
+  },
+  {
+   "t": "15:09",
+   "msg": "First cut built: Departure"
+  },
+  {
+   "t": "15:09",
+   "msg": "Cut list drafted against real frames: Osaka (50.6 min)"
+  },
+  {
+   "t": "15:08",
+   "msg": "Fresh-reviewer pass started: Bikes + bowling"
+  },
+  {
+   "t": "15:08",
+   "msg": "First cut built: Airport ASMR"
+  },
+  {
+   "t": "15:07",
+   "msg": "Cut list drafted against real frames: Airport ASMR (50.1 min)"
+  },
+  {
+   "t": "15:07",
+   "msg": "Wrote the vlog-retention-review skill (10-point rubric)"
+  },
+  {
+   "t": "15:05",
+   "msg": "Cut list drafted against real frames: Road to Kamakura (47.8 min)"
+  },
+  {
    "t": "15:03",
    "msg": "Shibuya section built: 125 cuts in 67 s with the accelerating 'next station' build into the drop; now in review"
+  },
+  {
+   "t": "15:03",
+   "msg": "First cut built: Bikes + bowling"
+  },
+  {
+   "t": "15:02",
+   "msg": "Cut list drafted against real frames: Bikes + bowling (44 min)"
+  },
+  {
+   "t": "15:01",
+   "msg": "Cut list drafted against real frames: Departure (43.7 min)"
   },
   {
    "t": "14:54",
    "msg": "Hook built: 46 cuts in 30 s, 96% on the beat. Review round started (fresh reviewer scores each storyboard, fixes anything under 9/10)"
   },
   {
+   "t": "14:53",
+   "msg": "First cut built: Next station: Shibuya"
+  },
+  {
+   "t": "14:50",
+   "msg": "First cut built: Hype recap"
+  },
+  {
+   "t": "14:49",
+   "msg": "Cut list drafted against real frames: Next station: Shibuya (31.6 min)"
+  },
+  {
+   "t": "14:47",
+   "msg": "Cut list drafted against real frames: Hype recap (29.3 min)"
+  },
+  {
+   "t": "14:45",
+   "msg": "First cut built: Nagoya countryside"
+  },
+  {
+   "t": "14:45",
+   "msg": "Cut list drafted against real frames: Flashback + credits (26.4 min)"
+  },
+  {
+   "t": "14:43",
+   "msg": "First cut built: Kamakura at night"
+  },
+  {
    "t": "14:43",
    "msg": "Shinkansen-to-Nagoya section built: Fuji lands on the music surge, 100% of cuts on the beat"
+  },
+  {
+   "t": "14:43",
+   "msg": "Cut list drafted against real frames: Nagoya countryside (24.9 min)"
+  },
+  {
+   "t": "14:41",
+   "msg": "Cut list drafted against real frames: Kamakura at night (24.2 min)"
+  },
+  {
+   "t": "14:39",
+   "msg": "Rendered the thank-you card and credits roll"
+  },
+  {
+   "t": "14:39",
+   "msg": "Cut list drafted against real frames: Road to Nagoya (20.5 min)"
   },
   {
    "t": "14:36",
    "msg": "First section built end to end (flashback): picture, stems, master and storyboard all check out"
   },
   {
+   "t": "14:31",
+   "msg": "Worker finished: Reference style study (47.4 min)"
+  },
+  {
+   "t": "14:30",
+   "msg": "Rendered the KAMAKURA typewriter title on the song's beats"
+  },
+  {
    "t": "14:28",
    "msg": "Colour grade matched to measured reference targets (whites 77-87%, warm highlights, dense blacks); titles generator ready"
+  },
+  {
+   "t": "14:24",
+   "msg": "Worker finished: Titles + credits generator (40.4 min)"
   },
   {
    "t": "14:17",
@@ -316,12 +724,44 @@
    "msg": "Beat maps for all 12 songs and the 110-scene story map are done; sourcing real foley recordings"
   },
   {
+   "t": "14:12",
+   "msg": "Worker finished: Scene-by-scene story map (6.1 min)"
+  },
+  {
+   "t": "14:12",
+   "msg": "Story map written: 110 scenes, best clips per scene"
+  },
+  {
+   "t": "14:09",
+   "msg": "Worker finished: Beat + structure maps (25.2 min)"
+  },
+  {
    "t": "14:08",
    "msg": "Progress page live at soju.gg/vlog; stem mixer, SFX library and Premiere exporter finished and tested"
   },
   {
+   "t": "14:07",
+   "msg": "Catalogued clips 181-240"
+  },
+  {
+   "t": "14:07",
+   "msg": "Worker finished: Stem mixer (22.8 min)"
+  },
+  {
    "t": "14:06",
    "msg": "All 600 clips catalogued; building the scene-by-scene story map"
+  },
+  {
+   "t": "14:05",
+   "msg": "Merged the footage log: 600 clips described"
+  },
+  {
+   "t": "14:05",
+   "msg": "Catalogued clips 541-600"
+  },
+  {
+   "t": "14:04",
+   "msg": "Catalogued clips 361-420"
   },
   {
    "t": "14:01",
@@ -338,6 +778,74 @@
   {
    "t": "14:01",
    "msg": "600 clips ingested (108 min); 12 songs and 8 references downloaded"
+  },
+  {
+   "t": "13:59",
+   "msg": "Catalogued clips 481-540"
+  },
+  {
+   "t": "13:59",
+   "msg": "Worker finished: Premiere timeline exporter (10.4 min)"
+  },
+  {
+   "t": "13:59",
+   "msg": "Catalogued clips 121-180"
+  },
+  {
+   "t": "13:57",
+   "msg": "Catalogued clips 301-360"
+  },
+  {
+   "t": "13:54",
+   "msg": "Catalogued clips 421-480"
+  },
+  {
+   "t": "13:54",
+   "msg": "Worker finished: Sound effects library (9.6 min)"
+  },
+  {
+   "t": "13:51",
+   "msg": "Catalogued clips 241-300"
+  },
+  {
+   "t": "13:51",
+   "msg": "Catalogued clips 61-120"
+  },
+  {
+   "t": "13:46",
+   "msg": "Catalogued clips 1-60"
+  },
+  {
+   "t": "13:44",
+   "msg": "Gave the sandboxed workers their own Python runtime"
+  },
+  {
+   "t": "13:42",
+   "msg": "Measured motion and loudness for every clip"
+  },
+  {
+   "t": "13:41",
+   "msg": "Render engine passed its first test on real clips (6 layouts/effects)"
+  },
+  {
+   "t": "13:39",
+   "msg": "Built 100 contact sheets (5 frames per clip, HDR tone-mapped)"
+  },
+  {
+   "t": "13:37",
+   "msg": "Installed 4 audited skills (cutting rhythm, colour grade, audio edit, media QA)"
+  },
+  {
+   "t": "13:32",
+   "msg": "All 8 style references downloaded"
+  },
+  {
+   "t": "13:30",
+   "msg": "All 12 songs downloaded"
+  },
+  {
+   "t": "13:24",
+   "msg": "Probed all 600 clips (108 min; 271 vertical, 360 HDR)"
   }
  ]
 }
