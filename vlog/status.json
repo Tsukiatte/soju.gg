@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T17:54:40-07:00",
+ "updated": "2026-11-27T17:57:25-07:00",
  "title": "Japan vlog",
  "headline": "All sections cut; review + sound-design passes running, PS2 intro round 2 rendering",
- "overall_pct": 80,
+ "overall_pct": 81,
  "phase": "Cutting",
  "steps": [
   {
@@ -48,7 +48,7 @@
   {
    "name": "Review pass",
    "state": "active",
-   "detail": "7 of 14 sections reviewed"
+   "detail": "8 of 14 sections reviewed"
   }
  ],
  "sections": [
@@ -91,7 +91,7 @@
    "id": "s04",
    "name": "Next station: Shibuya",
    "state": "rendered",
-   "detail": "picture revised, sound designed",
+   "detail": "first cut built, awaiting review",
    "seconds": 67
   },
   {
@@ -167,8 +167,8 @@
   {
    "id": "s11",
    "name": "Bikes + bowling",
-   "state": "rendered",
-   "detail": "first cut built, awaiting review",
+   "state": "reviewed",
+   "detail": "approved: first cut kept for its pace (101 cuts in 44 s)",
    "seconds": 44
   },
   {
