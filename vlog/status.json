@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T18:07:56-07:00",
+ "updated": "2026-11-27T18:18:20-07:00",
  "title": "Japan vlog",
  "headline": "Final stretch: last two sound passes, then full assembly and quality check",
- "overall_pct": 78,
+ "overall_pct": 77,
  "phase": "Cutting",
  "steps": [
   {
@@ -48,7 +48,7 @@
   {
    "name": "Review pass",
    "state": "active",
-   "detail": "3 of 14 sections reviewed"
+   "detail": "1 of 14 sections reviewed"
   }
  ],
  "sections": [
@@ -118,8 +118,8 @@
   {
    "id": "s06",
    "name": "Kamakura",
-   "state": "reviewed",
-   "detail": "approved: Fuji title shot, seawall triptychs, tram on the drop, Great Buddha",
+   "state": "rendered",
+   "detail": "picture revised, sound designed",
    "seconds": 78
   },
   {
@@ -167,8 +167,8 @@
   {
    "id": "s11",
    "name": "Bikes + bowling",
-   "state": "reviewed",
-   "detail": "approved: first cut kept for its pace (101 cuts in 44 s)",
+   "state": "rendered",
+   "detail": "picture revised, sound designed",
    "seconds": 44
   },
   {
@@ -231,6 +231,10 @@
   }
  ],
  "log": [
+  {
+   "t": "18:17",
+   "msg": "Kamakura title: typed letters and key clicks locked to the song's first 8 beats. 12 of 13 sections fully finished"
+  },
   {
    "t": "17:58",
    "msg": "12 of 13 sections approved on picture; 10 fully sound-designed. Fixed two mix issues (Shibuya remix format, airport loudness now -20.9 LUFS)"
