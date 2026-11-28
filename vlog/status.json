@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-27T17:07:46-07:00",
+ "updated": "2026-11-27T17:10:51-07:00",
  "title": "Japan vlog",
  "headline": "All sections cut; review + sound-design passes running, PS2 intro round 2 rendering",
  "overall_pct": 79,
@@ -48,7 +48,7 @@
   {
    "name": "Review pass",
    "state": "active",
-   "detail": "5 of 14 sections reviewed"
+   "detail": "6 of 14 sections reviewed"
   }
  ],
  "sections": [
@@ -63,15 +63,15 @@
    "id": "s01",
    "name": "Hype recap",
    "state": "rendered",
-   "detail": "first cut built, awaiting review",
+   "detail": "revised after review",
    "seconds": 30
   },
   {
    "id": "s02",
    "name": "Airport ASMR",
-   "state": "rendered",
-   "detail": "first cut built, awaiting review",
-   "seconds": 40
+   "state": "reviewed",
+   "detail": "approved: full-frame crops, Roblox + reaction kept, 25 s",
+   "seconds": 25
   },
   {
    "id": "s03",
@@ -231,6 +231,10 @@
   }
  ],
  "log": [
+  {
+   "t": "17:10",
+   "msg": "Airport scene rebuilt full-frame (Roblox readable, reaction kept, 25 s); Shibuya and Osaka approved; two-up layout redesigned to fill the frame"
+  },
   {
    "t": "16:44",
    "msg": "Full-film test render OK: 13:01 runtime, clean peaks, interview placeholders and credits in place. Waiting on last reviews + sound passes"
