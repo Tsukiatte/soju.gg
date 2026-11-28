@@ -1,8 +1,8 @@
 {
- "updated": "2026-11-27T17:57:25-07:00",
+ "updated": "2026-11-27T17:58:01-07:00",
  "title": "Japan vlog",
  "headline": "All sections cut; review + sound-design passes running, PS2 intro round 2 rendering",
- "overall_pct": 81,
+ "overall_pct": 80,
  "phase": "Cutting",
  "steps": [
   {
@@ -48,7 +48,7 @@
   {
    "name": "Review pass",
    "state": "active",
-   "detail": "8 of 14 sections reviewed"
+   "detail": "7 of 14 sections reviewed"
   }
  ],
  "sections": [
@@ -69,8 +69,8 @@
   {
    "id": "s02",
    "name": "Airport ASMR",
-   "state": "reviewed",
-   "detail": "approved, sound designed",
+   "state": "rendered",
+   "detail": "first cut built, awaiting review",
    "seconds": 25
   },
   {
@@ -231,6 +231,10 @@
   }
  ],
  "log": [
+  {
+   "t": "17:58",
+   "msg": "12 of 13 sections approved on picture; 10 fully sound-designed. Fixed two mix issues (Shibuya remix format, airport loudness now -20.9 LUFS)"
+  },
   {
    "t": "17:40",
    "msg": "11 of 13 sections approved. Remaining: bikes + bowling review, and sound passes on the hook, Shibuya and Kamakura"
